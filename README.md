@@ -1,1 +1,19 @@
 # Macaroni Penguins
+
+CS450: Operating Systems Structure
+
+
+## GETTING STARTED (R0)
+
+Clone this repo into a linux environment (WSL, Ubuntu, etc):
+```bash
+git clone https://github.com/WVU-CS450/MacaroniPenguins.git
+```
+
+Prep your linux environment by running the following commands or `./setup.sh`:
+```bash
+sudo apt update
+sudo apt install -y clang make nasm git binutils-i686-linux-gnu qemu-system-x86 gdb
+```
+
+Then to test your environment, run `make` and then `./mpx.sh`.
