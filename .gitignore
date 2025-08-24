@@ -1,2 +1,10 @@
+# original
 *.o
 kernel.bin
+
+# temporary files
+.setup.sh.swp
+kernel/kmain.c.save
+
+# austin fzf
+selected
