@@ -69,8 +69,9 @@ int serial_poll(device dev, char *buffer, size_t len)
 
 	(void)buffer;
 
-	// format the serial terminal
-	outb(dev, '$');
+	// format the serial terminal to look like a penguin
+	outb(dev, '0');
+	outb(dev, '>');
 	outb(dev, ' ');
 
 	// prep for input
