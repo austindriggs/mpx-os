@@ -62,15 +62,34 @@ int serial_out(device dev, const char *buffer, size_t len)
 
 int serial_poll(device dev, char *buffer, size_t len)
 {
-	// insert your code to gather keyboard input via the technique of polling.
-	// You must validate each key and handle special keys such as delete, back space, and
-	// arrow keys
+	// This function must properly handle the following based off ASCII:
+	// - alphanumerics (a-z, A-Z, 0-9)
+	// - space, backspace, delete, arrow keys (up down left right)
+	// - carriage returns (\r) and new lines (\n)
 
-	// REMOVE THIS -- IT ONLY EXISTS TO AVOID UNUSED PARAMETER WARNINGS
-	// Failure to remove this comment and the following line *will* result in
-	// losing points for inattention to detail
-	(void)dev; (void)buffer;
+	(void)buffer;
 
-	// THIS MUST BE CHANGED TO RETURN THE CORRECT VALUE
-	return (int)len;
+	// format the serial terminal
+	outb(dev, '$');
+	outb(dev, ' ');
+
+	// prep for input
+	int index = 0;
+
+	// read the input
+	while (index < (int)len) {
+		char input = inb(dev);
+
+		// alphanumerics
+		if ((input >= 'a' && input <= 'z') ||
+		    (input >= 'A' && input <= 'Z') ||
+		    (input >= '0' && input <= '9')) {
+
+			buffer[index] = input;
+			outb(dev, input);
+		}
+	}
+
+	// returns the number of bytes successfully read or -1
+	return index;
 }
