@@ -63,11 +63,21 @@ int serial_out(device dev, const char *buffer, size_t len)
 int serial_poll(device dev, char *buffer, size_t len)
 {
 	// This function must properly handle the following based off ASCII:
-	// - alphanumerics (a-z, A-Z, 0-9)
+	// - alphanumerics (a-z, A-Z, 0-9) and regular special keys (/!#$)
 	// - space, backspace, delete, arrow keys (up down left right)
 	// - carriage returns (\r) and new lines (\n)
 
 	(void)buffer;
+
+	// define the ASCII characters
+	//const char ENTER_KEY = 13;
+	const char ESC_KEY = 27;
+	//const char UP_KEY = 'A';
+	//const char DOWN_KEY = 'B';
+	//const char LEFT_KEY = 'C';
+	//const char RIGHT_KEY = 'D';
+	//const char BACKSPACE = 8;
+	//const char DELETE = 127;
 
 	// format the serial terminal to look like a penguin
 	outb(dev, '0');
@@ -77,17 +87,32 @@ int serial_poll(device dev, char *buffer, size_t len)
 	// prep for input
 	int index = 0;
 
-	// read the input
-	while (index < (int)len) {
+	// read the input while the buffer is not full
+	while (index < (int)len - 1) {
 		char input = inb(dev);
 
-		// alphanumerics
+		// alphanumerics, spaces, and special keys
 		if ((input >= 'a' && input <= 'z') ||
 		    (input >= 'A' && input <= 'Z') ||
-		    (input >= '0' && input <= '9')) {
+		    (input >= '0' && input <= '9') ||
+		    (input >= '!' && input <= '/') ||
+		    (input == ' ')) {
 
 			buffer[index] = input;
+			outb(dev, input); // echo
+			index++;
+		}
+
+		// arrow keys
+		else if (input == ESC_KEY) {
+			input = inb(dev);
+		}
+
+		// CR and LF (user is done)
+		else if (input == '\n' || input == '\r') {
+			buffer[index] = '\0';
 			outb(dev, input);
+			return index;
 		}
 	}
 
