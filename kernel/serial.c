@@ -62,15 +62,60 @@ int serial_out(device dev, const char *buffer, size_t len)
 
 int serial_poll(device dev, char *buffer, size_t len)
 {
-	// insert your code to gather keyboard input via the technique of polling.
-	// You must validate each key and handle special keys such as delete, back space, and
-	// arrow keys
+	// This function must properly handle the following based off ASCII:
+	// - alphanumerics (a-z, A-Z, 0-9) and regular special keys (/!#$)
+	// - space, backspace, delete, arrow keys (up down left right)
+	// - carriage returns (\r) and new lines (\n)
 
-	// REMOVE THIS -- IT ONLY EXISTS TO AVOID UNUSED PARAMETER WARNINGS
-	// Failure to remove this comment and the following line *will* result in
-	// losing points for inattention to detail
-	(void)dev; (void)buffer;
+	// define some ASCII characters
+	//const char ESC_KEY = 27;
+	const char BACKSPACE = 8;
+	const char DELETE = 127;
 
-	// THIS MUST BE CHANGED TO RETURN THE CORRECT VALUE
-	return (int)len;
+	// format the serial terminal to look like a penguin
+	outb(dev, '0');
+	outb(dev, '>');
+	outb(dev, ' ');
+
+	// read the input while the buffer is not full
+	int index = 0;
+	while (index < (int)len - 1) {
+		char input = inb(dev);
+
+		// alphanumerics, spaces, and special keys
+		if ((input >= 'a' && input <= 'z') ||
+		    (input >= 'A' && input <= 'Z') ||
+		    (input >= '0' && input <= '9') ||
+		    (input >= '!' && input <= '/') ||
+		    (input == ' ')) {
+
+			buffer[index] = input;
+			outb(dev, input); // echo
+			index++;
+		}
+
+		// backspace and delete
+		else if ((input == BACKSPACE || input == DELETE) &&
+			(index > 0)) {
+			// remove the last character from the buffer
+			index--;
+			buffer[index] = '\0';
+
+			// erase the last character from the terminal
+			outb(dev, '\b');
+			outb(dev, ' ');
+			outb(dev, '\b');
+		}
+
+		// CR and LF (user is done)
+		else if (input == '\n' || input == '\r') {
+			buffer[index] = '\0';
+			outb(dev, input);
+			return index;
+		}
+	}
+
+	// returns -1 if buffer overflow or when there is an error
+	buffer[index] = '\0';
+	return -1;
 }

@@ -5,6 +5,10 @@ kernel.bin
 # temporary files
 .setup.sh.swp
 kernel/kmain.c.save
+*.tmp
+
+# depending on your version of ubuntu
+make/CFLAGS
 
 # austin fzf
 selected
