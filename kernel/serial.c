@@ -68,7 +68,7 @@ int serial_poll(device dev, char *buffer, size_t len)
 	// - carriage returns (\r) and new lines (\n)
 
 	// define some ASCII characters
-	const char ESC_KEY = 27;
+	//const char ESC_KEY = 27;
 	const char BACKSPACE = 8;
 	const char DELETE = 127;
 
@@ -95,8 +95,8 @@ int serial_poll(device dev, char *buffer, size_t len)
 		}
 
 		// backspace and delete
-		else if (input == BACKSPACE || input == DELETE) &&
-			(index > 0) {
+		else if ((input == BACKSPACE || input == DELETE) &&
+			(index > 0)) {
 			// remove the last character from the buffer
 			index--;
 			buffer[index] = '\0';
