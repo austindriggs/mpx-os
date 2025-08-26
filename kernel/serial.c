@@ -67,27 +67,18 @@ int serial_poll(device dev, char *buffer, size_t len)
 	// - space, backspace, delete, arrow keys (up down left right)
 	// - carriage returns (\r) and new lines (\n)
 
-	(void)buffer;
-
-	// define the ASCII characters
-	//const char ENTER_KEY = 13;
+	// define some ASCII characters
 	const char ESC_KEY = 27;
-	//const char UP_KEY = 'A';
-	//const char DOWN_KEY = 'B';
-	//const char LEFT_KEY = 'C';
-	//const char RIGHT_KEY = 'D';
-	//const char BACKSPACE = 8;
-	//const char DELETE = 127;
+	const char BACKSPACE = 8;
+	const char DELETE = 127;
 
 	// format the serial terminal to look like a penguin
 	outb(dev, '0');
 	outb(dev, '>');
 	outb(dev, ' ');
 
-	// prep for input
-	int index = 0;
-
 	// read the input while the buffer is not full
+	int index = 0;
 	while (index < (int)len - 1) {
 		char input = inb(dev);
 
@@ -103,9 +94,17 @@ int serial_poll(device dev, char *buffer, size_t len)
 			index++;
 		}
 
-		// arrow keys
-		else if (input == ESC_KEY) {
-			input = inb(dev);
+		// backspace and delete
+		else if (input == BACKSPACE || input == DELETE) &&
+			(index > 0) {
+			// remove the last character from the buffer
+			index--;
+			buffer[index] = '\0';
+
+			// erase the last character from the terminal
+			outb(dev, '\b');
+			outb(dev, ' ');
+			outb(dev, '\b');
 		}
 
 		// CR and LF (user is done)
@@ -116,6 +115,7 @@ int serial_poll(device dev, char *buffer, size_t len)
 		}
 	}
 
-	// returns the number of bytes successfully read or -1
-	return index;
+	// returns -1 if buffer overflow or when there is an error
+	buffer[index] = '\0';
+	return -1;
 }
