@@ -31,8 +31,7 @@ int serial_out(device dev, const char *buffer, size_t len);
  @param buffer A buffer to write data into as it is read from the serial port
  @param count The maximum number of bytes to read
  @return The number of bytes read on success, a negative number on failure
-*/   		   
-
+*/
 int serial_poll(device dev, char *buffer, size_t len);
 
 #endif
