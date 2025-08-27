@@ -73,9 +73,9 @@ int serial_poll(device dev, char *buffer, size_t len)
 	const char DELETE = 127;
 
 	// format the serial terminal to look like a penguin
-	outb(dev, '0');
-	outb(dev, '>');
-	outb(dev, ' ');
+	//prompt user for input**
+    sys_req(WRITE, COM1, "( ')> ", 6);
+        
 
 	// read the input while the buffer is not full
 	int index = 0;

@@ -16,5 +16,6 @@ KERNEL_OBJECTS=\
 	kernel/core-asm.o\
 	kernel/sys_call_isr.o\
 	kernel/serial.o\
+  kernel/comhand.o\
 	kernel/kmain.o\
 	kernel/core-c.o
