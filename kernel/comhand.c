@@ -20,7 +20,18 @@ void comhand(void)
     sys_req(WRITE, COM1, welcomeMsg, strlen(welcomeMsg));
     sys_req(WRITE, COM1, introMsg, strlen(introMsg));
 
+
     // Penguin ASCII Image for console (placeholder)
+    const char *penguinArt =
+    "     / /       \n"
+    "    .--.       \n"
+    "   |o_o |      \n"
+    "   |:_/ |      \n"
+    "  //   \\ \\   \n"
+    " (|     | )    \n"
+    " /'\\_   _/`\\ \n"
+    " \\___)=(___/  \r\n";
+    sys_req(WRITE, COM1, penguinArt, strlen(penguinArt));
 
 
     for (;;) {
