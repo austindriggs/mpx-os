@@ -3,13 +3,13 @@
 #include <sys_req.h>
 
  // Trim Function for input (trims \r and \n from input)
-    void trimInput(char *str){
-        int length = strlen(str);
-        while (length > 0 && (str[length - 1] == '\n' || str[length - 1] == '\r')){
-            str[length - 1] = '\0';
-            length --;
-        }
+void trim_Input(char *str){
+    int length = strlen(str);
+    while (length > 0 && (str[length - 1] == '\n' || str[length - 1] == '\r')){
+        str[length - 1] = '\0';
+        length --;
     }
+}
 
 
 void comhand(void)
@@ -26,15 +26,12 @@ void comhand(void)
     for (;;) {
         char buf[100] = {0};
 
-        //prompt user for input**
-        sys_req(WRITE, COM1, "( ')> ", 6);
-        
         // Read Input
         int nread = sys_req(READ, COM1, buf, sizeof(buf));
         
         // Trim the input (dont have strcspn so use this) (could also use a secondary buffer and strtok)
         buf[nread] = '\0'; // adds null terminator
-        trimInput(buf);    // trims \r\n
+        trim_Input(buf);    // trims \r\n
 
        
        
@@ -44,7 +41,7 @@ void comhand(void)
 
         // Exit Command
         if (strcmp(buf, "exit") == 0) {
-            const char *confirmationMsg = "\r\nExit? (y/n): \r\n";
+            const char *confirmationMsg = "\r\nExit? (Y/n): \r\n";
             sys_req(WRITE, COM1, confirmationMsg, strlen(confirmationMsg));
 
         while(1){
@@ -53,7 +50,7 @@ void comhand(void)
                 // Read y or n
                 int nreadExit = sys_req(READ, COM1, confirmation, sizeof(confirmation));
                 confirmation[nreadExit] = '\0'; // add null terminator
-                trimInput(confirmation); // trim \r\n
+                trim_Input(confirmation); // trim \r\n
 
                 // if y or n, then exit or return
                 if (confirmation[0] == 'y' || confirmation[0] == 'Y'){
@@ -65,7 +62,7 @@ void comhand(void)
                     sys_req(WRITE, COM1, returnMsg, strlen(returnMsg));
                     break;
                 } else {
-                    const char *invalidMsg = "Invalid input. Please type 'y' or 'n'.\r\n";
+                    const char *invalidMsg = "Invalid input. Please type 'Y' or 'n'.\r\n";
                     sys_req(WRITE, COM1, invalidMsg, strlen(invalidMsg));
 
                 }
@@ -83,6 +80,11 @@ void comhand(void)
             sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
         }
         // Version Command
+      
+        // New Line on Enter
+        else if (strcmp(buf, "\0") == 0){
+            sys_req(WRITE, COM1, "\r", 2); // Start new line
+        }
 
         // Unknown Input
         else {
