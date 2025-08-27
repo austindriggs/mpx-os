@@ -2,6 +2,7 @@
 
 ## R1
 
+- [x] this item is done
 - [ ] serial_poll - austin
 - [ ] comhand - caleb
 - [ ] version - eammon
