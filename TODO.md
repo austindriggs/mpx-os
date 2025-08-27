@@ -2,18 +2,23 @@
 
 ## R1
 
-- [ ] serial_poll
-- [ ] comhand
-- [ ] version
-- [ ] help
-- [ ] exit
-- [ ] get date/time
-- [ ] set date/time
-- [ ] atoi itoa ???
-- [ ] penguin ascii welcome art
+- [ ] serial_poll - austin
+- [ ] comhand - caleb
+- [ ] version - eammon
+    - [ ] R?, time made, or git hash)
+    - [ ] should print in the serial console on startup
+- [ ] help - caleb
+- [ ] exit - caleb
+- [ ] get date/time - eammon
+- [ ] set date/time - eammon
+- [ ] itoa - nathan
+- [ ] penguin ascii welcome art - austin
     - [ ] Macaroni OS
     - [ ] type help or exit
-    - [ ] version (R? and time or git hash)
+    - [ ] version 
     - [ ] members or created by
     - [ ] CS450
-- [ ] doxygen
+- [ ] make the readme better: - austin
+    - [ ] what is "freestanding C environment"
+    - [ ] group members and names at very bottom
+- [ ] doxygen - TODO
