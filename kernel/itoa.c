@@ -65,6 +65,10 @@ void itoa(int num, char* buffer) {
 	}
 
 	// add null terminator
-	if (num < 0): buffer[maxPower + 2] = '\0';
-	else: buffer[maxPower + 1] = '\0';
+	if (num < 0) {
+		buffer[maxPower + 2] = '\0';
+	}
+	else {
+		 buffer[maxPower + 1] = '\0';
+	}
 }
