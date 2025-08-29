@@ -17,16 +17,22 @@ void trim_Input(char *str){
 
 void comhand(void)
 {
-    // Startup Message
-    const char *welcomeMsg = "\r\nWelcome to MacaroniOS";
-    const char *introMsg = "\r\nType help to see a list of commands, Type exit to shutdown!\r\n\r\n";
-    sys_req(WRITE, COM1, welcomeMsg, strlen(welcomeMsg));
-    sys_req(WRITE, COM1, introMsg, strlen(introMsg));
+    // Penguin ASCII image on startup
+    sys_req(WRITE, COM1, "\r\n-------------------------------------------------------\r\n", 60);
+    sys_req(WRITE, COM1, "\r\n", 3);
+    const char *penguinMsg2 =
+        "      \033[33m\\|/\033[0m         Welcome to \033[33mMacaroniOS\033[0m!\n"
+        "   -=(o ).        \033[36m$(version init)\033[0m\n"
+        "      '.-.\\\n"
+        "      /|  \\\\      CS450: Operating Systems Structure\n"
+        "     ' |  ||\n"
+        "       _\\_):,_    Type '\033[33mhelp\033[0m' or '\033[31mexit\033[0m'.\r\n\r\n";
+
+    sys_req(WRITE, COM1, penguinMsg2, strlen(penguinMsg2));
 
 
-    // Penguin ASCII Image for console (placeholder)
-    
 
+    // loop through the entire buffer
     for (;;) {
         char buf[100] = {0};
 
