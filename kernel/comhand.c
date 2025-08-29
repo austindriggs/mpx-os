@@ -3,6 +3,7 @@
 #include <sys_req.h>
 #include "help.h"
 #include "exit.h"
+#include "version.h"
 
  // Trim Function for input (trims \r and \n from input)
 void trim_Input(char *str){
@@ -45,6 +46,9 @@ void comhand(void)
         }
         else if (strcmp(buf, "help") == 0) {
             help_command();
+        }
+        else if (strcmp(buf, "version") == 0) {
+            print_version();
         }
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);
