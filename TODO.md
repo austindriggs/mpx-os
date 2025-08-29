@@ -4,22 +4,24 @@
 
 - [x] this item is done
 - [ ] serial_poll - austin
-- [ ] comhand - caleb
+- [x] comhand - caleb
 - [ ] version - eammon
     - [ ] R?, time made, or git hash)
     - [ ] should print in the serial console on startup
-- [ ] help - caleb
-- [ ] exit - caleb
+- [x] help - caleb
+- [x] exit - caleb
 - [ ] get date/time - eammon
 - [ ] set date/time - eammon
-- [ ] itoa - nathan
-- [ ] penguin ascii welcome art - austin
-    - [ ] Macaroni OS
-    - [ ] type help or exit
-    - [ ] version 
+- [x] itoa - nathan
+- [x] penguin ascii welcome art - austin
+    - [x] Macaroni OS
+    - [x] type help or exit
+    - [x] version 
     - [ ] members or created by
-    - [ ] CS450
+    - [x] CS450
 - [ ] make the readme better: - austin
     - [ ] what is "freestanding C environment"
     - [ ] group members and names at very bottom
+    - [ ] overview of directory structure
 - [ ] doxygen - TODO
+- [ ] add a 'help' parameter to each command. automate this to print each of these on the regular help command, as well as in the user's guide.
