@@ -7,6 +7,9 @@
  * Exits the terminal when called and confirmed by the user.
  */
 
+void exit_help(void);
+void exit_verbose(void);
+
  /**
   * @brief Begins the shutdown process when the user
   * types 'exit' in the terminal. Confirmation by typing
