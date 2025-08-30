@@ -21,7 +21,7 @@ void comhand(void)
     sys_req(WRITE, COM1, "\r\n", 3);
     const char *penguinMsg2 =
         "      \033[33m\\|/\033[0m         Welcome to \033[33mMacaroniOS\033[0m!\n"
-        "   -=(o ).        \033[36m$(version init)\033[0m\n"
+        "   -=(o ).        \033[36m$(version intro)\033[0m\n"
         "      '.-.\\\n"
         "      /|  \\\\      CS450: Operating Systems Structure\n"
         "     ' |  ||\n"
@@ -29,27 +29,25 @@ void comhand(void)
 
     sys_req(WRITE, COM1, penguinMsg2, strlen(penguinMsg2));
 
-
-
     // loop through the entire buffer
     for (;;) {
         char buf[100] = {0};
 
-        // Read Input
+        // read command
         int nread = sys_req(READ, COM1, buf, sizeof(buf));
-        
-        // Trim the input (dont have strcspn so use this) (could also use a secondary buffer and strtok)
         buf[nread] = '\0'; // adds null terminator
         trim_Input(buf);    // trims \r\n
-
         sys_req(WRITE, COM1, "\r\n", 2); // Start new line
 
-        if (strcmp(buf, "exit") == 0) {
-           if (exit_command()){
-            return;
-           }
+	// command and argument logic
+        if (strncmp(buf, "exit", 4) == 0) {
+	    char *args = buf + 4;
+	    while (*args == ' ') args ++;
+            if (exit_command(args)) {
+                return;
+            }
         }
-        else if (strcmp(buf, "help") == 0) {
+        else if (strncmp(buf, "help", 4) == 0) {
             help_command();
         }
         else if (buf[0] == '\0') {

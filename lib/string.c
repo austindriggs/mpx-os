@@ -18,6 +18,20 @@ int strcmp(const char *s1, const char *s2)
 	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
 
+// Compares the first n characters of s1 and s2
+// Returns 0 if equal, <0 if s1<s2, >0 if s1>s2
+int strncmp(const char *s1, const char *s2, unsigned int n) {
+    unsigned int i = 0;
+    while (i < n && s1[i] && s2[i]) {
+        if (s1[i] != s2[i])
+            return (unsigned char)s1[i] - (unsigned char)s2[i];
+        i++;
+    }
+    if (i == n)
+        return 0;
+    return (unsigned char)s1[i] - (unsigned char)s2[i];
+}
+
 size_t strlen(const char *s)
 {
 	size_t len = 0;
