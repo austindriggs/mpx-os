@@ -3,7 +3,7 @@
 ## R1
 
 - [x] this item is done
-- [ ] serial_poll - austin
+- [ ] serial_poll - austin/nathan
 - [x] comhand - caleb
 - [ ] version - eammon
     - [ ] R?, time made, or git hash)
@@ -17,11 +17,10 @@
     - [x] Macaroni OS
     - [x] type help or exit
     - [x] version 
-    - [ ] members or created by
     - [x] CS450
-- [ ] make the readme better: - austin
-    - [ ] what is "freestanding C environment"
-    - [ ] group members and names at very bottom
-    - [ ] overview of directory structure
+- [x] make the readme better: - austin
+    - [x] what is "freestanding C environment"
+    - [x] group members and names at very bottom
+    - [x] overview of directory structure
 - [ ] doxygen - TODO
 - [ ] add a 'help' parameter to each command. automate this to print each of these on the regular help command, as well as in the user's guide.

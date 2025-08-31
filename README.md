@@ -5,6 +5,11 @@ CS450: Operating Systems Structure
 
 ## GETTING STARTED
 
+Install WSL if you need to:
+```bash
+wsl --install -d ubuntu
+```
+
 Clone this repo into a linux environment (WSL, Ubuntu, etc):
 ```bash
 git clone https://github.com/WVU-CS450/MacaroniPenguins.git
@@ -21,7 +26,7 @@ Then to test your environment, run `make` and then `./mpx.sh`.
 
 ## DOCUMENTATION
 
-See the [docs/](docs/) folder for:
+See the [doc/](doc/) folder for:
 - [User's Manual]()
 - [Programmer's Manual]()
 - [Contributions]()

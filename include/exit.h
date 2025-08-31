@@ -7,12 +7,17 @@
  * Exits the terminal when called and confirmed by the user.
  */
 
+void exit_help(void);
+void exit_verbose(void);
+
  /**
   * @brief Begins the shutdown process when the user
-  * types 'exit' in the terminal. Confirmation by typing 
+  * types 'exit' in the terminal. Confirmation by typing
   * 'Y' or 'n' is then required to completely exit.
-  * @param int return 1 to confirm exit and 0 to return to terminal.
+  * @param arg_counter Counts the number of arguments input.
+  * @param arg_vector Stores the arguments.
+  * @return int return 1 to confirm exit and 0 to return to terminal.
   */
-int exit_command(void);
+int exit_command(const char *args);
 
 #endif
