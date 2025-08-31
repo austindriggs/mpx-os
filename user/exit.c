@@ -3,7 +3,6 @@
 #include "comhand.h"
 #include "exit.h"
 
-
 void exit_help(void) {
     const char *helpMsg =
         "\r\nexit [help]\r\n"

@@ -4,19 +4,8 @@
 #include "help.h"
 #include "exit.h"
 
- // Trim Function for input (trims \r and \n from input)
-void trim_Input(char *str){
-    int length = strlen(str);
-    while (length > 0 && (str[length - 1] == '\n' || str[length - 1] == '\r')){
-        str[length - 1] = '\0';
-        length --;
-    }
-}
-
-
-void comhand(void)
-{
-    // Penguin ASCII image on startup
+// penguin ASCII image on startup
+void com_startup(void) {
     sys_req(WRITE, COM1, "\r\n-------------------------------------------------------\r\n", 60);
     sys_req(WRITE, COM1, "\r\n", 3);
     const char *penguinMsg2 =
@@ -28,6 +17,22 @@ void comhand(void)
         "       _\\_):,_    Type '\033[33mhelp\033[0m' or '\033[31mexit\033[0m'.\r\n\r\n";
 
     sys_req(WRITE, COM1, penguinMsg2, strlen(penguinMsg2));
+}
+
+// trim Function for input (trims \r and \n from input)
+void trim_Input(char *str){
+    int length = strlen(str);
+    while (length > 0 && (str[length - 1] == '\n' || str[length - 1] == '\r')){
+        str[length - 1] = '\0';
+        length --;
+    }
+}
+
+// command handler (DOES NOT handle arguments)
+void comhand(void)
+{
+    // startup message
+    com_startup();
 
     // loop through the entire buffer
     for (;;) {
@@ -39,8 +44,8 @@ void comhand(void)
         trim_Input(buf);    // trims \r\n
         sys_req(WRITE, COM1, "\r\n", 2); // Start new line
 
-	// command and argument logic
-        if (strncmp(buf, "exit", 4) == 0) {
+	// command logic: each function handles its own argument(s) for better encapsulation
+	if (strncmp(buf, "exit", 4) == 0) {
 	    char *args = buf + 4;
 	    while (*args == ' ') args ++;
             if (exit_command(args)) {
