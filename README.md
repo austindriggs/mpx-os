@@ -34,11 +34,6 @@ See the [doc/](doc/) folder for:
 
 ## DOXYGEN
 
-Install doxygen in your linux environment:
-```bash
-sudo apt install -y doxygen
-```
-
 Create the configuration file (convention is a Doxyfile):
 ```bash
 doxygen -g <config-file>
