@@ -30,3 +30,18 @@ See the [doc/](doc/) folder for:
 - [User's Manual]()
 - [Programmer's Manual]()
 - [Contributions]()
+
+
+## DOXYGEN
+
+Create the configuration file (convention is a Doxyfile):
+```bash
+doxygen -g <config-file>
+```
+
+Edit the file to your liking, reference the [doxygen manual](https://www.doxygen.nl/manual/index.html) if needed, then run doxygen:
+```bash
+doxygen <config-file>
+```
+
+When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) and `OUTPUT_DIRECTORY` (from `dev/doxygen` to `doc`).
