@@ -4,7 +4,7 @@
 
 - [x] this item is done
 - [ ] serial_poll - austin/nathan
-- [x] comhand - caleb
+- [x] comhand - caleb/austin
 - [ ] version - eammon
     - [ ] R?, time made, or git hash)
     - [ ] should print in the serial console on startup
@@ -22,5 +22,8 @@
     - [x] what is "freestanding C environment"
     - [x] group members and names at very bottom
     - [x] overview of directory structure
-- [ ] doxygen - TODO
-- [ ] add a 'help' parameter to each command. automate this to print each of these on the regular help command, as well as in the user's guide.
+- [x] learn doxygen - austin
+- [x] add a 'help' parameter to each command. automate this to print each of these on the regular help command, as well as in the user's guide.
+- [ ] user guide
+- [ ] programmer guide
+- [ ] contributions
