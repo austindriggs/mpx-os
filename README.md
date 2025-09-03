@@ -36,7 +36,7 @@ See the [doc/](doc/) folder for:
 
 Install doxygen in your linux environment:
 ```bash
-sudo apt install doxygen
+sudo apt install -y doxygen
 ```
 
 Create the configuration file (convention is a Doxyfile):
@@ -44,7 +44,7 @@ Create the configuration file (convention is a Doxyfile):
 doxygen -g <config-file>
 ```
 
-Edit the file to your liking, then run doxygen:
+Edit the file to your liking, reference the [doxygen manual](https://www.doxygen.nl/manual/index.html) if needed, then run doxygen:
 ```bash
 doxygen <config-file>
 ```
