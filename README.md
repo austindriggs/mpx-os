@@ -30,3 +30,21 @@ See the [doc/](doc/) folder for:
 - [User's Manual]()
 - [Programmer's Manual]()
 - [Contributions]()
+
+
+## DOXYGEN
+
+Install doxygen in your linux environment:
+```bash
+sudo apt install doxygen
+```
+
+Create the configuration file (convention is a Doxyfile):
+```bash
+doxygen -g <config-file>
+```
+
+Edit the file to your liking, then run doxygen:
+```bash
+doxygen <config-file>
+```
