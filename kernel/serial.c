@@ -68,9 +68,10 @@ int serial_poll(device dev, char *buffer, size_t len)
 	// - carriage returns (\r) and new lines (\n)
 
 	// define some ASCII characters
-	//const char ESC_KEY = 27;
+	const char ESC_KEY = 27;
 	const char BACKSPACE = 8;
 	const char DELETE = 127;
+	const char BRACKET = '[';
 
 	// format the serial terminal to look like a penguin
 	//prompt user for input**
@@ -79,15 +80,16 @@ int serial_poll(device dev, char *buffer, size_t len)
 
 	// read the input while the buffer is not full
 	int index = 0;
+	char input;
+	char arrowKey;
 	while (index < (int)len - 1) {
-		char input = inb(dev);
-
+		input = inb(dev);
 		// alphanumerics, spaces, and special keys
 		if ((input >= 'a' && input <= 'z') ||
-		    (input >= 'A' && input <= 'Z') ||
-		    (input >= '0' && input <= '9') ||
-		    (input >= '!' && input <= '/') ||
-		    (input == ' ')) {
+			(input >= 'A' && input <= 'Z') ||
+			(input >= '0' && input <= '9') ||
+			(input >= '!' && input <= '/') ||
+			(input == ' ')) {
 
 			buffer[index] = input;
 			outb(dev, input); // echo
@@ -112,6 +114,97 @@ int serial_poll(device dev, char *buffer, size_t len)
 			buffer[index] = '\0';
 			outb(dev, input);
 			return index;
+		}
+		else if (input == ESC_KEY){
+			input = inb(dev);
+			while (arrowKey != 'A' || arrowKey !='B' || arrowKey != 'C' || arrowKey != 'D' || arrowKey != '3'){
+				arrowKey = inb(dev);
+				/*
+				switch (arrowKey){
+					case 'A':
+						outb(dev, ESC_KEY);
+						outb(dev, BRACKET);
+						outb(dev, 'A');
+						break;
+					case 'B':
+						outb(dev, ESC_KEY);
+						outb(dev, BRACKET);
+						outb(dev, 'B');
+						break;
+					case 'C':
+						outb(dev, ESC_KEY);
+						outb(dev, BRACKET);
+						outb(dev, 'C');
+						break;
+					case 'D':
+						outb(dev, ESC_KEY);
+						outb(dev, BRACKET);
+						outb(dev, 'D');
+						break;
+					case '3':
+						while (input != '~'){
+							input = inb(dev);
+						}
+						outb(dev, '\\');
+						outb(dev, BRACKET);
+						outb(dev, '3');
+						outb(dev, '~');
+						buffer[index] = '\\';
+						index++;
+						buffer[index] = BRACKET;
+						index++;
+						buffer[index] = '3';
+						index++;
+						buffer[index] = '~';
+						index++;
+						break;
+				}
+				*/
+				
+				if (arrowKey == 'A'){
+					outb(dev, ESC_KEY);
+					outb(dev, BRACKET);
+					outb(dev, 'A');
+					break;
+				}
+				else if (arrowKey == 'B'){
+					outb(dev, ESC_KEY);
+					outb(dev, BRACKET);
+					outb(dev, 'B');
+					break;
+				}
+				else if (arrowKey == 'C'){
+					outb(dev, ESC_KEY);
+					outb(dev, BRACKET);
+					outb(dev, 'C');
+					break;
+				}
+				else if (arrowKey == 'D'){
+					outb(dev, ESC_KEY);
+					outb(dev, BRACKET);
+					outb(dev, 'D');
+					break;
+				}
+				else if (arrowKey == '3'){
+					while (input != '~'){
+						input = inb(dev);
+					}
+					outb(dev, '\\');
+					outb(dev, BRACKET);
+					outb(dev, '3');
+					outb(dev, '~');
+					buffer[index] = '\\';
+					index++;
+					buffer[index] = BRACKET;
+					index++;
+					buffer[index] = '3';
+					index++;
+					buffer[index] = '~';
+					index++;
+					break;
+				}
+				
+			}
 		}
 	}
 
