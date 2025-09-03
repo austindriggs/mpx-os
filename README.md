@@ -43,3 +43,5 @@ Edit the file to your liking, reference the [doxygen manual](https://www.doxygen
 ```bash
 doxygen <config-file>
 ```
+
+When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) and `OUTPUT_DIRECTORY` (from `dev/doxygen` to `doc`).
