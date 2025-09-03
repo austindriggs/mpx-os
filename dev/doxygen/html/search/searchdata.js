@@ -1,21 +1,27 @@
 var indexSectionsWithContent =
 {
-  0: "abfgipsz",
-  1: "gip",
-  2: "abfsz"
+  0: "_acdeghiklmoprstv",
+  1: "ceghimpsv",
+  2: "_aceghikmpstv",
+  3: "cios",
+  4: "lmpt"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes",
-  2: "variables"
+  1: "files",
+  2: "functions",
+  3: "defines",
+  4: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Classes",
-  2: "Variables"
+  1: "Files",
+  2: "Functions",
+  3: "Macros",
+  4: "Pages"
 };
 

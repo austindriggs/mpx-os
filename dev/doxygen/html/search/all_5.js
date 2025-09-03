@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['page_5fdir_0',['page_dir',['../structpage__dir.html',1,'']]],
-  ['page_5fentry_1',['page_entry',['../structpage__entry.html',1,'']]],
-  ['page_5ftable_2',['page_table',['../structpage__table.html',1,'']]]
+  ['gdt_2eh_0',['gdt.h',['../gdt_8h.html',1,'']]],
+  ['gdt_5finit_1',['gdt_init',['../gdt_8h.html#ad2acd7bce259a1a32213503c6fa18f14',1,'core-c.c']]],
+  ['getting_20started_2',['GETTING STARTED',['../md_README.html#autotoc_md1',1,'']]]
 ];

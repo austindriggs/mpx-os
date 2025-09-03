@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['idt_5fdescriptor_0',['idt_descriptor',['../structidt__descriptor.html',1,'']]],
-  ['idt_5fentry_1',['idt_entry',['../structidt__entry.html',1,'']]]
+  ['exit_2eh_0',['exit.h',['../exit_8h.html',1,'']]],
+  ['exit_5fcommand_1',['exit_command',['../exit_8h.html#a04754ada31978aebf84aad54a13b1218',1,'exit.c']]]
 ];
