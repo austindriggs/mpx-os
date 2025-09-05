@@ -24,11 +24,6 @@ void version_help(void) {
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
-//void version_latest(void) {
-//    const char *latestMsg = "R1\r\n";
-//    sys_req(WRITE, COM1, latestMsg, strlen(latestMsg));
-//}
-
 void version_latest(void) {
     char buffer[128];
     char *write_ptr = buffer;
