@@ -52,10 +52,12 @@ void version_latest(void) {
     }
     *write_ptr++ = ' ';
 
+    *write_ptr++ = '(';
     read_ptr = GIT_DIRTY;
     while (*read_ptr) {
         *write_ptr++ = *read_ptr++;
     }
+    *write_ptr++ = ')';
 
     *write_ptr++ = '\r';
     *write_ptr++ = '\n';
@@ -67,7 +69,7 @@ void version_latest(void) {
 
 void version_history(void) {
     const char *historyMsg =
-        "R0 2025-08-24"
+        "R0 2025-08-24 6738747"
         "\r\n";
     sys_req(WRITE, COM1, historyMsg, strlen(historyMsg));
 }

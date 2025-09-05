@@ -44,7 +44,7 @@ int exit_command(const char *args) {
             exit_help();
 	    return 0;
         }
-	else if (strcmp(args, "force") == 0) {
+	else if (strcmp(args, "force") == 0 || strcmp(args, "f") == 0) {
 	    return 1;
         }
         else {

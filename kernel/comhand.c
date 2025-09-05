@@ -6,18 +6,39 @@
 #include "version.h"
 
 // penguin ASCII image on startup
+//void com_startup(void) {
+//    sys_req(WRITE, COM1, "\r\n-------------------------------------------------------\r\n", 60);
+//    sys_req(WRITE, COM1, "\r\n", 3);
+//    const char *penguinMsg =
+//        "      \033[33m\\|/\033[0m         Welcome to \033[33mMacaroniOS\033[0m!\n"
+//        "   -=(o ).        \033[36m$(version intro)\033[0m\n"
+//        "      '.-.\\\n"
+//        "      /|  \\\\      CS450: Operating Systems Structure\n"
+//        "     ' |  ||\n"
+//        "       _\\_):,_    Type '\033[33mhelp\033[0m' or '\033[31mexit\033[0m'.\r\n\r\n";
+//
+//    sys_req(WRITE, COM1, penguinMsg, strlen(penguinMsg));
+//}
+
 void com_startup(void) {
     sys_req(WRITE, COM1, "\r\n-------------------------------------------------------\r\n", 60);
     sys_req(WRITE, COM1, "\r\n", 3);
-    const char *penguinMsg =
-        "      \033[33m\\|/\033[0m         Welcome to \033[33mMacaroniOS\033[0m!\n"
-        "   -=(o ).        \033[36m$(version intro)\033[0m\n"
-        "      '.-.\\\n"
-        "      /|  \\\\      CS450: Operating Systems Structure\n"
-        "     ' |  ||\n"
-        "       _\\_):,_    Type '\033[33mhelp\033[0m' or '\033[31mexit\033[0m'.\r\n\r\n";
 
-    sys_req(WRITE, COM1, penguinMsg, strlen(penguinMsg));
+    const char *bannerPart1 =
+        "      \033[33m\\|/\033[0m         Welcome to \033[33mMacaroniOS\033[0m!\r\n"
+        "   -=(o ).        Version \033[36m";
+    sys_req(WRITE, COM1, bannerPart1, strlen(bannerPart1));
+
+    // Call version_latest to inject version string
+    version_latest();
+
+    const char *bannerPart2 =
+        "\033[0m"
+        "      '.-.\\\r\n"
+        "      /|  \\\\      CS450: Operating Systems Structure\r\n"
+        "     ' |  ||\r\n"
+        "       _\\_):,_    Type '\033[33mhelp\033[0m' or '\033[31mexit\033[0m'.\r\n\r\n";
+    sys_req(WRITE, COM1, bannerPart2, strlen(bannerPart2));
 }
 
 // trim Function for input (trims \r and \n from input)
