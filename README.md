@@ -21,7 +21,7 @@ sudo apt update
 sudo apt install -y clang make nasm git binutils-i686-linux-gnu qemu-system-x86 gdb doxygen
 ```
 
-Then to test your environment, run `make` and then `./mpx.sh`.
+Then run `make` and `./mpx.sh`.
 
 
 ## DOCUMENTATION
@@ -44,4 +44,4 @@ Edit the file to your liking, reference the [doxygen manual](https://www.doxygen
 doxygen <config-file>
 ```
 
-When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) and `OUTPUT_DIRECTORY` (from `dev/doxygen` to `doc`).
+When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) and `OUTPUT_DIRECTORY` (from `dev/doxygen` to `doc`). Also remember to change `user/version.c`.
