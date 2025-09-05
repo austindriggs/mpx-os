@@ -8,7 +8,6 @@
  */
 
 void exit_help(void);
-void exit_verbose(void);
 
  /**
   * @brief Begins the shutdown process when the user

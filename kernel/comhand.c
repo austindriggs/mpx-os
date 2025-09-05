@@ -8,7 +8,7 @@
 void com_startup(void) {
     sys_req(WRITE, COM1, "\r\n-------------------------------------------------------\r\n", 60);
     sys_req(WRITE, COM1, "\r\n", 3);
-    const char *penguinMsg2 =
+    const char *penguinMsg =
         "      \033[33m\\|/\033[0m         Welcome to \033[33mMacaroniOS\033[0m!\n"
         "   -=(o ).        \033[36m$(version intro)\033[0m\n"
         "      '.-.\\\n"
@@ -16,7 +16,7 @@ void com_startup(void) {
         "     ' |  ||\n"
         "       _\\_):,_    Type '\033[33mhelp\033[0m' or '\033[31mexit\033[0m'.\r\n\r\n";
 
-    sys_req(WRITE, COM1, penguinMsg2, strlen(penguinMsg2));
+    sys_req(WRITE, COM1, penguinMsg, strlen(penguinMsg));
 }
 
 // trim Function for input (trims \r and \n from input)
@@ -47,19 +47,21 @@ void comhand(void)
 	// command logic: each function handles its own argument(s) for better encapsulation
 	if (strncmp(buf, "exit", 4) == 0) {
 	    char *args = buf + 4;
-	    while (*args == ' ') args ++;
+	    while (*args == ' ') args++;
             if (exit_command(args)) {
                 return;
             }
         }
         else if (strncmp(buf, "help", 4) == 0) {
-            help_command();
+	    char *args = buf + 4;
+            while (*args == ' ') args++;
+            help_command(args);
         }
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);
         }
         else {
-            const char *invalidMsg = "Invalid command. Try again, type 'help' for all commands.\r\n\r\n";
+            const char *invalidMsg = "Invalid command. Try again, type 'help' for all commands.\r\n";
             sys_req(WRITE, COM1, invalidMsg, strlen(invalidMsg));
         }
     }

@@ -5,22 +5,12 @@
 
 void exit_help(void) {
     const char *helpMsg =
-        "\r\nexit [help]\r\n"
-        "- exit: prompts for confirmation before shutting down\r\n"
-        "- exit --help: displays this message\r\n"
-        "- exit --force: shuts down without confirmation\r\n";
+        "\r\nexit [help|force]\r\n"
+        "  exit          prompts for confirmation before shutting down\r\n"
+        "  exit help     displays this message\r\n"
+        "  exit force    shuts down without confirmation\r\n"
+	"\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
-}
-
-void exit_verbose(void) {
-    const char *verboseMsg = 
-	"\r\nTODO VERBOSE FOR USER GUIDE OR WHATEVER";
-
-    const char *exMsg = 
-	"\r\nTODO SOME EXAMPLES FOR USER GUIDE\r\n";
-
-    sys_req(WRITE, COM1, verboseMsg, strlen(verboseMsg));
-    sys_req(WRITE, COM1, exMsg, strlen(exMsg));
 }
 
 int exit_command(const char *args) {
@@ -50,20 +40,15 @@ int exit_command(const char *args) {
         }
     }
     else {
-        if (strcmp(args, "--help") == 0) {
+        if (strcmp(args, "help") == 0) {
             exit_help();
 	    return 0;
         }
-	else if (strcmp(args, "--verbose") == 0) {
-	    exit_help();
-	    exit_verbose();
-            return 0;
-	}
-	else if (strcmp(args, "--force") == 0) {
+	else if (strcmp(args, "force") == 0) {
 	    return 1;
         }
         else {
-            const char *argMsg = "\r\nInvalid argument. Please try again.\r\n";
+            const char *argMsg = "Invalid argument. Please try again.\r\n";
             sys_req(WRITE, COM1, argMsg, strlen(argMsg));
 	    return 0;
         }
