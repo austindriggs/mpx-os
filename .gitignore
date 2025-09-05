@@ -6,6 +6,7 @@ kernel.bin
 .setup.sh.swp
 kernel/kmain.c.save
 *.tmp
+*.save
 
 # depending on your version of ubuntu
 make/CFLAGS
