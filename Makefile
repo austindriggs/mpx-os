@@ -16,6 +16,11 @@ ASFLAGS = -f elf -g
 CC	= clang
 CFLAGS  = @make/CFLAGS
 
+# austin wants git metadata
+GIT_DATE  := $(shell git log -1 --format=%cd --date=short)
+GIT_DIRTY := $(shell test -n "`git status --porcelain`" && echo "dirty" || echo "clean")
+CFLAGS += -DGIT_DATE=\"$(GIT_DATE)\" -DGIT_DIRTY=\"$(GIT_DIRTY)\"
+
 ifeq ($(shell uname), Darwin)
 LD	= i686-elf-ld
 else

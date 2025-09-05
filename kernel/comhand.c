@@ -3,6 +3,7 @@
 #include <sys_req.h>
 #include "help.h"
 #include "exit.h"
+#include "version.h"
 
 // penguin ASCII image on startup
 void com_startup(void) {
@@ -52,6 +53,11 @@ void comhand(void)
                 return;
             }
         }
+	else if (strncmp(buf, "version", 4) == 0) {
+	    char *args = buf + 7;
+	    while (*args == ' ') args++;
+	    version_command(args);
+	}
         else if (strncmp(buf, "help", 4) == 0) {
 	    char *args = buf + 4;
             while (*args == ' ') args++;
