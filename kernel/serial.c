@@ -71,7 +71,7 @@ int serial_poll(device dev, char *buffer, size_t len)
 	const char ESC_KEY = 27;
 	const char BACKSPACE = 8;
 	const char DELETE = 127;
-	const char BRACKET = '[';
+	//const char BRACKET = '[';
 
 	// format the serial terminal to look like a penguin
 	//prompt user for input**
@@ -81,8 +81,9 @@ int serial_poll(device dev, char *buffer, size_t len)
 	// read the input while the buffer is not full
 	int index = 0;
 	char input;
-	char arrowKey;
-	while (index < (int)len - 1) {
+	char specialKey;
+	int endOfLine = 0;
+	while (index< (int)len - 1) {
 		input = inb(dev);
 		// alphanumerics, spaces, and special keys
 		if ((input >= 'a' && input <= 'z') ||
@@ -94,6 +95,7 @@ int serial_poll(device dev, char *buffer, size_t len)
 			buffer[index] = input;
 			outb(dev, input); // echo
 			index++;
+			endOfLine++;
 		}
 
 		// backspace and delete
@@ -101,6 +103,7 @@ int serial_poll(device dev, char *buffer, size_t len)
 			(index > 0)) {
 			// remove the last character from the buffer
 			index--;
+			endOfLine--;
 			buffer[index] = '\0';
 
 			// erase the last character from the terminal
@@ -115,92 +118,50 @@ int serial_poll(device dev, char *buffer, size_t len)
 			outb(dev, input);
 			return index;
 		}
+
+		// Handles multi-byte characters that use the escape character
 		else if (input == ESC_KEY){
 			input = inb(dev);
-			while (arrowKey != 'A' || arrowKey !='B' || arrowKey != 'C' || arrowKey != 'D' || arrowKey != '3'){
-				arrowKey = inb(dev);
-				/*
-				switch (arrowKey){
-					case 'A':
-						outb(dev, ESC_KEY);
-						outb(dev, BRACKET);
-						outb(dev, 'A');
-						break;
-					case 'B':
-						outb(dev, ESC_KEY);
-						outb(dev, BRACKET);
-						outb(dev, 'B');
-						break;
-					case 'C':
-						outb(dev, ESC_KEY);
-						outb(dev, BRACKET);
-						outb(dev, 'C');
-						break;
-					case 'D':
-						outb(dev, ESC_KEY);
-						outb(dev, BRACKET);
-						outb(dev, 'D');
-						break;
-					case '3':
-						while (input != '~'){
-							input = inb(dev);
-						}
-						outb(dev, '\\');
-						outb(dev, BRACKET);
-						outb(dev, '3');
-						outb(dev, '~');
-						buffer[index] = '\\';
-						index++;
-						buffer[index] = BRACKET;
-						index++;
-						buffer[index] = '3';
-						index++;
-						buffer[index] = '~';
-						index++;
-						break;
-				}
-				*/
+			while (specialKey != 'A' || specialKey !='B' || specialKey != 'C' || specialKey != 'D' || specialKey != '3'){
+				specialKey = inb(dev);
 				
-				if (arrowKey == 'A'){
-					outb(dev, ESC_KEY);
-					outb(dev, BRACKET);
-					outb(dev, 'A');
+				if (specialKey == 'A'){
+					//sys_req(WRITE, COM1, "\033[A", 3);
 					break;
 				}
-				else if (arrowKey == 'B'){
-					outb(dev, ESC_KEY);
-					outb(dev, BRACKET);
-					outb(dev, 'B');
+				else if (specialKey == 'B'){
+					//sys_req(WRITE, COM1, "\033[B", 3);
 					break;
 				}
-				else if (arrowKey == 'C'){
-					outb(dev, ESC_KEY);
-					outb(dev, BRACKET);
-					outb(dev, 'C');
+				else if (specialKey == 'C'){
+					sys_req(WRITE, COM1, "\033[C", 3);
+					index++;
 					break;
 				}
-				else if (arrowKey == 'D'){
-					outb(dev, ESC_KEY);
-					outb(dev, BRACKET);
-					outb(dev, 'D');
+				else if (specialKey == 'D'){
+					if (index==0){
+
+					}
+					else {
+						sys_req(WRITE, COM1, "\033[D", 3);
+						index--;
+					}
 					break;
 				}
-				else if (arrowKey == '3'){
+				else if (specialKey == '3'){
 					while (input != '~'){
 						input = inb(dev);
 					}
-					outb(dev, '\\');
-					outb(dev, BRACKET);
-					outb(dev, '3');
-					outb(dev, '~');
-					buffer[index] = '\\';
-					index++;
-					buffer[index] = BRACKET;
-					index++;
-					buffer[index] = '3';
-					index++;
-					buffer[index] = '~';
-					index++;
+					if (index<(endOfLine-1)){
+						buffer[index] = ' ';
+					}
+					else if (index == (endOfLine-1)){
+						buffer[index] = '\0';
+					}
+					else {
+
+					}
+					sys_req(WRITE, COM1, " \033[D", 4);
 					break;
 				}
 				
