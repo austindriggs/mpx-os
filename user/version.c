@@ -6,8 +6,12 @@
 #define GIT_DATE "unknown"
 #endif
 
+#ifndef GIT_HASH
+#define GIT_HASH "unknown"
+#endif
+
 #ifndef GIT_DIRTY
-#define GIT_DIRTY ""
+#define GIT_DIRTY "unknown"
 #endif
 
 void version_help(void) {
@@ -30,32 +34,34 @@ void version_latest(void) {
     char *write_ptr = buffer;
     const char *read_ptr;
 
-    // Write "R1 "
+    // main version
     *write_ptr++ = 'R';
     *write_ptr++ = '1';
     *write_ptr++ = ' ';
 
-    // Copy commit date
+    // git metadata
     read_ptr = GIT_DATE;
     while (*read_ptr) {
         *write_ptr++ = *read_ptr++;
     }
-
-    // Space separator
     *write_ptr++ = ' ';
 
-    // Copy dirty/clean status
+    read_ptr = GIT_HASH;
+    while (*read_ptr) {
+        *write_ptr++ = *read_ptr++;
+    }
+    *write_ptr++ = ' ';
+
     read_ptr = GIT_DIRTY;
     while (*read_ptr) {
         *write_ptr++ = *read_ptr++;
     }
 
-    // Append newline
     *write_ptr++ = '\r';
     *write_ptr++ = '\n';
     *write_ptr = '\0';
 
-    // Write out the final string
+    // print out
     sys_req(WRITE, COM1, buffer, write_ptr - buffer);
 }
 
