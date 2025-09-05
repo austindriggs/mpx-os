@@ -16,9 +16,9 @@
 
 void version_help(void) {
     const char *helpMsg =
-        "\r\nversion [all]\r\n"
-        "  version         prints information about the current version\r\n"
-        "  version all     prints information about all version history\r\n"
+        "\r\nversion [all|help]\r\n"
+        "  version         prints information about the current version as: R{x} {date} {hash} ({status})\r\n"
+        "  version all     prints information about all version history as: R{x} {date} {hash}\r\n"
         "  version help    prints this message\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
