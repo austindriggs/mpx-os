@@ -114,9 +114,9 @@ int serial_poll(device dev, char *buffer, size_t len)
 
 		// CR and LF (user is done)
 		else if (input == '\n' || input == '\r') {
-			buffer[index] = '\0';
+			buffer[endOfLine] = '\0';
 			outb(dev, input);
-			return index;
+			return endOfLine;
 		}
 
 		// Handles multi-byte characters that use the escape character
@@ -154,14 +154,16 @@ int serial_poll(device dev, char *buffer, size_t len)
 					}
 					if (index<(endOfLine-1)){
 						buffer[index] = ' ';
+						index++;
+						outb(dev, ' ');
 					}
 					else if (index == (endOfLine-1)){
 						buffer[index] = '\0';
+						sys_req(WRITE, COM1, " \033[D", 4);
 					}
 					else {
 
 					}
-					sys_req(WRITE, COM1, " \033[D", 4);
 					break;
 				}
 				
