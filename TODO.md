@@ -7,7 +7,7 @@
 - [x] comhand - caleb/austin
 - [x] version - eammon
     - [x] R?, time made, or git hash)
-    - [ ] should print in the serial console on startup
+    - [x] should print in the serial console on startup
 - [x] help - caleb
 - [x] exit - caleb
 - [ ] get date/time - eammon

@@ -24,6 +24,16 @@ sudo apt install -y clang make nasm git binutils-i686-linux-gnu qemu-system-x86 
 Then run `make` and `./mpx.sh`.
 
 
+## CONTRIBUTING
+
+After making changes, running `version` will show that your working directory is 'dirty'. This simply means that you have uncommitted changes.
+
+Ensure you have checked out the correct branch and pulled its latest changes. Stage/add the relevant files before committing them.
+
+Now you can run `make clean` and `make` again, run `./mpx.sh`, and finally run `version` to see your latest commit hash and showing that your working directory is 'clean'.
+
+
+
 ## DOCUMENTATION
 
 See the [doc/](doc/) folder for:
