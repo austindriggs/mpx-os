@@ -2,6 +2,7 @@
 #include <string.h>
 #include "help.h"
 #include "exit.h"
+#include "version.h"
 
 void help_message(void) {
     // command help
@@ -10,6 +11,7 @@ void help_message(void) {
         "\r\nhelp    prints this message\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
     exit_help();
+    version_help();
 
     // more help
     const char *docMsg = "For more help, see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";

@@ -3,10 +3,10 @@
 ## R1
 
 - [x] this item is done
-- [ ] serial_poll - austin/nathan
+- [x] serial_poll - austin/nathan
 - [x] comhand - caleb/austin
-- [ ] version - eammon
-    - [ ] R?, time made, or git hash)
+- [x] version - eammon
+    - [x] R?, time made, or git hash)
     - [ ] should print in the serial console on startup
 - [x] help - caleb
 - [x] exit - caleb
