@@ -32,6 +32,7 @@ Ensure you have checked out the correct branch and pulled its latest changes. St
 
 Now you can run `make clean` and `make` again, run `./mpx.sh`, and finally run `version` to see your latest commit hash and showing that your working directory is 'clean'.
 
+When you're done, add your contributions to [CONTRIBUTIONS.docx](doc/CONTRIBUTIONS.docx) and save it as a pdf.
 
 
 ## DOCUMENTATION
@@ -39,7 +40,7 @@ Now you can run `make clean` and `make` again, run `./mpx.sh`, and finally run `
 See the [doc/](doc/) folder for:
 - [User's Manual]()
 - [Programmer's Manual]()
-- [Contributions]()
+- [CONTRIBUTIONS](doc/CONTRIBUTIONS.pdf)
 
 
 ## DOXYGEN
