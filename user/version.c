@@ -2,18 +2,6 @@
 #include <string.h>
 #include "version.h"
 
-#ifndef GIT_DATE
-#define GIT_DATE "unknown"
-#endif
-
-#ifndef GIT_HASH
-#define GIT_HASH "unknown"
-#endif
-
-#ifndef GIT_DIRTY
-#define GIT_DIRTY "unknown"
-#endif
-
 void version_help(void) {
     const char *helpMsg =
         "\r\nversion [all|help]\r\n"
