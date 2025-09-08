@@ -22,7 +22,7 @@ void com_startup(void) {
         "      '.-.\\\r\n"
         "      /|  \\\\      CS450: Operating Systems Structure\r\n"
         "     ' |  ||\r\n"
-        "       _\\_):,_    Type '\033[33mhelp\033[0m' or '\033[31mexit\033[0m'.\r\n\r\n";
+        "       _\\_):,_    Type '\033[33mhelp\033[0m' for a list of commands or '\033[31mexit\033[0m' to shutdown.\r\n\r\n";
     sys_req(WRITE, COM1, bannerPart2, strlen(bannerPart2));
 }
 
@@ -59,6 +59,13 @@ void comhand(void)
                 return;
             }
         }
+        if (strncmp(buf, "shutdown", 8) == 0) {
+	    char *args = buf + 8;
+	    while (*args == ' ') args++;
+	    if (exit_command(args)) {
+		return;
+	    }
+	}
 	else if (strncmp(buf, "version", 7) == 0) {
 	    char *args = buf + 7;
 	    while (*args == ' ') args++;
