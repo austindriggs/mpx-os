@@ -59,7 +59,7 @@ void comhand(void)
                 return;
             }
         }
-	else if (strncmp(buf, "version", 4) == 0) {
+	else if (strncmp(buf, "version", 7) == 0) {
 	    char *args = buf + 7;
 	    while (*args == ' ') args++;
 	    version_command(args);
