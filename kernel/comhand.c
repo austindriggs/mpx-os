@@ -59,7 +59,7 @@ void comhand(void)
                 return;
             }
         }
-        if (strncmp(buf, "shutdown", 8) == 0) {
+        else if (strncmp(buf, "shutdown", 8) == 0) {
 	    char *args = buf + 8;
 	    while (*args == ' ') args++;
 	    if (exit_command(args)) {
