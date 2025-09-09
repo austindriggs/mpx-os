@@ -7,7 +7,7 @@
 
 // penguin ASCII image on startup
 void com_startup(void) {
-    sys_req(WRITE, COM1, "\r\n-------------------------------------------------------\r\n", 60);
+    sys_req(WRITE, COM1, "\r\n---------------------------------------------------------------------------\r\n", 80);
     sys_req(WRITE, COM1, "\r\n", 3);
 
     const char *bannerPart1 =
