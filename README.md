@@ -15,10 +15,10 @@ Clone this repo into a linux environment (WSL, Ubuntu, etc):
 git clone https://github.com/WVU-CS450/MacaroniPenguins.git
 ```
 
-Prep your linux environment by running the following commands or `./setup.sh`:
+Prep your linux environment by running the following commands:
 ```bash
 sudo apt update
-sudo apt install -y clang make nasm git binutils-i686-linux-gnu qemu-system-x86 gdb doxygen
+sudo apt install -y clang make nasm git binutils-i686-linux-gnu qemu-system-x86 gdb
 ```
 
 Then run `make` and `./mpx.sh`.
@@ -45,6 +45,12 @@ See the [doc/](doc/) folder for:
 
 ## DOXYGEN
 
+Install doxygen and dependancies:
+```bash
+sudo apt update
+sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra
+```
+
 Create the configuration file (convention is a Doxyfile):
 ```bash
 doxygen -g <config-file>
@@ -53,6 +59,11 @@ doxygen -g <config-file>
 Edit the file to your liking, reference the [doxygen manual](https://www.doxygen.nl/manual/index.html) if needed, then run doxygen:
 ```bash
 doxygen <config-file>
+```
+
+Then `cd` into the generated latex directory and run:
+```
+make pdf
 ```
 
 When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) and `OUTPUT_DIRECTORY` (from `dev/doxygen` to `doc`). Also remember to change `user/version.c`.
