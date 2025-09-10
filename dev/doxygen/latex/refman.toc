@@ -3,107 +3,124 @@
 \contentsline {section}{\numberline {1.1}GETTING STARTED}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}CONTRIBUTING}{1}{section.1.2}%
 \contentsline {section}{\numberline {1.3}DOXYGEN}{2}{section.1.3}%
-\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
-\contentsline {chapter}{\numberline {3}File Documentation}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}include/comhand.h File Reference}{5}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Detailed Description}{5}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Function Documentation}{5}{subsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.2.1}trim\_Input()}{5}{subsubsection.3.1.2.1}%
-\contentsline {section}{\numberline {3.2}comhand.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{6}{section.3.2}%
-\contentsline {section}{\numberline {3.3}include/ctype.h File Reference}{6}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Detailed Description}{6}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Function Documentation}{6}{subsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.2.1}isspace()}{6}{subsubsection.3.3.2.1}%
-\contentsline {section}{\numberline {3.4}ctype.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{6}{section.3.4}%
-\contentsline {section}{\numberline {3.5}include/exit.h File Reference}{7}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Detailed Description}{7}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Function Documentation}{7}{subsection.3.5.2}%
-\contentsline {subsubsection}{\numberline {3.5.2.1}exit\_command()}{7}{subsubsection.3.5.2.1}%
-\contentsline {section}{\numberline {3.6}exit.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{7}{section.3.6}%
-\contentsline {section}{\numberline {3.7}include/help.h File Reference}{8}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Detailed Description}{8}{subsection.3.7.1}%
-\contentsline {section}{\numberline {3.8}help.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{8}{section.3.8}%
-\contentsline {section}{\numberline {3.9}include/itoa.h File Reference}{8}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}Detailed Description}{8}{subsection.3.9.1}%
-\contentsline {subsection}{\numberline {3.9.2}Function Documentation}{8}{subsection.3.9.2}%
-\contentsline {subsubsection}{\numberline {3.9.2.1}itoa()}{8}{subsubsection.3.9.2.1}%
-\contentsline {section}{\numberline {3.10}itoa.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{9}{section.3.10}%
-\contentsline {section}{\numberline {3.11}include/memory.h File Reference}{9}{section.3.11}%
-\contentsline {section}{\numberline {3.12}memory.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{9}{section.3.12}%
-\contentsline {section}{\numberline {3.13}device.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{9}{section.3.13}%
-\contentsline {section}{\numberline {3.14}include/mpx/gdt.h File Reference}{9}{section.3.14}%
-\contentsline {subsection}{\numberline {3.14.1}Detailed Description}{10}{subsection.3.14.1}%
-\contentsline {subsection}{\numberline {3.14.2}Function Documentation}{10}{subsection.3.14.2}%
-\contentsline {subsubsection}{\numberline {3.14.2.1}gdt\_init()}{10}{subsubsection.3.14.2.1}%
-\contentsline {section}{\numberline {3.15}gdt.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{10}{section.3.15}%
-\contentsline {section}{\numberline {3.16}include/mpx/interrupts.h File Reference}{10}{section.3.16}%
-\contentsline {subsection}{\numberline {3.16.1}Detailed Description}{10}{subsection.3.16.1}%
-\contentsline {subsection}{\numberline {3.16.2}Macro Definition Documentation}{11}{subsection.3.16.2}%
-\contentsline {subsubsection}{\numberline {3.16.2.1}cli}{11}{subsubsection.3.16.2.1}%
-\contentsline {subsubsection}{\numberline {3.16.2.2}sti}{11}{subsubsection.3.16.2.2}%
-\contentsline {subsection}{\numberline {3.16.3}Function Documentation}{11}{subsection.3.16.3}%
-\contentsline {subsubsection}{\numberline {3.16.3.1}idt\_init()}{11}{subsubsection.3.16.3.1}%
-\contentsline {subsubsection}{\numberline {3.16.3.2}idt\_install()}{11}{subsubsection.3.16.3.2}%
-\contentsline {subsubsection}{\numberline {3.16.3.3}irq\_init()}{11}{subsubsection.3.16.3.3}%
-\contentsline {subsubsection}{\numberline {3.16.3.4}pic\_init()}{11}{subsubsection.3.16.3.4}%
-\contentsline {section}{\numberline {3.17}interrupts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{12}{section.3.17}%
-\contentsline {section}{\numberline {3.18}include/mpx/io.h File Reference}{12}{section.3.18}%
-\contentsline {subsection}{\numberline {3.18.1}Detailed Description}{12}{subsection.3.18.1}%
-\contentsline {subsection}{\numberline {3.18.2}Macro Definition Documentation}{12}{subsection.3.18.2}%
-\contentsline {subsubsection}{\numberline {3.18.2.1}inb}{12}{subsubsection.3.18.2.1}%
-\contentsline {subsubsection}{\numberline {3.18.2.2}outb}{13}{subsubsection.3.18.2.2}%
-\contentsline {section}{\numberline {3.19}io.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{13}{section.3.19}%
-\contentsline {section}{\numberline {3.20}include/mpx/panic.h File Reference}{13}{section.3.20}%
-\contentsline {subsection}{\numberline {3.20.1}Detailed Description}{13}{subsection.3.20.1}%
-\contentsline {subsection}{\numberline {3.20.2}Function Documentation}{14}{subsection.3.20.2}%
-\contentsline {subsubsection}{\numberline {3.20.2.1}\_\_attribute\_\_()}{14}{subsubsection.3.20.2.1}%
-\contentsline {section}{\numberline {3.21}panic.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{14}{section.3.21}%
-\contentsline {section}{\numberline {3.22}include/mpx/serial.h File Reference}{14}{section.3.22}%
-\contentsline {subsection}{\numberline {3.22.1}Detailed Description}{14}{subsection.3.22.1}%
-\contentsline {subsection}{\numberline {3.22.2}Function Documentation}{14}{subsection.3.22.2}%
-\contentsline {subsubsection}{\numberline {3.22.2.1}serial\_init()}{14}{subsubsection.3.22.2.1}%
-\contentsline {subsubsection}{\numberline {3.22.2.2}serial\_out()}{15}{subsubsection.3.22.2.2}%
-\contentsline {subsubsection}{\numberline {3.22.2.3}serial\_poll()}{15}{subsubsection.3.22.2.3}%
-\contentsline {section}{\numberline {3.23}serial.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{16}{section.3.23}%
-\contentsline {section}{\numberline {3.24}include/mpx/vm.h File Reference}{16}{section.3.24}%
-\contentsline {subsection}{\numberline {3.24.1}Detailed Description}{16}{subsection.3.24.1}%
-\contentsline {subsection}{\numberline {3.24.2}Function Documentation}{16}{subsection.3.24.2}%
-\contentsline {subsubsection}{\numberline {3.24.2.1}kmalloc()}{16}{subsubsection.3.24.2.1}%
-\contentsline {subsubsection}{\numberline {3.24.2.2}vm\_init()}{17}{subsubsection.3.24.2.2}%
-\contentsline {section}{\numberline {3.25}vm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{17}{section.3.25}%
-\contentsline {section}{\numberline {3.26}include/processes.h File Reference}{17}{section.3.26}%
-\contentsline {subsection}{\numberline {3.26.1}Detailed Description}{17}{subsection.3.26.1}%
-\contentsline {subsection}{\numberline {3.26.2}Function Documentation}{17}{subsection.3.26.2}%
-\contentsline {subsubsection}{\numberline {3.26.2.1}proc1()}{17}{subsubsection.3.26.2.1}%
-\contentsline {subsubsection}{\numberline {3.26.2.2}proc2()}{18}{subsubsection.3.26.2.2}%
-\contentsline {subsubsection}{\numberline {3.26.2.3}proc3()}{18}{subsubsection.3.26.2.3}%
-\contentsline {subsubsection}{\numberline {3.26.2.4}proc4()}{18}{subsubsection.3.26.2.4}%
-\contentsline {subsubsection}{\numberline {3.26.2.5}proc5()}{18}{subsubsection.3.26.2.5}%
-\contentsline {subsubsection}{\numberline {3.26.2.6}sys\_idle\_process()}{18}{subsubsection.3.26.2.6}%
-\contentsline {section}{\numberline {3.27}processes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{18}{section.3.27}%
-\contentsline {section}{\numberline {3.28}include/stdlib.h File Reference}{19}{section.3.28}%
-\contentsline {subsection}{\numberline {3.28.1}Detailed Description}{19}{subsection.3.28.1}%
-\contentsline {subsection}{\numberline {3.28.2}Function Documentation}{19}{subsection.3.28.2}%
-\contentsline {subsubsection}{\numberline {3.28.2.1}atoi()}{19}{subsubsection.3.28.2.1}%
-\contentsline {section}{\numberline {3.29}stdlib.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{19}{section.3.29}%
-\contentsline {section}{\numberline {3.30}include/string.h File Reference}{19}{section.3.30}%
-\contentsline {subsection}{\numberline {3.30.1}Detailed Description}{20}{subsection.3.30.1}%
-\contentsline {subsection}{\numberline {3.30.2}Function Documentation}{20}{subsection.3.30.2}%
-\contentsline {subsubsection}{\numberline {3.30.2.1}memcpy()}{20}{subsubsection.3.30.2.1}%
-\contentsline {subsubsection}{\numberline {3.30.2.2}memset()}{20}{subsubsection.3.30.2.2}%
-\contentsline {subsubsection}{\numberline {3.30.2.3}strcmp()}{21}{subsubsection.3.30.2.3}%
-\contentsline {subsubsection}{\numberline {3.30.2.4}strlen()}{21}{subsubsection.3.30.2.4}%
-\contentsline {subsubsection}{\numberline {3.30.2.5}strtok()}{21}{subsubsection.3.30.2.5}%
-\contentsline {section}{\numberline {3.31}string.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{22}{section.3.31}%
-\contentsline {section}{\numberline {3.32}include/sys\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}req.h File Reference}{22}{section.3.32}%
-\contentsline {subsection}{\numberline {3.32.1}Detailed Description}{22}{subsection.3.32.1}%
-\contentsline {subsection}{\numberline {3.32.2}Function Documentation}{22}{subsection.3.32.2}%
-\contentsline {subsubsection}{\numberline {3.32.2.1}sys\_req()}{22}{subsubsection.3.32.2.1}%
-\contentsline {section}{\numberline {3.33}sys\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}req.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.3.33}%
-\contentsline {section}{\numberline {3.34}include/version.h File Reference}{23}{section.3.34}%
-\contentsline {subsection}{\numberline {3.34.1}Detailed Description}{24}{subsection.3.34.1}%
-\contentsline {subsection}{\numberline {3.34.2}Function Documentation}{24}{subsection.3.34.2}%
-\contentsline {subsubsection}{\numberline {3.34.2.1}version\_command()}{24}{subsubsection.3.34.2.1}%
-\contentsline {section}{\numberline {3.35}version.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{24}{section.3.35}%
-\contentsline {chapter}{Index}{25}{section*.21}%
+\contentsline {chapter}{\numberline {2}Data Structure Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Data Structures}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}File Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}File List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Data Structure Documentation}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}rtc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}date\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}rtc\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}time\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}t Struct Reference}{7}{section.4.2}%
+\contentsline {chapter}{\numberline {5}File Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}include/clock.h File Reference}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.2}clock.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{9}{section.5.2}%
+\contentsline {section}{\numberline {5.3}include/comhand.h File Reference}{10}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{10}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Function Documentation}{10}{subsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.2.1}trim\_Input()}{10}{subsubsection.5.3.2.1}%
+\contentsline {section}{\numberline {5.4}comhand.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{10}{section.5.4}%
+\contentsline {section}{\numberline {5.5}include/ctype.h File Reference}{10}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{11}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Function Documentation}{11}{subsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.2.1}isspace()}{11}{subsubsection.5.5.2.1}%
+\contentsline {section}{\numberline {5.6}ctype.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{11}{section.5.6}%
+\contentsline {section}{\numberline {5.7}include/exit.h File Reference}{11}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{12}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}Function Documentation}{12}{subsection.5.7.2}%
+\contentsline {subsubsection}{\numberline {5.7.2.1}exit\_command()}{12}{subsubsection.5.7.2.1}%
+\contentsline {section}{\numberline {5.8}exit.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{12}{section.5.8}%
+\contentsline {section}{\numberline {5.9}include/help.h File Reference}{12}{section.5.9}%
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{13}{subsection.5.9.1}%
+\contentsline {section}{\numberline {5.10}help.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{13}{section.5.10}%
+\contentsline {section}{\numberline {5.11}include/itoa.h File Reference}{13}{section.5.11}%
+\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{13}{subsection.5.11.1}%
+\contentsline {subsection}{\numberline {5.11.2}Function Documentation}{13}{subsection.5.11.2}%
+\contentsline {subsubsection}{\numberline {5.11.2.1}itoa()}{13}{subsubsection.5.11.2.1}%
+\contentsline {section}{\numberline {5.12}itoa.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{14}{section.5.12}%
+\contentsline {section}{\numberline {5.13}include/ito\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BCD.h File Reference}{14}{section.5.13}%
+\contentsline {subsection}{\numberline {5.13.1}Detailed Description}{14}{subsection.5.13.1}%
+\contentsline {subsection}{\numberline {5.13.2}Function Documentation}{14}{subsection.5.13.2}%
+\contentsline {subsubsection}{\numberline {5.13.2.1}itoBCD()}{14}{subsubsection.5.13.2.1}%
+\contentsline {section}{\numberline {5.14}ito\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}BCD.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{14}{section.5.14}%
+\contentsline {section}{\numberline {5.15}include/memory.h File Reference}{15}{section.5.15}%
+\contentsline {subsection}{\numberline {5.15.1}Detailed Description}{15}{subsection.5.15.1}%
+\contentsline {subsection}{\numberline {5.15.2}Function Documentation}{15}{subsection.5.15.2}%
+\contentsline {subsubsection}{\numberline {5.15.2.1}sys\_alloc\_mem()}{15}{subsubsection.5.15.2.1}%
+\contentsline {subsubsection}{\numberline {5.15.2.2}sys\_free\_mem()}{15}{subsubsection.5.15.2.2}%
+\contentsline {subsubsection}{\numberline {5.15.2.3}sys\_set\_heap\_functions()}{16}{subsubsection.5.15.2.3}%
+\contentsline {section}{\numberline {5.16}memory.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{16}{section.5.16}%
+\contentsline {section}{\numberline {5.17}device.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{16}{section.5.17}%
+\contentsline {section}{\numberline {5.18}include/mpx/gdt.h File Reference}{16}{section.5.18}%
+\contentsline {subsection}{\numberline {5.18.1}Detailed Description}{17}{subsection.5.18.1}%
+\contentsline {subsection}{\numberline {5.18.2}Function Documentation}{17}{subsection.5.18.2}%
+\contentsline {subsubsection}{\numberline {5.18.2.1}gdt\_init()}{17}{subsubsection.5.18.2.1}%
+\contentsline {section}{\numberline {5.19}gdt.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{17}{section.5.19}%
+\contentsline {section}{\numberline {5.20}include/mpx/interrupts.h File Reference}{17}{section.5.20}%
+\contentsline {subsection}{\numberline {5.20.1}Detailed Description}{17}{subsection.5.20.1}%
+\contentsline {subsection}{\numberline {5.20.2}Macro Definition Documentation}{18}{subsection.5.20.2}%
+\contentsline {subsubsection}{\numberline {5.20.2.1}cli}{18}{subsubsection.5.20.2.1}%
+\contentsline {subsubsection}{\numberline {5.20.2.2}sti}{18}{subsubsection.5.20.2.2}%
+\contentsline {subsection}{\numberline {5.20.3}Function Documentation}{18}{subsection.5.20.3}%
+\contentsline {subsubsection}{\numberline {5.20.3.1}idt\_init()}{18}{subsubsection.5.20.3.1}%
+\contentsline {subsubsection}{\numberline {5.20.3.2}idt\_install()}{18}{subsubsection.5.20.3.2}%
+\contentsline {subsubsection}{\numberline {5.20.3.3}irq\_init()}{18}{subsubsection.5.20.3.3}%
+\contentsline {subsubsection}{\numberline {5.20.3.4}pic\_init()}{18}{subsubsection.5.20.3.4}%
+\contentsline {section}{\numberline {5.21}interrupts.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{19}{section.5.21}%
+\contentsline {section}{\numberline {5.22}include/mpx/io.h File Reference}{19}{section.5.22}%
+\contentsline {subsection}{\numberline {5.22.1}Detailed Description}{19}{subsection.5.22.1}%
+\contentsline {subsection}{\numberline {5.22.2}Macro Definition Documentation}{19}{subsection.5.22.2}%
+\contentsline {subsubsection}{\numberline {5.22.2.1}inb}{19}{subsubsection.5.22.2.1}%
+\contentsline {subsubsection}{\numberline {5.22.2.2}outb}{20}{subsubsection.5.22.2.2}%
+\contentsline {section}{\numberline {5.23}io.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{20}{section.5.23}%
+\contentsline {section}{\numberline {5.24}include/mpx/panic.h File Reference}{20}{section.5.24}%
+\contentsline {subsection}{\numberline {5.24.1}Detailed Description}{20}{subsection.5.24.1}%
+\contentsline {subsection}{\numberline {5.24.2}Function Documentation}{21}{subsection.5.24.2}%
+\contentsline {subsubsection}{\numberline {5.24.2.1}\_\_attribute\_\_()}{21}{subsubsection.5.24.2.1}%
+\contentsline {section}{\numberline {5.25}panic.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{21}{section.5.25}%
+\contentsline {section}{\numberline {5.26}include/mpx/serial.h File Reference}{21}{section.5.26}%
+\contentsline {subsection}{\numberline {5.26.1}Detailed Description}{21}{subsection.5.26.1}%
+\contentsline {subsection}{\numberline {5.26.2}Function Documentation}{21}{subsection.5.26.2}%
+\contentsline {subsubsection}{\numberline {5.26.2.1}serial\_init()}{21}{subsubsection.5.26.2.1}%
+\contentsline {subsubsection}{\numberline {5.26.2.2}serial\_out()}{22}{subsubsection.5.26.2.2}%
+\contentsline {subsubsection}{\numberline {5.26.2.3}serial\_poll()}{22}{subsubsection.5.26.2.3}%
+\contentsline {section}{\numberline {5.27}serial.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{23}{section.5.27}%
+\contentsline {section}{\numberline {5.28}include/mpx/vm.h File Reference}{23}{section.5.28}%
+\contentsline {subsection}{\numberline {5.28.1}Detailed Description}{23}{subsection.5.28.1}%
+\contentsline {subsection}{\numberline {5.28.2}Function Documentation}{23}{subsection.5.28.2}%
+\contentsline {subsubsection}{\numberline {5.28.2.1}kmalloc()}{23}{subsubsection.5.28.2.1}%
+\contentsline {subsubsection}{\numberline {5.28.2.2}vm\_init()}{24}{subsubsection.5.28.2.2}%
+\contentsline {section}{\numberline {5.29}vm.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{24}{section.5.29}%
+\contentsline {section}{\numberline {5.30}include/processes.h File Reference}{24}{section.5.30}%
+\contentsline {subsection}{\numberline {5.30.1}Detailed Description}{24}{subsection.5.30.1}%
+\contentsline {subsection}{\numberline {5.30.2}Function Documentation}{24}{subsection.5.30.2}%
+\contentsline {subsubsection}{\numberline {5.30.2.1}proc1()}{24}{subsubsection.5.30.2.1}%
+\contentsline {subsubsection}{\numberline {5.30.2.2}proc2()}{25}{subsubsection.5.30.2.2}%
+\contentsline {subsubsection}{\numberline {5.30.2.3}proc3()}{25}{subsubsection.5.30.2.3}%
+\contentsline {subsubsection}{\numberline {5.30.2.4}proc4()}{25}{subsubsection.5.30.2.4}%
+\contentsline {subsubsection}{\numberline {5.30.2.5}proc5()}{25}{subsubsection.5.30.2.5}%
+\contentsline {subsubsection}{\numberline {5.30.2.6}sys\_idle\_process()}{25}{subsubsection.5.30.2.6}%
+\contentsline {section}{\numberline {5.31}processes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{25}{section.5.31}%
+\contentsline {section}{\numberline {5.32}include/stdlib.h File Reference}{26}{section.5.32}%
+\contentsline {subsection}{\numberline {5.32.1}Detailed Description}{26}{subsection.5.32.1}%
+\contentsline {subsection}{\numberline {5.32.2}Function Documentation}{26}{subsection.5.32.2}%
+\contentsline {subsubsection}{\numberline {5.32.2.1}atoi()}{26}{subsubsection.5.32.2.1}%
+\contentsline {section}{\numberline {5.33}stdlib.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{26}{section.5.33}%
+\contentsline {section}{\numberline {5.34}include/string.h File Reference}{26}{section.5.34}%
+\contentsline {subsection}{\numberline {5.34.1}Detailed Description}{27}{subsection.5.34.1}%
+\contentsline {subsection}{\numberline {5.34.2}Function Documentation}{27}{subsection.5.34.2}%
+\contentsline {subsubsection}{\numberline {5.34.2.1}memcpy()}{27}{subsubsection.5.34.2.1}%
+\contentsline {subsubsection}{\numberline {5.34.2.2}memset()}{27}{subsubsection.5.34.2.2}%
+\contentsline {subsubsection}{\numberline {5.34.2.3}strcmp()}{28}{subsubsection.5.34.2.3}%
+\contentsline {subsubsection}{\numberline {5.34.2.4}strlen()}{28}{subsubsection.5.34.2.4}%
+\contentsline {subsubsection}{\numberline {5.34.2.5}strtok()}{28}{subsubsection.5.34.2.5}%
+\contentsline {section}{\numberline {5.35}string.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{29}{section.5.35}%
+\contentsline {section}{\numberline {5.36}include/sys\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}req.h File Reference}{29}{section.5.36}%
+\contentsline {subsection}{\numberline {5.36.1}Detailed Description}{29}{subsection.5.36.1}%
+\contentsline {subsection}{\numberline {5.36.2}Function Documentation}{29}{subsection.5.36.2}%
+\contentsline {subsubsection}{\numberline {5.36.2.1}sys\_req()}{29}{subsubsection.5.36.2.1}%
+\contentsline {section}{\numberline {5.37}sys\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}req.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{30}{section.5.37}%
+\contentsline {section}{\numberline {5.38}include/version.h File Reference}{30}{section.5.38}%
+\contentsline {subsection}{\numberline {5.38.1}Detailed Description}{31}{subsection.5.38.1}%
+\contentsline {subsection}{\numberline {5.38.2}Function Documentation}{31}{subsection.5.38.2}%
+\contentsline {subsubsection}{\numberline {5.38.2.1}version\_command()}{31}{subsubsection.5.38.2.1}%
+\contentsline {section}{\numberline {5.39}version.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{31}{section.5.39}%
+\contentsline {chapter}{Index}{33}{section*.25}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.10)  10 SEP 2025 15:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.10)  10 SEP 2025 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -856,9 +856,7 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 8.99994pt on input line 205.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.29996pt on input line 205.
- [1] [2] [3] [4
-
-]
+ [1] [2] [3] [4]
 Package hyperref Info: Option `pageanchor' set `true' on input line 208.
  (./md_README.tex
 Chapter 1.
@@ -892,15 +890,24 @@ tri-bu-tions to [][] \T1/pcr/m/n/10 dev/[]CONTRIBUTIONS.[]docx[][] \T1/phv/m/n/
 
 [1
 
+
 ]) [2]
 Chapter 2.
-(./files.tex) [3
+(./annotated.tex) [3
 
 ] [4
 
 ]
 Chapter 3.
-(./comhand_8h.tex
+(./files.tex [5]) [6]
+Chapter 4.
+(./structrtc__date__t.tex) (./structrtc__time__t.tex) [7
+
+] [8
+
+]
+Chapter 5.
+(./clock_8h.tex) (./clock_8h_source.tex) (./comhand_8h.tex [9]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 8.09995pt on input line 13.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
@@ -913,17 +920,18 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 31.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 31.
-) (./comhand_8h_source.tex [5]) (./ctype_8h.tex
+)
+(./comhand_8h_source.tex) (./ctype_8h.tex [10]
 Underfull \hbox (badness 10000) detected at line 32
 [][][]
  []
 
-) (./ctype_8h_source.tex) (./exit_8h.tex [6]
+) (./ctype_8h_source.tex) (./exit_8h.tex
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
 (Font)              Font shape `TS1/phv/m/sl' tried instead on input line 15.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 15.
-
+ [11]
 Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
@@ -933,21 +941,33 @@ Underfull \hbox (badness 10000) detected at line 44
 [][][]
  []
 
-) (./exit_8h_source.tex) (./help_8h.tex [7]
+) (./exit_8h_source.tex) (./help_8h.tex [12]
 Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
 
-) (./help_8h_source.tex) (./itoa_8h.tex [8]) (./itoa_8h_source.tex)
-(./memory_8h.tex) (./memory_8h_source.tex) (./device_8h_source.tex)
-(./gdt_8h.tex [9]) (./gdt_8h_source.tex) (./interrupts_8h.tex [10])
-(./interrupts_8h_source.tex [11]) (./io_8h.tex [12]
-Underfull \hbox (badness 10000) detected at line 43
+) (./help_8h_source.tex) (./itoa_8h.tex) (./itoa_8h_source.tex [13])
+(./itoBCD_8h.tex) (./itoBCD_8h_source.tex) (./memory_8h.tex [14]
+Underfull \hbox (badness 10000) detected at line 39
 [][][]
  []
 
-) (./io_8h_source.tex) (./panic_8h.tex [13]) (./panic_8h_source.tex)
-(./serial_8h.tex [14]
+[15]
+Underfull \hbox (badness 10000) detected at line 53
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 60.
+) (./memory_8h_source.tex) (./device_8h_source.tex) (./gdt_8h.tex [16])
+(./gdt_8h_source.tex) (./interrupts_8h.tex [17]) (./interrupts_8h_source.tex
+[18]) (./io_8h.tex [19]
+Underfull \hbox (badness 10000) detected at line 45
+[][][]
+ []
+
+) (./io_8h_source.tex) (./panic_8h.tex [20]) (./panic_8h_source.tex)
+(./serial_8h.tex [21]
 Underfull \hbox (badness 10000) detected at line 40
 [][][]
  []
@@ -962,101 +982,85 @@ Underfull \hbox (badness 10000) detected at line 76
 [][][]
  []
 
-) (./serial_8h_source.tex [15]) (./vm_8h.tex
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <7> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 30.
-
+) (./serial_8h_source.tex [22]) (./vm_8h.tex
 Overfull \vbox (23.99098pt too high) has occurred while \output is active []
 
 
-[16]
+[23]
 Underfull \hbox (badness 10000) detected at line 41
 [][][]
  []
 
-) (./vm_8h_source.tex) (./processes_8h.tex [17]) (./processes_8h_source.tex)
-(./stdlib_8h.tex [18]
+) (./vm_8h_source.tex) (./processes_8h.tex [24]) (./processes_8h_source.tex)
+(./stdlib_8h.tex [25]
 Underfull \hbox (badness 10000) detected at line 32
 [][][]
  []
 
-) (./stdlib_8h_source.tex) (./string_8h.tex [19]
-Underfull \hbox (badness 10000) detected at line 50
+) (./stdlib_8h_source.tex) (./string_8h.tex [26]
+Underfull \hbox (badness 10000) detected at line 52
 [][][]
  []
 
-[20]
-Underfull \hbox (badness 10000) detected at line 68
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 84
+[27]
+Underfull \hbox (badness 10000) detected at line 70
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 98
+Underfull \hbox (badness 10000) detected at line 86
 [][][]
  []
 
-) (./string_8h_source.tex [21]) (./sys__req_8h.tex [22]
-Underfull \hbox (badness 10000) detected at line 59
+
+Underfull \hbox (badness 10000) detected at line 100
 [][][]
  []
 
-) (./sys__req_8h_source.tex) (./version_8h.tex [23]) (./version_8h_source.tex)
-[24] (./refman.ind
+) (./string_8h_source.tex [28]) (./sys__req_8h.tex [29]
+Underfull \hbox (badness 10000) detected at line 61
+[][][]
+ []
+
+) (./sys__req_8h_source.tex) (./version_8h.tex [30]) (./version_8h_source.tex)
+[31] [32
+
+] (./refman.ind
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 22.39185pt on input line 1.
- [25
+ [33
 
 
-
-] [26
-
-]) (./refman.aux)
+] [34]) (./refman.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 072CCA90B681487815A74080F8F9126D;19875.
+(rerunfilecheck)             Checksum: C5E453E1FE5E980E96D31D47B3FA07E6;23291.
  ) 
 Here is how much of TeX's memory you used:
- 18489 strings out of 476182
- 296694 string characters out of 5795595
- 1939975 words of memory out of 5000000
- 39813 multiletter control sequences out of 15000+600000
+ 18624 strings out of 476182
+ 299642 string characters out of 5795595
+ 1940975 words of memory out of 5000000
+ 39885 multiletter control sequences out of 15000+600000
  612764 words of font info for 104 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,16n,117p,452b,744s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{memory_8h_a462db3a1d9c70195e513b21680b6a013} has be
-en referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{memory_8h_a950663d39dbb073c9dff9cf3b5d3392c} has be
-en referenced but does not exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{memory_8h_a632e7244d1a934b8df4d07db93e956fd} has be
-en referenced but does not exist, replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
-vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (32 pages, 176618 bytes).
+ 101i,15n,117p,452b,744s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/
+uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (40 pages, 188686 bytes).
 PDF statistics:
- 1158 PDF objects out of 1200 (max. 8388607)
- 1091 compressed objects within 11 object streams
- 266 named destinations out of 1000 (max. 500000)
- 865 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1353 PDF objects out of 1440 (max. 8388607)
+ 1276 compressed objects within 13 object streams
+ 312 named destinations out of 1000 (max. 500000)
+ 1001 words of extra memory for PDF output out of 10000 (max. 10000000)
 
