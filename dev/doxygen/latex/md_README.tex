@@ -2,7 +2,11 @@
 \hypertarget{md_README}{}\label{md_README}\index{Macaroni Penguins@{Macaroni Penguins}}
 \label{md_README_autotoc_md0}%
 \Hypertarget{md_README_autotoc_md0}%
- CS450\+: Operating Systems Structure\hypertarget{md_README_autotoc_md1}{}\doxysection{\texorpdfstring{GETTING STARTED}{GETTING STARTED}}\label{md_README_autotoc_md1}
+ CS450\+: Operating Systems Structure
+
+Fall 2025
+
+See the repo at \href{https://github.com/WVU-CS450/MacaroniPenguins}{\texttt{ https\+://github.\+com/\+WVU-\/\+CS450/\+Macaroni\+Penguins}}.\hypertarget{md_README_autotoc_md1}{}\doxysection{\texorpdfstring{GETTING STARTED}{GETTING STARTED}}\label{md_README_autotoc_md1}
 Install WSL if you need to\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{wsl\ -\/-\/install\ -\/d\ ubuntu}
@@ -17,40 +21,53 @@ Clone this repo into a linux environment (WSL, Ubuntu, etc)\+:
 \end{DoxyCode}
 
 
-Prep your linux environment by running the following commands or {\ttfamily ./setup.sh}\+: 
+Prep your linux environment by running the following commands\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{sudo\ apt\ update}
-\DoxyCodeLine{sudo\ apt\ install\ -\/y\ clang\ make\ nasm\ git\ binutils-\/i686-\/linux-\/gnu\ qemu-\/system-\/x86\ gdb\ doxygen}
+\DoxyCodeLine{sudo\ apt\ install\ -\/y\ clang\ make\ nasm\ git\ binutils-\/i686-\/linux-\/gnu\ qemu-\/system-\/x86\ gdb}
 
 \end{DoxyCode}
 
 
-Then run {\ttfamily make} and {\ttfamily ./mpx.sh}.\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{CONTRIBUTING}{CONTRIBUTING}}\label{md_README_autotoc_md2}
+Then run {\ttfamily make} and {\ttfamily ./mpx.sh}.
+
+For more information, either run the {\ttfamily help} command inside of Macaroni\+OS, or consult the \href{doc/USER-GUIDE.pdf}{\texttt{ doc/\+USER-\/\+GUIDE.\+pdf}}.\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{CONTRIBUTING}{CONTRIBUTING}}\label{md_README_autotoc_md2}
 After making changes, running {\ttfamily version} will show that your working directory is \textquotesingle{}dirty\textquotesingle{}. This simply means that you have uncommitted changes.
 
 Ensure you have checked out the correct branch and pulled its latest changes. Stage/add the relevant files before committing them.
 
 Now you can run {\ttfamily make clean} and {\ttfamily make} again, run {\ttfamily ./mpx.sh}, and finally run {\ttfamily version} to see your latest commit hash and showing that your working directory is \textquotesingle{}clean\textquotesingle{}.
 
-When you\textquotesingle{}re done, add your contributions to \href{doc/CONTRIBUTIONS.docx}{\texttt{ CONTRIBUTIONS.\+docx}} and save it as a pdf.\hypertarget{md_README_autotoc_md3}{}\doxysection{\texorpdfstring{DOCUMENTATION}{DOCUMENTATION}}\label{md_README_autotoc_md3}
-See the \href{doc/}{\texttt{ doc/}} folder for\+:
-\begin{DoxyItemize}
-\item \mbox{[}User\textquotesingle{}s Manual\mbox{]}()
-\item \mbox{[}Programmer\textquotesingle{}s Manual\mbox{]}()
-\item \href{doc/CONTRIBUTIONS.pdf}{\texttt{ CONTRIBUTIONS}}
-\end{DoxyItemize}\hypertarget{md_README_autotoc_md4}{}\doxysection{\texorpdfstring{DOXYGEN}{DOXYGEN}}\label{md_README_autotoc_md4}
+When you\textquotesingle{}re done, add your contributions to \href{dev/CONTRIBUTIONS.docx}{\texttt{ dev/\+CONTRIBUTIONS.\+docx}} and save it as \href{/doc/CONTRIBUTIONS.pdf}{\texttt{ doc/\+CONTRIBUTIONS.\+pdf}}.\hypertarget{md_README_autotoc_md3}{}\doxysection{\texorpdfstring{DOXYGEN}{DOXYGEN}}\label{md_README_autotoc_md3}
+Install doxygen and dependancies\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ apt\ update}
+\DoxyCodeLine{sudo\ apt\ install\ -\/y\ doxygen\ texlive-\/full\ texlive-\/latex-\/base\ texlive-\/latex-\/extra}
+
+\end{DoxyCode}
+
+
 Create the configuration file (convention is a Doxyfile)\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{doxygen\ -\/g\ <config-\/file>}
+\DoxyCodeLine{doxygen\ -\/g\ Doxyfile}
 
 \end{DoxyCode}
 
 
 Edit the file to your liking, reference the \href{https://www.doxygen.nl/manual/index.html}{\texttt{ doxygen manual}} if needed, then run doxygen\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{doxygen\ <config-\/file>}
+\DoxyCodeLine{doxygen}
 
 \end{DoxyCode}
 
 
-When releasing a new version of Macaroni\+OS, remember to change the {\ttfamily PROJECT\+\_\+\+NUMER} (to R1, R2, etc) and {\ttfamily OUTPUT\+\_\+\+DIRECTORY} (from {\ttfamily dev/doxygen} to {\ttfamily doc}). Also remember to change {\ttfamily user/version.\+c}. 
+\begin{quote}
+When releasing a new version of Macaroni\+OS, remember to change the {\ttfamily PROJECT\+\_\+\+NUMER} (to R1, R2, etc) and {\ttfamily OUTPUT\+\_\+\+DIRECTORY} (from {\ttfamily dev/doxygen} to {\ttfamily doc}). Also remember to change {\ttfamily user/version.\+c}. \end{quote}
+Then {\ttfamily cd} into the generated latex directory and run\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ pdf}
+
+\end{DoxyCode}
+
+
+In the same directory, a {\ttfamily refman.\+pdf} is generated. Save this file as \href{doc/PROGRAMMER-GUIDE.pdf}{\texttt{ doc/\+PROGRAMMER-\/\+GUIDE.\+pdf}}. 

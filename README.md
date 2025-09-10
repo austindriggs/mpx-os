@@ -2,6 +2,10 @@
 
 CS450: Operating Systems Structure
 
+Fall 2025
+
+See the repo at https://github.com/WVU-CS450/MacaroniPenguins.
+
 
 ## GETTING STARTED
 
@@ -23,6 +27,8 @@ sudo apt install -y clang make nasm git binutils-i686-linux-gnu qemu-system-x86 
 
 Then run `make` and `./mpx.sh`.
 
+For more information, either run the `help` command inside of MacaroniOS, or consult the [doc/USER-GUIDE.pdf](doc/USER-GUIDE.pdf).
+
 
 ## CONTRIBUTING
 
@@ -32,15 +38,7 @@ Ensure you have checked out the correct branch and pulled its latest changes. St
 
 Now you can run `make clean` and `make` again, run `./mpx.sh`, and finally run `version` to see your latest commit hash and showing that your working directory is 'clean'.
 
-When you're done, add your contributions to [CONTRIBUTIONS.docx](doc/CONTRIBUTIONS.docx) and save it as a pdf.
-
-
-## DOCUMENTATION
-
-See the [doc/](doc/) folder for:
-- [User's Manual]()
-- [Programmer's Manual]()
-- [CONTRIBUTIONS](doc/CONTRIBUTIONS.pdf)
+When you're done, add your contributions to [dev/CONTRIBUTIONS.docx](dev/CONTRIBUTIONS.docx) and save it as [doc/CONTRIBUTIONS.pdf](/doc/CONTRIBUTIONS.pdf).
 
 
 ## DOXYGEN
@@ -53,17 +51,19 @@ sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra
 
 Create the configuration file (convention is a Doxyfile):
 ```bash
-doxygen -g <config-file>
+doxygen -g Doxyfile
 ```
 
 Edit the file to your liking, reference the [doxygen manual](https://www.doxygen.nl/manual/index.html) if needed, then run doxygen:
 ```bash
-doxygen <config-file>
+doxygen
 ```
+
+> When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) and `OUTPUT_DIRECTORY` (from `dev/doxygen` to `doc`). Also remember to change `user/version.c`.
 
 Then `cd` into the generated latex directory and run:
 ```
 make pdf
 ```
 
-When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) and `OUTPUT_DIRECTORY` (from `dev/doxygen` to `doc`). Also remember to change `user/version.c`.
+In the same directory, a `refman.pdf` is generated. Save this file as [doc/PROGRAMMER-GUIDE.pdf](doc/PROGRAMMER-GUIDE.pdf). 
