@@ -8,6 +8,7 @@ void help_command(void) {
         "help    - list commands\r\n"
         "exit    - exit the program\r\n"
         "version - Show OS version\r\n"
+        "clock   - Print Real Time Clock\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }

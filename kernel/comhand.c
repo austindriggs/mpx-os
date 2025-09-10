@@ -4,6 +4,7 @@
 #include "help.h"
 #include "exit.h"
 #include "version.h"
+#include "clock.h"
 
  // Trim Function for input (trims \r and \n from input)
 void trim_Input(char *str){
@@ -55,6 +56,13 @@ void comhand(void)
         }
         else if (strcmp(buf, "version") == 0) {
             print_version();
+        }
+        else if (strcmp(buf, "clock") == 0) {
+            rtc_time_t t;
+            rtc_date_t d;
+            get_time(&t);
+            get_date(&d);
+            print_clock(&t, &d);
         }
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);
