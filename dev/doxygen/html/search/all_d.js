@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['r1_0',['R1',['../md_TODO.html#autotoc_md5',1,'']]]
+  ['trim_5finput_0',['trim_Input',['../comhand_8h.html#ac0ff539a87bca2e95633c89556b8a875',1,'comhand.c']]]
 ];

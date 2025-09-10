@@ -6,5 +6,7 @@ var searchData=
   ['interrupts_2eh_3',['interrupts.h',['../interrupts_8h.html',1,'']]],
   ['io_2eh_4',['io.h',['../io_8h.html',1,'']]],
   ['irq_5finit_5',['irq_init',['../interrupts_8h.html#a4f77024da33605c6d49c12845b5dcbb6',1,'core-c.c']]],
-  ['isspace_6',['isspace',['../ctype_8h.html#a56be4166e4673843042a548a7f513dbc',1,'ctype.c']]]
+  ['isspace_6',['isspace',['../ctype_8h.html#a56be4166e4673843042a548a7f513dbc',1,'ctype.c']]],
+  ['itoa_7',['itoa',['../itoa_8h.html#a47151f09c258ca2306c93ed6d2e389a3',1,'itoa.c']]],
+  ['itoa_2eh_8',['itoa.h',['../itoa_8h.html',1,'']]]
 ];

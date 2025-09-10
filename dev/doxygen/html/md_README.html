@@ -81,24 +81,30 @@ GETTING STARTED</h1>
 </div><!-- fragment --><p>Clone this repo into a linux environment (WSL, Ubuntu, etc): </p><div class="fragment"><div class="line">git clone https://github.com/WVU-CS450/MacaroniPenguins.git</div>
 </div><!-- fragment --><p>Prep your linux environment by running the following commands or <code>./setup.sh</code>: </p><div class="fragment"><div class="line">sudo apt update</div>
 <div class="line">sudo apt install -y clang make nasm git binutils-i686-linux-gnu qemu-system-x86 gdb doxygen</div>
-</div><!-- fragment --><p>Then to test your environment, run <code>make</code> and then <code>./mpx.sh</code>.</p>
+</div><!-- fragment --><p>Then run <code>make</code> and <code>./mpx.sh</code>.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
+CONTRIBUTING</h1>
+<p>After making changes, running <code>version</code> will show that your working directory is 'dirty'. This simply means that you have uncommitted changes.</p>
+<p>Ensure you have checked out the correct branch and pulled its latest changes. Stage/add the relevant files before committing them.</p>
+<p>Now you can run <code>make clean</code> and <code>make</code> again, run <code>./mpx.sh</code>, and finally run <code>version</code> to see your latest commit hash and showing that your working directory is 'clean'.</p>
+<p>When you're done, add your contributions to <a href="doc/CONTRIBUTIONS.docx">CONTRIBUTIONS.docx</a> and save it as a pdf.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
 DOCUMENTATION</h1>
 <p>See the <a href="doc/">doc/</a> folder for:</p><ul>
 <li>[User's Manual]()</li>
 <li>[Programmer's Manual]()</li>
-<li>[Contributions]()</li>
+<li><a href="doc/CONTRIBUTIONS.pdf">CONTRIBUTIONS</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 DOXYGEN</h1>
 <p>Create the configuration file (convention is a Doxyfile): </p><div class="fragment"><div class="line">doxygen -g &lt;config-file&gt;</div>
 </div><!-- fragment --><p>Edit the file to your liking, reference the <a href="https://www.doxygen.nl/manual/index.html">doxygen manual</a> if needed, then run doxygen: </p><div class="fragment"><div class="line">doxygen &lt;config-file&gt;</div>
-</div><!-- fragment --><p>When releasing a new version of MacaroniOS, remember to change the <code>PROJECT_NUMER</code> (to R1, R2, etc) and <code>OUTPUT_DIRECTORY</code> (from <code>dev/doxygen</code> to <code>doc</code>). </p>
+</div><!-- fragment --><p>When releasing a new version of MacaroniOS, remember to change the <code>PROJECT_NUMER</code> (to R1, R2, etc) and <code>OUTPUT_DIRECTORY</code> (from <code>dev/doxygen</code> to <code>doc</code>). Also remember to change <code>user/version.c</code>. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 3 2025 14:08:04 for MacaroniOS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Wed Sep 10 2025 14:01:15 for MacaroniOS by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

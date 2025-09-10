@@ -1,20 +1,10 @@
 var searchData=
 [
-  ['serial_2eh_0',['serial.h',['../serial_8h.html',1,'']]],
-  ['serial_5finit_1',['serial_init',['../serial_8h.html#a59d1db7894c07b31b520be0ae0a32896',1,'serial.c']]],
-  ['serial_5fout_2',['serial_out',['../serial_8h.html#a7e049d65b09969503d73dd367775d0f6',1,'serial.c']]],
-  ['serial_5fpoll_3',['serial_poll',['../serial_8h.html#a1e9204d031fa281b2983b1e97859c179',1,'serial.c']]],
-  ['started_4',['GETTING STARTED',['../md_README.html#autotoc_md1',1,'']]],
-  ['stdlib_2eh_5',['stdlib.h',['../stdlib_8h.html',1,'']]],
-  ['sti_6',['sti',['../interrupts_8h.html#ac5d15f274bc9b1e96230f3d3c60fd1f8',1,'interrupts.h']]],
-  ['strcmp_7',['strcmp',['../string_8h.html#a11bd144d7d44914099a3aeddf1c8567d',1,'string.c']]],
-  ['string_2eh_8',['string.h',['../string_8h.html',1,'']]],
-  ['strlen_9',['strlen',['../string_8h.html#aa383452fe445bfae989358c9d7d96f4f',1,'string.c']]],
-  ['strtok_10',['strtok',['../string_8h.html#ae8e613ef4bfd16a5568e1a059f9558a8',1,'string.c']]],
-  ['sys_5falloc_5fmem_11',['sys_alloc_mem',['../memory_8h.html#a632e7244d1a934b8df4d07db93e956fd',1,'core.c']]],
-  ['sys_5ffree_5fmem_12',['sys_free_mem',['../memory_8h.html#a950663d39dbb073c9dff9cf3b5d3392c',1,'core.c']]],
-  ['sys_5fidle_5fprocess_13',['sys_idle_process',['../processes_8h.html#aacd3fe93c6c875e45b891534368d4840',1,'core.c']]],
-  ['sys_5freq_14',['sys_req',['../sys__req_8h.html#a0826d3da32611e0fc48b5d9cbe6c6e26',1,'core.c']]],
-  ['sys_5freq_2eh_15',['sys_req.h',['../sys__req_8h.html',1,'']]],
-  ['sys_5fset_5fheap_5ffunctions_16',['sys_set_heap_functions',['../memory_8h.html#a462db3a1d9c70195e513b21680b6a013',1,'core.c']]]
+  ['version_2eh_0',['version.h',['../version_8h.html',1,'']]],
+  ['version_5fcommand_1',['version_command',['../version_8h.html#a9e492891db781b5eef44eed1861c2a72',1,'version.c']]],
+  ['version_5fhelp_2',['version_help',['../version_8h.html#a49ade7fa1f71233e7038c53688130bdb',1,'version.c']]],
+  ['version_5fhistory_3',['version_history',['../version_8h.html#a825275e6eb243abcb4b1fe96a3b1e283',1,'version.c']]],
+  ['version_5flatest_4',['version_latest',['../version_8h.html#afbca0b027f9fcad25e6630c61116f71d',1,'version.c']]],
+  ['vm_2eh_5',['vm.h',['../vm_8h.html',1,'']]],
+  ['vm_5finit_6',['vm_init',['../vm_8h.html#a1700b78fbc2632387ff7f166ff98af3d',1,'core-c.c']]]
 ];
