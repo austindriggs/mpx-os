@@ -1,0 +1,78 @@
+\doxysection{include/mpx/serial.h File Reference}
+\hypertarget{serial_8h}{}\label{serial_8h}\index{include/mpx/serial.h@{include/mpx/serial.h}}
+
+
+Kernel functions and constants for handling serial I/O.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$mpx/device.\+h$>$}\newline
+Include dependency graph for serial.\+h\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{serial_8h_a59d1db7894c07b31b520be0ae0a32896}{serial\+\_\+init}} (device dev)
+\item 
+int \mbox{\hyperlink{serial_8h_a7e049d65b09969503d73dd367775d0f6}{serial\+\_\+out}} (device dev, const char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t len)
+\item 
+int \mbox{\hyperlink{serial_8h_a1e9204d031fa281b2983b1e97859c179}{serial\+\_\+poll}} (device dev, char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t len)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Kernel functions and constants for handling serial I/O. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{serial_8h_a59d1db7894c07b31b520be0ae0a32896}\label{serial_8h_a59d1db7894c07b31b520be0ae0a32896} 
+\index{serial.h@{serial.h}!serial\_init@{serial\_init}}
+\index{serial\_init@{serial\_init}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_init()}{serial\_init()}}
+{\footnotesize\ttfamily int serial\+\_\+init (\begin{DoxyParamCaption}\item[{device}]{dev }\end{DoxyParamCaption})}
+
+Initializes devices for user input and output 
+\begin{DoxyParams}{Parameters}
+{\em device} & A serial port to initialize (COM1, COM2, COM3, or COM4) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero on failure 
+\end{DoxyReturn}
+\Hypertarget{serial_8h_a7e049d65b09969503d73dd367775d0f6}\label{serial_8h_a7e049d65b09969503d73dd367775d0f6} 
+\index{serial.h@{serial.h}!serial\_out@{serial\_out}}
+\index{serial\_out@{serial\_out}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_out()}{serial\_out()}}
+{\footnotesize\ttfamily int serial\+\_\+out (\begin{DoxyParamCaption}\item[{device}]{dev,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+Writes a buffer to a serial port 
+\begin{DoxyParams}{Parameters}
+{\em device} & The serial port to output to \\
+\hline
+{\em buffer} & A pointer to an array of characters to output \\
+\hline
+{\em len} & The number of bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes written 
+\end{DoxyReturn}
+\Hypertarget{serial_8h_a1e9204d031fa281b2983b1e97859c179}\label{serial_8h_a1e9204d031fa281b2983b1e97859c179} 
+\index{serial.h@{serial.h}!serial\_poll@{serial\_poll}}
+\index{serial\_poll@{serial\_poll}!serial.h@{serial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_poll()}{serial\_poll()}}
+{\footnotesize\ttfamily int serial\+\_\+poll (\begin{DoxyParamCaption}\item[{device}]{dev,  }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+Reads a string from a serial port 
+\begin{DoxyParams}{Parameters}
+{\em device} & The serial port to read data from \\
+\hline
+{\em buffer} & A buffer to write data into as it is read from the serial port \\
+\hline
+{\em count} & The maximum number of bytes to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes read on success, a negative number on failure 
+\end{DoxyReturn}

@@ -1,0 +1,107 @@
+\doxysection{include/string.h File Reference}
+\hypertarget{string_8h}{}\label{string_8h}\index{include/string.h@{include/string.h}}
+
+
+A subset of standard C library functions.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for string.\+h\+:
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{string_8h_ac2592cc12722de7972874c847da5e8f0}{memcpy}} (void \texorpdfstring{$\ast$}{*}restrict dst, const void \texorpdfstring{$\ast$}{*}restrict src, size\+\_\+t n)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{string_8h_a5db3b02071f2cd97278bdefcb0bf8f48}{memset}} (void \texorpdfstring{$\ast$}{*}address, int c, size\+\_\+t n)
+\item 
+int \mbox{\hyperlink{string_8h_a11bd144d7d44914099a3aeddf1c8567d}{strcmp}} (const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2)
+\item 
+\Hypertarget{string_8h_a129fdf4b3852797906d6893db7c22b20}\label{string_8h_a129fdf4b3852797906d6893db7c22b20} 
+int {\bfseries strncmp} (const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2, unsigned int n)
+\item 
+size\+\_\+t \mbox{\hyperlink{string_8h_aa383452fe445bfae989358c9d7d96f4f}{strlen}} (const char \texorpdfstring{$\ast$}{*}s)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{string_8h_ae8e613ef4bfd16a5568e1a059f9558a8}{strtok}} (char \texorpdfstring{$\ast$}{*}restrict s1, const char \texorpdfstring{$\ast$}{*}restrict s2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A subset of standard C library functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{string_8h_ac2592cc12722de7972874c847da5e8f0}\label{string_8h_ac2592cc12722de7972874c847da5e8f0} 
+\index{string.h@{string.h}!memcpy@{memcpy}}
+\index{memcpy@{memcpy}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memcpy()}{memcpy()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} memcpy (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}restrict}]{dst,  }\item[{const void \texorpdfstring{$\ast$}{*}restrict}]{src,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Copy a region of memory. 
+\begin{DoxyParams}{Parameters}
+{\em dst} & The destination memory region \\
+\hline
+{\em src} & The source memory region \\
+\hline
+{\em n} & The number of bytes to copy \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the destination memory region 
+\end{DoxyReturn}
+\Hypertarget{string_8h_a5db3b02071f2cd97278bdefcb0bf8f48}\label{string_8h_a5db3b02071f2cd97278bdefcb0bf8f48} 
+\index{string.h@{string.h}!memset@{memset}}
+\index{memset@{memset}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{memset()}{memset()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} memset (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{address,  }\item[{int}]{c,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Fill a region of memory. 
+\begin{DoxyParams}{Parameters}
+{\em address} & The start of the memory region \\
+\hline
+{\em c} & The byte to fill memory with \\
+\hline
+{\em n} & The number of bytes to fill \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the filled memory region 
+\end{DoxyReturn}
+\Hypertarget{string_8h_a11bd144d7d44914099a3aeddf1c8567d}\label{string_8h_a11bd144d7d44914099a3aeddf1c8567d} 
+\index{string.h@{string.h}!strcmp@{strcmp}}
+\index{strcmp@{strcmp}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strcmp()}{strcmp()}}
+{\footnotesize\ttfamily int strcmp (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2 }\end{DoxyParamCaption})}
+
+Compares two strings 
+\begin{DoxyParams}{Parameters}
+{\em s1} & The first string to compare \\
+\hline
+{\em s2} & The second string to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if strings are equal, \texorpdfstring{$<$}{<}0 if s1 is lexicographically before s2, \texorpdfstring{$>$}{>}0 otherwise 
+\end{DoxyReturn}
+\Hypertarget{string_8h_aa383452fe445bfae989358c9d7d96f4f}\label{string_8h_aa383452fe445bfae989358c9d7d96f4f} 
+\index{string.h@{string.h}!strlen@{strlen}}
+\index{strlen@{strlen}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strlen()}{strlen()}}
+{\footnotesize\ttfamily size\+\_\+t strlen (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})}
+
+Returns the length of a string. 
+\begin{DoxyParams}{Parameters}
+{\em s} & A NUL-\/terminated string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes in the string (not counting NUL terminator) 
+\end{DoxyReturn}
+\Hypertarget{string_8h_ae8e613ef4bfd16a5568e1a059f9558a8}\label{string_8h_ae8e613ef4bfd16a5568e1a059f9558a8} 
+\index{string.h@{string.h}!strtok@{strtok}}
+\index{strtok@{strtok}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strtok()}{strtok()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} strtok (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}restrict}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{s2 }\end{DoxyParamCaption})}
+
+Split string into tokens TODO 

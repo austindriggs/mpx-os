@@ -6,6 +6,8 @@ kernel.bin
 .setup.sh.swp
 kernel/kmain.c.save
 *.tmp
+*.save
+doc/~$NTRIBUTIONS.docx
 
 # depending on your version of ubuntu
 make/CFLAGS

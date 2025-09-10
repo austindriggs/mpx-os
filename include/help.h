@@ -7,10 +7,12 @@
  * Used to list the commands available to the user.
  */
 
+void help_message(void);
+
 /**
  * @brief Prints all commands available into the terminal
  * when the user types 'help' in the input.
  */
-void help_command(void);
+void help_command(const char *args);
 
 #endif

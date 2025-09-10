@@ -1,0 +1,173 @@
+\begin{theindex}
+
+  \item {\_\_attribute\_\_}
+    \subitem {panic.h}, \hyperpage{14}
+
+  \indexspace
+
+  \item {atoi}
+    \subitem {stdlib.h}, \hyperpage{19}
+
+  \indexspace
+
+  \item {cli}
+    \subitem {interrupts.h}, \hyperpage{11}
+  \item {comhand.h}
+    \subitem {trim\_Input}, \hyperpage{5}
+  \item {ctype.h}
+    \subitem {isspace}, \hyperpage{6}
+
+  \indexspace
+
+  \item {exit.h}
+    \subitem {exit\_command}, \hyperpage{7}
+  \item {exit\_command}
+    \subitem {exit.h}, \hyperpage{7}
+
+  \indexspace
+
+  \item {gdt.h}
+    \subitem {gdt\_init}, \hyperpage{10}
+  \item {gdt\_init}
+    \subitem {gdt.h}, \hyperpage{10}
+
+  \indexspace
+
+  \item {idt\_init}
+    \subitem {interrupts.h}, \hyperpage{11}
+  \item {idt\_install}
+    \subitem {interrupts.h}, \hyperpage{11}
+  \item {inb}
+    \subitem {io.h}, \hyperpage{12}
+  \item {include/comhand.h}, \hyperpage{5, 6}
+  \item {include/ctype.h}, \hyperpage{6}
+  \item {include/exit.h}, \hyperpage{7}
+  \item {include/help.h}, \hyperpage{8}
+  \item {include/itoa.h}, \hyperpage{8, 9}
+  \item {include/memory.h}, \hyperpage{9}
+  \item {include/mpx/device.h}, \hyperpage{9}
+  \item {include/mpx/gdt.h}, \hyperpage{9, 10}
+  \item {include/mpx/interrupts.h}, \hyperpage{10}, \hyperpage{12}
+  \item {include/mpx/io.h}, \hyperpage{12, 13}
+  \item {include/mpx/panic.h}, \hyperpage{13, 14}
+  \item {include/mpx/serial.h}, \hyperpage{14}, \hyperpage{16}
+  \item {include/mpx/vm.h}, \hyperpage{16, 17}
+  \item {include/processes.h}, \hyperpage{17, 18}
+  \item {include/stdlib.h}, \hyperpage{19}
+  \item {include/string.h}, \hyperpage{19}, \hyperpage{22}
+  \item {include/sys\_req.h}, \hyperpage{22, 23}
+  \item {include/version.h}, \hyperpage{23, 24}
+  \item {interrupts.h}
+    \subitem {cli}, \hyperpage{11}
+    \subitem {idt\_init}, \hyperpage{11}
+    \subitem {idt\_install}, \hyperpage{11}
+    \subitem {irq\_init}, \hyperpage{11}
+    \subitem {pic\_init}, \hyperpage{11}
+    \subitem {sti}, \hyperpage{11}
+  \item {io.h}
+    \subitem {inb}, \hyperpage{12}
+    \subitem {outb}, \hyperpage{13}
+  \item {irq\_init}
+    \subitem {interrupts.h}, \hyperpage{11}
+  \item {isspace}
+    \subitem {ctype.h}, \hyperpage{6}
+  \item {itoa}
+    \subitem {itoa.h}, \hyperpage{8}
+  \item {itoa.h}
+    \subitem {itoa}, \hyperpage{8}
+
+  \indexspace
+
+  \item {kmalloc}
+    \subitem {vm.h}, \hyperpage{16}
+
+  \indexspace
+
+  \item {Macaroni Penguins}, \hyperpage{1}
+  \item {memcpy}
+    \subitem {string.h}, \hyperpage{20}
+  \item {memset}
+    \subitem {string.h}, \hyperpage{20}
+
+  \indexspace
+
+  \item {outb}
+    \subitem {io.h}, \hyperpage{13}
+
+  \indexspace
+
+  \item {panic.h}
+    \subitem {\_\_attribute\_\_}, \hyperpage{14}
+  \item {pic\_init}
+    \subitem {interrupts.h}, \hyperpage{11}
+  \item {proc1}
+    \subitem {processes.h}, \hyperpage{17}
+  \item {proc2}
+    \subitem {processes.h}, \hyperpage{17}
+  \item {proc3}
+    \subitem {processes.h}, \hyperpage{18}
+  \item {proc4}
+    \subitem {processes.h}, \hyperpage{18}
+  \item {proc5}
+    \subitem {processes.h}, \hyperpage{18}
+  \item {processes.h}
+    \subitem {proc1}, \hyperpage{17}
+    \subitem {proc2}, \hyperpage{17}
+    \subitem {proc3}, \hyperpage{18}
+    \subitem {proc4}, \hyperpage{18}
+    \subitem {proc5}, \hyperpage{18}
+    \subitem {sys\_idle\_process}, \hyperpage{18}
+
+  \indexspace
+
+  \item {serial.h}
+    \subitem {serial\_init}, \hyperpage{14}
+    \subitem {serial\_out}, \hyperpage{15}
+    \subitem {serial\_poll}, \hyperpage{15}
+  \item {serial\_init}
+    \subitem {serial.h}, \hyperpage{14}
+  \item {serial\_out}
+    \subitem {serial.h}, \hyperpage{15}
+  \item {serial\_poll}
+    \subitem {serial.h}, \hyperpage{15}
+  \item {stdlib.h}
+    \subitem {atoi}, \hyperpage{19}
+  \item {sti}
+    \subitem {interrupts.h}, \hyperpage{11}
+  \item {strcmp}
+    \subitem {string.h}, \hyperpage{21}
+  \item {string.h}
+    \subitem {memcpy}, \hyperpage{20}
+    \subitem {memset}, \hyperpage{20}
+    \subitem {strcmp}, \hyperpage{21}
+    \subitem {strlen}, \hyperpage{21}
+    \subitem {strtok}, \hyperpage{21}
+  \item {strlen}
+    \subitem {string.h}, \hyperpage{21}
+  \item {strtok}
+    \subitem {string.h}, \hyperpage{21}
+  \item {sys\_idle\_process}
+    \subitem {processes.h}, \hyperpage{18}
+  \item {sys\_req}
+    \subitem {sys\_req.h}, \hyperpage{22}
+  \item {sys\_req.h}
+    \subitem {sys\_req}, \hyperpage{22}
+
+  \indexspace
+
+  \item {trim\_Input}
+    \subitem {comhand.h}, \hyperpage{5}
+
+  \indexspace
+
+  \item {version.h}
+    \subitem {version\_command}, \hyperpage{24}
+  \item {version\_command}
+    \subitem {version.h}, \hyperpage{24}
+  \item {vm.h}
+    \subitem {kmalloc}, \hyperpage{16}
+    \subitem {vm\_init}, \hyperpage{17}
+  \item {vm\_init}
+    \subitem {vm.h}, \hyperpage{17}
+
+\end{theindex}

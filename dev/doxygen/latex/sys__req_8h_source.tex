@@ -1,0 +1,26 @@
+\doxysection{sys\+\_\+req.\+h}
+\hypertarget{sys__req_8h_source}{}\label{sys__req_8h_source}\index{include/sys\_req.h@{include/sys\_req.h}}
+\mbox{\hyperlink{sys__req_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MPX\_SYS\_REQ\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MPX\_SYS\_REQ\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <mpx/device.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ EXIT,}
+\DoxyCodeLine{00013\ \ \ \ \ IDLE,}
+\DoxyCodeLine{00014\ \ \ \ \ READ,}
+\DoxyCodeLine{00015\ \ \ \ \ WRITE,}
+\DoxyCodeLine{00016\ \}\ op\_code;}
+\DoxyCodeLine{00017\ \ \ \ \ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ error\ codes}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ INVALID\_OPERATION\ \ \ (-\/1)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ INVALID\_BUFFER\ \ \ \ \ \ (-\/2)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ INVALID\_COUNT\ \ \ \ \ \ \ (-\/3)}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sys__req_8h_a0826d3da32611e0fc48b5d9cbe6c6e26}{sys\_req}}(op\_code\ op,\ ...);}
+\DoxyCodeLine{00030\ \ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

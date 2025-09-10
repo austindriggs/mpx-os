@@ -1,0 +1,56 @@
+\doxysection{include/version.h File Reference}
+\hypertarget{version_8h}{}\label{version_8h}\index{include/version.h@{include/version.h}}
+
+
+Displays the current version of Macaroni\+OS.  
+
+
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{version_8h_a81e28b4e4b65a67d32d8633bc31d2b3f}\label{version_8h_a81e28b4e4b65a67d32d8633bc31d2b3f} 
+\#define {\bfseries GIT\+\_\+\+DATE}~"{}unknown"{}
+\item 
+\Hypertarget{version_8h_a3dc75bfc25a45bc047d621ab6fcc76c9}\label{version_8h_a3dc75bfc25a45bc047d621ab6fcc76c9} 
+\#define {\bfseries GIT\+\_\+\+HASH}~"{}unknown"{}
+\item 
+\Hypertarget{version_8h_a425f97c2ac4c5c43c38eeb707a1e9145}\label{version_8h_a425f97c2ac4c5c43c38eeb707a1e9145} 
+\#define {\bfseries GIT\+\_\+\+DIRTY}~"{}unknown"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{version_8h_a49ade7fa1f71233e7038c53688130bdb}\label{version_8h_a49ade7fa1f71233e7038c53688130bdb} 
+void {\bfseries version\+\_\+help} (void)
+\begin{DoxyCompactList}\small\item\em Prints help information related to the version command. \end{DoxyCompactList}\item 
+\Hypertarget{version_8h_afbca0b027f9fcad25e6630c61116f71d}\label{version_8h_afbca0b027f9fcad25e6630c61116f71d} 
+void {\bfseries version\+\_\+latest} (void)
+\begin{DoxyCompactList}\small\item\em Displays the latest version. \end{DoxyCompactList}\item 
+\Hypertarget{version_8h_a825275e6eb243abcb4b1fe96a3b1e283}\label{version_8h_a825275e6eb243abcb4b1fe96a3b1e283} 
+void {\bfseries version\+\_\+history} (void)
+\begin{DoxyCompactList}\small\item\em Displays the past and present versions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{version_8h_a9e492891db781b5eef44eed1861c2a72}{version\+\_\+command}} (const char \texorpdfstring{$\ast$}{*}args)
+\begin{DoxyCompactList}\small\item\em Main handler for the version command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Displays the current version of Macaroni\+OS. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{version_8h_a9e492891db781b5eef44eed1861c2a72}\label{version_8h_a9e492891db781b5eef44eed1861c2a72} 
+\index{version.h@{version.h}!version\_command@{version\_command}}
+\index{version\_command@{version\_command}!version.h@{version.h}}
+\doxysubsubsection{\texorpdfstring{version\_command()}{version\_command()}}
+{\footnotesize\ttfamily void version\+\_\+command (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{args }\end{DoxyParamCaption})}
+
+
+
+Main handler for the version command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & The argument string passed after \textquotesingle{}version\textquotesingle{} \\
+\hline
+\end{DoxyParams}
