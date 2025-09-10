@@ -8,7 +8,8 @@ void help_message(void) {
     // command help
     const char *helpMsg =
         "List Of Commands:\r\n"
-        "\r\nhelp    prints this message\r\n";
+        "\r\nhelp    prints this message\r\n"
+        "\r\nclock   - Print Real Time Clock\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
     exit_help();
     version_help();

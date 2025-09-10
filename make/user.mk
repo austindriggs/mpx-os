@@ -7,4 +7,6 @@ USER_OBJECTS=\
 	user/core.o\
 	user/exit.o\
 	user/help.o\
-	user/version.o
+	user/version.o\
+	user/clock.o
+  
