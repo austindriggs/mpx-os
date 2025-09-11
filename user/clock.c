@@ -5,6 +5,7 @@
 #include <mpx/interrupts.h>
 #include <mpx/io.h>
 #include <mpx/serial.h>
+#include "itoa.h"
 
 #define CMOS_ADDRESS 0x70
 #define CMOS_DATA    0x71
@@ -52,60 +53,78 @@ static void my_strcat(char *dest, const char *src) {
     *dest = '\0';
 }
 
-// Convert integer (0–99) to decimal string
-static void int_to_str(uint8_t value, char *out) {
-    if (value >= 100) { // RTC values won’t exceed 99, but safe guard
-        out[0] = '?';
-        out[1] = '\0';
-        return;
+void clock_command(const char *args){
+    if (args == NULL || *args == '\0') {
+        rtc_time_t t;
+        rtc_date_t d;
+        get_time(&t);
+        get_date(&d);
+        print_time(&t);
+        print_date(&d);
+        print_time(&t);
     }
-
-    if (value >= 10) {
-        out[0] = '0' + (value / 10);
-        out[1] = '0' + (value % 10);
-        out[2] = '\0';
-    } else {
-        out[0] = '0' + value;
-        out[1] = '\0';
+    else if (strcmp(args, "get time") == 0) {
+        rtc_time_t t;
+        rtc_date_t d;
+        get_date(&d);
+        get_time(&t);
+        print_date(&d);
+        print_time(&t);
+    }
+    else if (strcmp(args, "get date") == 0) {
+        rtc_time_t t;
+        rtc_date_t d;
+        get_time(&t);
+        get_date(&d);
+        print_time(&t);
+        print_date(&d);
+    }
+    else if (strcmp(args, "help") == 0) {
+        clock_help();
+    }
+    else {
+        const char *argMsg = "Invalid argument. Please try again.\r\n";
+        sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
 }
 
-//-- Public Functions --
-
-void clock_command(void){
-    
-}
-
-void print_clock(const rtc_time_t *time, const rtc_date_t *date) {
+void print_time(const rtc_time_t *time){
     char buffer[100];
     char num[4];
     size_t len = strlen(buffer);
 
     my_strcpy(buffer, "\r\n\nTime: ");
-
-    int_to_str(time->hour, num);
+    itoa(time->hour, num);
     my_strcat(buffer, num);
     my_strcat(buffer, ":");
 
-    int_to_str(time->minute, num);
+    itoa(time->minute, num);
     my_strcat(buffer, num);
     my_strcat(buffer, ":");
 
-    int_to_str(time->second, num);
+    itoa(time->second, num);
     my_strcat(buffer, num);
-    my_strcat(buffer, "\r\n");
+    my_strcat(buffer, "\r\n\n");
 
-    my_strcpy(buffer, "\r\nDate: ");
+    sys_req(WRITE, COM1, buffer, len);
+}
 
-    int_to_str(date->month, num);
+void print_date(const rtc_date_t *date){
+    char buffer[100];
+    char num[4];
+    size_t len = strlen(buffer);
+
+    my_strcpy(buffer, "\r\n\nDate: ");
+
+    itoa(date->month, num);
     my_strcat(buffer, num);
     my_strcat(buffer, "/");
 
-    int_to_str(date->day, num);
+    itoa(date->day, num);
     my_strcat(buffer, num);
     my_strcat(buffer, "/");
 
-    int_to_str(date->year, num);
+    itoa(date->year, num);
     my_strcat(buffer, num);
     my_strcat(buffer, "\r\n\n");
 
@@ -172,4 +191,19 @@ void set_date(const rtc_date_t *date) {
         rtc_write(REG_YEAR,  date->year);
     }
     sti();
+}
+
+void clock_help(void) {
+    const char *helpMsg =
+        "\r\nclock [get] [date|time]\r\n"
+        "\r\nclock [set] [date] [DDMMYY]\r\n"
+        "\r\nclock [set] [time] [HHMMSS]\r\n"
+        "\r\nclock [help] \r\n"
+        "  clock get time         prints the current time as: {hour}:{minute}:{second}\r\n"
+        "  clock get date         prints the current date as: {day}/{month}/{year}\r\n"
+        "  clock set time         prompts the user for the current time: Hours then Minutes\r\n"
+        "  clock set date         prompts the user for the current date: Day of month, Month, then Year\r\n"
+        "  clock help             prints this message\r\n"
+        "\r\n";
+    sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }

@@ -34,8 +34,12 @@ void set_time(const rtc_time_t *time);
 void get_date(rtc_date_t *date);
 void set_date(const rtc_date_t *date);
 
-void print_clock(const rtc_time_t *time, const rtc_date_t *date);
+void print_time(const rtc_time_t *time);
 
-void clock_command(void);
+void print_date(const rtc_date_t *date);
+
+void clock_help(void);
+
+void clock_command(const char *args);
 
 #endif
