@@ -1,21 +1,22 @@
 \indexentry{Macaroni Penguins@{Macaroni Penguins}|hyperpage}{1}
 \indexentry{rtc\_date\_t@{rtc\_date\_t}|hyperpage}{7}
 \indexentry{rtc\_time\_t@{rtc\_time\_t}|hyperpage}{7}
+\indexentry{stores@{stores}|hyperpage}{7}
 \indexentry{include/clock.h@{include/clock.h}|hyperpage}{9}
 \indexentry{include/clock.h@{include/clock.h}|hyperpage}{9}
 \indexentry{include/comhand.h@{include/comhand.h}|hyperpage}{10}
 \indexentry{comhand.h@{comhand.h}!trim\_Input@{trim\_Input}|hyperpage}{10}
 \indexentry{trim\_Input@{trim\_Input}!comhand.h@{comhand.h}|hyperpage}{10}
-\indexentry{include/comhand.h@{include/comhand.h}|hyperpage}{10}
-\indexentry{include/ctype.h@{include/ctype.h}|hyperpage}{10}
+\indexentry{include/comhand.h@{include/comhand.h}|hyperpage}{11}
+\indexentry{include/ctype.h@{include/ctype.h}|hyperpage}{11}
 \indexentry{ctype.h@{ctype.h}!isspace@{isspace}|hyperpage}{11}
 \indexentry{isspace@{isspace}!ctype.h@{ctype.h}|hyperpage}{11}
 \indexentry{include/ctype.h@{include/ctype.h}|hyperpage}{11}
-\indexentry{include/exit.h@{include/exit.h}|hyperpage}{11}
+\indexentry{include/exit.h@{include/exit.h}|hyperpage}{12}
 \indexentry{exit.h@{exit.h}!exit\_command@{exit\_command}|hyperpage}{12}
 \indexentry{exit\_command@{exit\_command}!exit.h@{exit.h}|hyperpage}{12}
 \indexentry{include/exit.h@{include/exit.h}|hyperpage}{12}
-\indexentry{include/help.h@{include/help.h}|hyperpage}{12}
+\indexentry{include/help.h@{include/help.h}|hyperpage}{13}
 \indexentry{include/help.h@{include/help.h}|hyperpage}{13}
 \indexentry{include/itoa.h@{include/itoa.h}|hyperpage}{13}
 \indexentry{itoa.h@{itoa.h}!itoa@{itoa}|hyperpage}{13}
@@ -24,7 +25,7 @@
 \indexentry{include/itoBCD.h@{include/itoBCD.h}|hyperpage}{14}
 \indexentry{itoBCD.h@{itoBCD.h}!itoBCD@{itoBCD}|hyperpage}{14}
 \indexentry{itoBCD@{itoBCD}!itoBCD.h@{itoBCD.h}|hyperpage}{14}
-\indexentry{include/itoBCD.h@{include/itoBCD.h}|hyperpage}{14}
+\indexentry{include/itoBCD.h@{include/itoBCD.h}|hyperpage}{15}
 \indexentry{include/memory.h@{include/memory.h}|hyperpage}{15}
 \indexentry{memory.h@{memory.h}!sys\_alloc\_mem@{sys\_alloc\_mem}|hyperpage}{15}
 \indexentry{sys\_alloc\_mem@{sys\_alloc\_mem}!memory.h@{memory.h}|hyperpage}{15}
@@ -34,7 +35,7 @@
 \indexentry{sys\_set\_heap\_functions@{sys\_set\_heap\_functions}!memory.h@{memory.h}|hyperpage}{16}
 \indexentry{include/memory.h@{include/memory.h}|hyperpage}{16}
 \indexentry{include/mpx/device.h@{include/mpx/device.h}|hyperpage}{16}
-\indexentry{include/mpx/gdt.h@{include/mpx/gdt.h}|hyperpage}{16}
+\indexentry{include/mpx/gdt.h@{include/mpx/gdt.h}|hyperpage}{17}
 \indexentry{gdt.h@{gdt.h}!gdt\_init@{gdt\_init}|hyperpage}{17}
 \indexentry{gdt\_init@{gdt\_init}!gdt.h@{gdt.h}|hyperpage}{17}
 \indexentry{include/mpx/gdt.h@{include/mpx/gdt.h}|hyperpage}{17}
@@ -63,8 +64,8 @@
 \indexentry{\_\_attribute\_\_@{\_\_attribute\_\_}!panic.h@{panic.h}|hyperpage}{21}
 \indexentry{include/mpx/panic.h@{include/mpx/panic.h}|hyperpage}{21}
 \indexentry{include/mpx/serial.h@{include/mpx/serial.h}|hyperpage}{21}
-\indexentry{serial.h@{serial.h}!serial\_init@{serial\_init}|hyperpage}{21}
-\indexentry{serial\_init@{serial\_init}!serial.h@{serial.h}|hyperpage}{21}
+\indexentry{serial.h@{serial.h}!serial\_init@{serial\_init}|hyperpage}{22}
+\indexentry{serial\_init@{serial\_init}!serial.h@{serial.h}|hyperpage}{22}
 \indexentry{serial.h@{serial.h}!serial\_out@{serial\_out}|hyperpage}{22}
 \indexentry{serial\_out@{serial\_out}!serial.h@{serial.h}|hyperpage}{22}
 \indexentry{serial.h@{serial.h}!serial\_poll@{serial\_poll}|hyperpage}{22}

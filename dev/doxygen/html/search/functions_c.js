@@ -1,8 +1,16 @@
 var searchData=
 [
-  ['version_5fcommand_0',['version_command',['../version_8h.html#a9e492891db781b5eef44eed1861c2a72',1,'version.c']]],
-  ['version_5fhelp_1',['version_help',['../version_8h.html#a49ade7fa1f71233e7038c53688130bdb',1,'version.c']]],
-  ['version_5fhistory_2',['version_history',['../version_8h.html#a825275e6eb243abcb4b1fe96a3b1e283',1,'version.c']]],
-  ['version_5flatest_3',['version_latest',['../version_8h.html#afbca0b027f9fcad25e6630c61116f71d',1,'version.c']]],
-  ['vm_5finit_4',['vm_init',['../vm_8h.html#a1700b78fbc2632387ff7f166ff98af3d',1,'core-c.c']]]
+  ['serial_5finit_0',['serial_init',['../serial_8h.html#a59d1db7894c07b31b520be0ae0a32896',1,'serial.c']]],
+  ['serial_5fout_1',['serial_out',['../serial_8h.html#a7e049d65b09969503d73dd367775d0f6',1,'serial.c']]],
+  ['serial_5fpoll_2',['serial_poll',['../serial_8h.html#a1e9204d031fa281b2983b1e97859c179',1,'serial.c']]],
+  ['set_5fdate_3',['set_date',['../clock_8h.html#a1fa62f9ad8bca3e31c85ae63a275b0c5',1,'clock.c']]],
+  ['set_5ftime_4',['set_time',['../clock_8h.html#a42c26fb95f46c2a057e9f704fb363021',1,'clock.c']]],
+  ['strcmp_5',['strcmp',['../string_8h.html#a11bd144d7d44914099a3aeddf1c8567d',1,'string.c']]],
+  ['strlen_6',['strlen',['../string_8h.html#aa383452fe445bfae989358c9d7d96f4f',1,'string.c']]],
+  ['strtok_7',['strtok',['../string_8h.html#ae8e613ef4bfd16a5568e1a059f9558a8',1,'string.c']]],
+  ['sys_5falloc_5fmem_8',['sys_alloc_mem',['../memory_8h.html#a632e7244d1a934b8df4d07db93e956fd',1,'core.c']]],
+  ['sys_5ffree_5fmem_9',['sys_free_mem',['../memory_8h.html#a950663d39dbb073c9dff9cf3b5d3392c',1,'core.c']]],
+  ['sys_5fidle_5fprocess_10',['sys_idle_process',['../processes_8h.html#aacd3fe93c6c875e45b891534368d4840',1,'core.c']]],
+  ['sys_5freq_11',['sys_req',['../sys__req_8h.html#a0826d3da32611e0fc48b5d9cbe6c6e26',1,'core.c']]],
+  ['sys_5fset_5fheap_5ffunctions_12',['sys_set_heap_functions',['../memory_8h.html#a462db3a1d9c70195e513b21680b6a013',1,'core.c']]]
 ];

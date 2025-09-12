@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.10)  10 SEP 2025 15:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.10)  12 SEP 2025 00:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -901,37 +901,39 @@ Chapter 2.
 Chapter 3.
 (./files.tex [5]) [6]
 Chapter 4.
-(./structrtc__date__t.tex) (./structrtc__time__t.tex) [7
+(./structrtc__date__t.tex) (./structrtc__time__t.tex) (./structstores.tex
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 10.
+)
+[7
 
 ] [8
 
 ]
 Chapter 5.
-(./clock_8h.tex) (./clock_8h_source.tex) (./comhand_8h.tex [9]
+(./clock_8h.tex) (./clock_8h_source.tex [9]) (./comhand_8h.tex
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 8.09995pt on input line 13.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 13.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 13.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 21.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 31.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <8> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 31.
 )
-(./comhand_8h_source.tex) (./ctype_8h.tex [10]
+(./comhand_8h_source.tex [10]) (./ctype_8h.tex
 Underfull \hbox (badness 10000) detected at line 32
 [][][]
  []
 
-) (./ctype_8h_source.tex) (./exit_8h.tex
+) (./ctype_8h_source.tex) (./exit_8h.tex [11]
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
 (Font)              Font shape `TS1/phv/m/sl' tried instead on input line 15.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
 (Font)              scaled to size 8.09995pt on input line 15.
- [11]
+
 Underfull \hbox (badness 10000) detected at line 21
 [][][]
  []
@@ -946,8 +948,8 @@ Underfull \hbox (badness 10000) detected at line 22
 [][][]
  []
 
-) (./help_8h_source.tex) (./itoa_8h.tex) (./itoa_8h_source.tex [13])
-(./itoBCD_8h.tex) (./itoBCD_8h_source.tex) (./memory_8h.tex [14]
+) (./help_8h_source.tex) (./itoa_8h.tex [13]) (./itoa_8h_source.tex)
+(./itoBCD_8h.tex) (./itoBCD_8h_source.tex [14]) (./memory_8h.tex
 Underfull \hbox (badness 10000) detected at line 39
 [][][]
  []
@@ -978,11 +980,15 @@ Underfull \hbox (badness 10000) detected at line 58
  []
 
 
+Overfull \vbox (24.65811pt too high) has occurred while \output is active []
+
+
+[22]
 Underfull \hbox (badness 10000) detected at line 76
 [][][]
  []
 
-) (./serial_8h_source.tex [22]) (./vm_8h.tex
+) (./serial_8h_source.tex) (./vm_8h.tex
 Overfull \vbox (23.99098pt too high) has occurred while \output is active []
 
 
@@ -1037,30 +1043,90 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: C5E453E1FE5E980E96D31D47B3FA07E6;23291.
+(rerunfilecheck)             Checksum: 185BE66B8AC86BEF50B18FE6E35E9BBA;23690.
  ) 
 Here is how much of TeX's memory you used:
- 18624 strings out of 476182
- 299642 string characters out of 5795595
+ 18652 strings out of 476182
+ 300512 string characters out of 5795595
  1940975 words of memory out of 5000000
- 39885 multiletter control sequences out of 15000+600000
+ 39893 multiletter control sequences out of 15000+600000
  612764 words of font info for 104 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 101i,15n,117p,452b,744s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/
-uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (40 pages, 188686 bytes).
+ 101i,16n,117p,452b,744s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{clock_8h_a0e02e6d41a7151c5eff243d07987d0e3} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a2ef785d8bb214b88faad1c25cdffc3ff} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a2a49bf91d1f083b001cb161fe34420f5} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a77bd9c2925600f0a01597612705ff25d} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a57a211ea823aead014dd35d67d1372d0} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a2102d43e9846f8aac0c682742d258639} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a9fb124558640262a703679abf0b26801} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a902c1914aab84dfe297c337b436bb183} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a623c43e4b1c3890ed1c75eaf4cf93a6a} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_ab2e1d159a6e6391961b10cacdb20cd9e} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_ac76df2bdf7320b38bde9f20cdeb89ab4} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a1fa62f9ad8bca3e31c85ae63a275b0c5} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a1fa4d901b4cb126c53d3ca5bc5b26f8c} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a42c26fb95f46c2a057e9f704fb363021} has bee
+n referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{clock_8h_a56568103648c26ca27ad4a9c6764656b} has bee
+n referenced but does not exist, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
+vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on refman.pdf (40 pages, 191376 bytes).
 PDF statistics:
- 1353 PDF objects out of 1440 (max. 8388607)
- 1276 compressed objects within 13 object streams
- 312 named destinations out of 1000 (max. 500000)
- 1001 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1401 PDF objects out of 1440 (max. 8388607)
+ 1323 compressed objects within 14 object streams
+ 330 named destinations out of 1000 (max. 500000)
+ 1017 words of extra memory for PDF output out of 10000 (max. 10000000)
 

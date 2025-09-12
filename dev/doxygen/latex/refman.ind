@@ -40,15 +40,15 @@
   \item {inb}
     \subitem {io.h}, \hyperpage{19}
   \item {include/clock.h}, \hyperpage{9}
-  \item {include/comhand.h}, \hyperpage{10}
-  \item {include/ctype.h}, \hyperpage{10, 11}
-  \item {include/exit.h}, \hyperpage{11, 12}
-  \item {include/help.h}, \hyperpage{12, 13}
+  \item {include/comhand.h}, \hyperpage{10, 11}
+  \item {include/ctype.h}, \hyperpage{11}
+  \item {include/exit.h}, \hyperpage{12}
+  \item {include/help.h}, \hyperpage{13}
   \item {include/itoa.h}, \hyperpage{13, 14}
-  \item {include/itoBCD.h}, \hyperpage{14}
+  \item {include/itoBCD.h}, \hyperpage{14, 15}
   \item {include/memory.h}, \hyperpage{15, 16}
   \item {include/mpx/device.h}, \hyperpage{16}
-  \item {include/mpx/gdt.h}, \hyperpage{16, 17}
+  \item {include/mpx/gdt.h}, \hyperpage{17}
   \item {include/mpx/interrupts.h}, \hyperpage{17}, \hyperpage{19}
   \item {include/mpx/io.h}, \hyperpage{19, 20}
   \item {include/mpx/panic.h}, \hyperpage{20, 21}
@@ -136,11 +136,11 @@
   \indexspace
 
   \item {serial.h}
-    \subitem {serial\_init}, \hyperpage{21}
+    \subitem {serial\_init}, \hyperpage{22}
     \subitem {serial\_out}, \hyperpage{22}
     \subitem {serial\_poll}, \hyperpage{22}
   \item {serial\_init}
-    \subitem {serial.h}, \hyperpage{21}
+    \subitem {serial.h}, \hyperpage{22}
   \item {serial\_out}
     \subitem {serial.h}, \hyperpage{22}
   \item {serial\_poll}
@@ -149,6 +149,7 @@
     \subitem {atoi}, \hyperpage{26}
   \item {sti}
     \subitem {interrupts.h}, \hyperpage{18}
+  \item {stores}, \hyperpage{7}
   \item {strcmp}
     \subitem {string.h}, \hyperpage{28}
   \item {string.h}

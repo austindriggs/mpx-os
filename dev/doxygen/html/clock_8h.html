@@ -82,7 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for the clock functions. get/set TIME get/set DATE.  
+<p>Handles accesses to the Real Time Clock (RTC)  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;<a class="el" href="string_8h_source.html">string.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="sys__req_8h_source.html">sys_req.h</a>&gt;</code><br />
@@ -106,29 +106,431 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a56568103648c26ca27ad4a9c6764656b" id="r_a56568103648c26ca27ad4a9c6764656b"><td class="memItemLeft" align="right" valign="top"><a id="a56568103648c26ca27ad4a9c6764656b" name="a56568103648c26ca27ad4a9c6764656b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>get_time</b> (<a class="el" href="structrtc__time__t.html">rtc_time_t</a> *time)</td></tr>
+<tr class="memitem:a56568103648c26ca27ad4a9c6764656b" id="r_a56568103648c26ca27ad4a9c6764656b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a56568103648c26ca27ad4a9c6764656b">get_time</a> (<a class="el" href="structrtc__time__t.html">rtc_time_t</a> *time)</td></tr>
+<tr class="memdesc:a56568103648c26ca27ad4a9c6764656b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the RTC and stores the current time into specified struct.  <br /></td></tr>
 <tr class="separator:a56568103648c26ca27ad4a9c6764656b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42c26fb95f46c2a057e9f704fb363021" id="r_a42c26fb95f46c2a057e9f704fb363021"><td class="memItemLeft" align="right" valign="top"><a id="a42c26fb95f46c2a057e9f704fb363021" name="a42c26fb95f46c2a057e9f704fb363021"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_time</b> (const <a class="el" href="structrtc__time__t.html">rtc_time_t</a> *time)</td></tr>
+<tr class="memitem:a42c26fb95f46c2a057e9f704fb363021" id="r_a42c26fb95f46c2a057e9f704fb363021"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a42c26fb95f46c2a057e9f704fb363021">set_time</a> (const <a class="el" href="structrtc__time__t.html">rtc_time_t</a> *time)</td></tr>
+<tr class="memdesc:a42c26fb95f46c2a057e9f704fb363021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the specified time into associated RTC registers.  <br /></td></tr>
 <tr class="separator:a42c26fb95f46c2a057e9f704fb363021"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa4d901b4cb126c53d3ca5bc5b26f8c" id="r_a1fa4d901b4cb126c53d3ca5bc5b26f8c"><td class="memItemLeft" align="right" valign="top"><a id="a1fa4d901b4cb126c53d3ca5bc5b26f8c" name="a1fa4d901b4cb126c53d3ca5bc5b26f8c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>get_date</b> (<a class="el" href="structrtc__date__t.html">rtc_date_t</a> *date)</td></tr>
+<tr class="memitem:a1fa4d901b4cb126c53d3ca5bc5b26f8c" id="r_a1fa4d901b4cb126c53d3ca5bc5b26f8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a1fa4d901b4cb126c53d3ca5bc5b26f8c">get_date</a> (<a class="el" href="structrtc__date__t.html">rtc_date_t</a> *date)</td></tr>
+<tr class="memdesc:a1fa4d901b4cb126c53d3ca5bc5b26f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the RTC and stores the current date into specified struct.  <br /></td></tr>
 <tr class="separator:a1fa4d901b4cb126c53d3ca5bc5b26f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa62f9ad8bca3e31c85ae63a275b0c5" id="r_a1fa62f9ad8bca3e31c85ae63a275b0c5"><td class="memItemLeft" align="right" valign="top"><a id="a1fa62f9ad8bca3e31c85ae63a275b0c5" name="a1fa62f9ad8bca3e31c85ae63a275b0c5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_date</b> (const <a class="el" href="structrtc__date__t.html">rtc_date_t</a> *date)</td></tr>
+<tr class="memitem:a1fa62f9ad8bca3e31c85ae63a275b0c5" id="r_a1fa62f9ad8bca3e31c85ae63a275b0c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a1fa62f9ad8bca3e31c85ae63a275b0c5">set_date</a> (const <a class="el" href="structrtc__date__t.html">rtc_date_t</a> *date)</td></tr>
+<tr class="memdesc:a1fa62f9ad8bca3e31c85ae63a275b0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the specified date into associated RTC registers.  <br /></td></tr>
 <tr class="separator:a1fa62f9ad8bca3e31c85ae63a275b0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33cd8e55937c444599d3cbfd1837fdba" id="r_a33cd8e55937c444599d3cbfd1837fdba"><td class="memItemLeft" align="right" valign="top"><a id="a33cd8e55937c444599d3cbfd1837fdba" name="a33cd8e55937c444599d3cbfd1837fdba"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_clock</b> (const <a class="el" href="structrtc__time__t.html">rtc_time_t</a> *time, const <a class="el" href="structrtc__date__t.html">rtc_date_t</a> *date)</td></tr>
-<tr class="separator:a33cd8e55937c444599d3cbfd1837fdba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8addf27b2ddeb5e579bf0054b97d9c60" id="r_a8addf27b2ddeb5e579bf0054b97d9c60"><td class="memItemLeft" align="right" valign="top"><a id="a8addf27b2ddeb5e579bf0054b97d9c60" name="a8addf27b2ddeb5e579bf0054b97d9c60"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clock_command</b> (void)</td></tr>
-<tr class="separator:a8addf27b2ddeb5e579bf0054b97d9c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac76df2bdf7320b38bde9f20cdeb89ab4" id="r_ac76df2bdf7320b38bde9f20cdeb89ab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#ac76df2bdf7320b38bde9f20cdeb89ab4">print_time</a> (<a class="el" href="structrtc__time__t.html">rtc_time_t</a> *time)</td></tr>
+<tr class="memdesc:ac76df2bdf7320b38bde9f20cdeb89ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the specified time in the form HH:MM:SS.  <br /></td></tr>
+<tr class="separator:ac76df2bdf7320b38bde9f20cdeb89ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e1d159a6e6391961b10cacdb20cd9e" id="r_ab2e1d159a6e6391961b10cacdb20cd9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#ab2e1d159a6e6391961b10cacdb20cd9e">print_date</a> (const <a class="el" href="structrtc__date__t.html">rtc_date_t</a> *date)</td></tr>
+<tr class="memdesc:ab2e1d159a6e6391961b10cacdb20cd9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the specified date in the form MM/DD/YY.  <br /></td></tr>
+<tr class="separator:ab2e1d159a6e6391961b10cacdb20cd9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a623c43e4b1c3890ed1c75eaf4cf93a6a" id="r_a623c43e4b1c3890ed1c75eaf4cf93a6a"><td class="memItemLeft" align="right" valign="top"><a id="a623c43e4b1c3890ed1c75eaf4cf93a6a" name="a623c43e4b1c3890ed1c75eaf4cf93a6a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clock_help</b> (void)</td></tr>
+<tr class="memdesc:a623c43e4b1c3890ed1c75eaf4cf93a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints help information related to the clock command. <br /></td></tr>
+<tr class="separator:a623c43e4b1c3890ed1c75eaf4cf93a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a902c1914aab84dfe297c337b436bb183" id="r_a902c1914aab84dfe297c337b436bb183"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a902c1914aab84dfe297c337b436bb183">clock_command</a> (const char *args)</td></tr>
+<tr class="memdesc:a902c1914aab84dfe297c337b436bb183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main handler for the clock command.  <br /></td></tr>
+<tr class="separator:a902c1914aab84dfe297c337b436bb183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fb124558640262a703679abf0b26801" id="r_a9fb124558640262a703679abf0b26801"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a9fb124558640262a703679abf0b26801">my_strcat</a> (char *dest, const char *src)</td></tr>
+<tr class="memdesc:a9fb124558640262a703679abf0b26801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concatenates src to the end of dest.  <br /></td></tr>
+<tr class="separator:a9fb124558640262a703679abf0b26801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2102d43e9846f8aac0c682742d258639" id="r_a2102d43e9846f8aac0c682742d258639"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a2102d43e9846f8aac0c682742d258639">my_strcpy</a> (char *dest, const char *src)</td></tr>
+<tr class="memdesc:a2102d43e9846f8aac0c682742d258639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies src to dest.  <br /></td></tr>
+<tr class="separator:a2102d43e9846f8aac0c682742d258639"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57a211ea823aead014dd35d67d1372d0" id="r_a57a211ea823aead014dd35d67d1372d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a57a211ea823aead014dd35d67d1372d0">rtc_write</a> (uint8_t reg, uint8_t value)</td></tr>
+<tr class="memdesc:a57a211ea823aead014dd35d67d1372d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data to an RTC register.  <br /></td></tr>
+<tr class="separator:a57a211ea823aead014dd35d67d1372d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77bd9c2925600f0a01597612705ff25d" id="r_a77bd9c2925600f0a01597612705ff25d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a77bd9c2925600f0a01597612705ff25d">rtc_read</a> (uint8_t reg)</td></tr>
+<tr class="memdesc:a77bd9c2925600f0a01597612705ff25d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from an RTC register.  <br /></td></tr>
+<tr class="separator:a77bd9c2925600f0a01597612705ff25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a49bf91d1f083b001cb161fe34420f5" id="r_a2a49bf91d1f083b001cb161fe34420f5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a2a49bf91d1f083b001cb161fe34420f5">bin_to_bcd</a> (uint8_t value)</td></tr>
+<tr class="memdesc:a2a49bf91d1f083b001cb161fe34420f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an integer from binary to Binary Coded Decimal (BCD)  <br /></td></tr>
+<tr class="separator:a2a49bf91d1f083b001cb161fe34420f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ef785d8bb214b88faad1c25cdffc3ff" id="r_a2ef785d8bb214b88faad1c25cdffc3ff"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clock_8h.html#a2ef785d8bb214b88faad1c25cdffc3ff">bcd_to_bin</a> (uint8_t value)</td></tr>
+<tr class="memdesc:a2ef785d8bb214b88faad1c25cdffc3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an integer from Binary Coded Decimal (BCD) to binary.  <br /></td></tr>
+<tr class="separator:a2ef785d8bb214b88faad1c25cdffc3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e02e6d41a7151c5eff243d07987d0e3" id="r_a0e02e6d41a7151c5eff243d07987d0e3"><td class="memItemLeft" align="right" valign="top"><a id="a0e02e6d41a7151c5eff243d07987d0e3" name="a0e02e6d41a7151c5eff243d07987d0e3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tz_correction</b> (void)</td></tr>
+<tr class="memdesc:a0e02e6d41a7151c5eff243d07987d0e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the standard RTC timezone (UTC) to EST. <br /></td></tr>
+<tr class="separator:a0e02e6d41a7151c5eff243d07987d0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for the clock functions. get/set TIME get/set DATE. </p>
-<dl class="section author"><dt>Author</dt><dd>Eammon Anderson </dd></dl>
-</div></div><!-- contents -->
+<div class="textblock"><p>Handles accesses to the Real Time Clock (RTC) </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a2ef785d8bb214b88faad1c25cdffc3ff" name="a2ef785d8bb214b88faad1c25cdffc3ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ef785d8bb214b88faad1c25cdffc3ff">&#9670;&#160;</a></span>bcd_to_bin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t bcd_to_bin </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts an integer from Binary Coded Decimal (BCD) to binary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The value to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The specified value in binary </dd></dl>
+
+</div>
+</div>
+<a id="a2a49bf91d1f083b001cb161fe34420f5" name="a2a49bf91d1f083b001cb161fe34420f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a49bf91d1f083b001cb161fe34420f5">&#9670;&#160;</a></span>bin_to_bcd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t bin_to_bcd </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts an integer from binary to Binary Coded Decimal (BCD) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The value to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The specified value as a BCD </dd></dl>
+
+</div>
+</div>
+<a id="a902c1914aab84dfe297c337b436bb183" name="a902c1914aab84dfe297c337b436bb183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a902c1914aab84dfe297c337b436bb183">&#9670;&#160;</a></span>clock_command()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clock_command </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Main handler for the clock command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The argument string passed after 'clock' </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1fa4d901b4cb126c53d3ca5bc5b26f8c" name="a1fa4d901b4cb126c53d3ca5bc5b26f8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fa4d901b4cb126c53d3ca5bc5b26f8c">&#9670;&#160;</a></span>get_date()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void get_date </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structrtc__date__t.html">rtc_date_t</a> *&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accesses the RTC and stores the current date into specified struct. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date</td><td>Stores the current Day, Month, and Year </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a56568103648c26ca27ad4a9c6764656b" name="a56568103648c26ca27ad4a9c6764656b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56568103648c26ca27ad4a9c6764656b">&#9670;&#160;</a></span>get_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void get_time </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structrtc__time__t.html">rtc_time_t</a> *&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accesses the RTC and stores the current time into specified struct. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Stores the current Seconds, Minutes, and Hours </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9fb124558640262a703679abf0b26801" name="a9fb124558640262a703679abf0b26801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fb124558640262a703679abf0b26801">&#9670;&#160;</a></span>my_strcat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my_strcat </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>src</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Concatenates src to the end of dest. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>The argument string to be appended to </td></tr>
+    <tr><td class="paramname">src</td><td>The argument string to append to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2102d43e9846f8aac0c682742d258639" name="a2102d43e9846f8aac0c682742d258639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2102d43e9846f8aac0c682742d258639">&#9670;&#160;</a></span>my_strcpy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my_strcpy </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>src</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copies src to dest. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Stores a copy of src </td></tr>
+    <tr><td class="paramname">src</td><td>Copied to dest </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab2e1d159a6e6391961b10cacdb20cd9e" name="ab2e1d159a6e6391961b10cacdb20cd9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2e1d159a6e6391961b10cacdb20cd9e">&#9670;&#160;</a></span>print_date()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_date </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structrtc__date__t.html">rtc_date_t</a> *&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the specified date in the form MM/DD/YY. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Passes the Day, Month, and Year </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac76df2bdf7320b38bde9f20cdeb89ab4" name="ac76df2bdf7320b38bde9f20cdeb89ab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac76df2bdf7320b38bde9f20cdeb89ab4">&#9670;&#160;</a></span>print_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_time </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structrtc__time__t.html">rtc_time_t</a> *&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the specified time in the form HH:MM:SS. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Passes the Seconds, Minutes, and Hours </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a77bd9c2925600f0a01597612705ff25d" name="a77bd9c2925600f0a01597612705ff25d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77bd9c2925600f0a01597612705ff25d">&#9670;&#160;</a></span>rtc_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t rtc_read </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads data from an RTC register. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>Address of specified RTC register </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a57a211ea823aead014dd35d67d1372d0" name="a57a211ea823aead014dd35d67d1372d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57a211ea823aead014dd35d67d1372d0">&#9670;&#160;</a></span>rtc_write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void rtc_write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes data to an RTC register. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reg</td><td>Address of specified RTC register </td></tr>
+    <tr><td class="paramname">value</td><td>The byte to write to the RTC register </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1fa62f9ad8bca3e31c85ae63a275b0c5" name="a1fa62f9ad8bca3e31c85ae63a275b0c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fa62f9ad8bca3e31c85ae63a275b0c5">&#9670;&#160;</a></span>set_date()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_date </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structrtc__date__t.html">rtc_date_t</a> *&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stores the specified date into associated RTC registers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date</td><td>Passes user defined Day, Month, and Year </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a42c26fb95f46c2a057e9f704fb363021" name="a42c26fb95f46c2a057e9f704fb363021"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c26fb95f46c2a057e9f704fb363021">&#9670;&#160;</a></span>set_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_time </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structrtc__time__t.html">rtc_time_t</a> *&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stores the specified time into associated RTC registers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>Passes user defined Seconds, Minutes, and Hours </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

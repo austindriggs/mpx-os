@@ -1,4 +1,14 @@
 var searchData=
 [
-  ['kmalloc_0',['kmalloc',['../vm_8h.html#adfd712a3551ac5f0dc36a7de43a555e0',1,'vm.h']]]
+  ['idt_5finit_0',['idt_init',['../interrupts_8h.html#a164d38a0163ec2c36993b803b8c7fdcb',1,'core-c.c']]],
+  ['idt_5finstall_1',['idt_install',['../interrupts_8h.html#a152d9a7b01e655898a365af9b0134932',1,'core-c.c']]],
+  ['inb_2',['inb',['../io_8h.html#ad6488a48837d179b1833e2f48dac9665',1,'io.h']]],
+  ['interrupts_2eh_3',['interrupts.h',['../interrupts_8h.html',1,'']]],
+  ['io_2eh_4',['io.h',['../io_8h.html',1,'']]],
+  ['irq_5finit_5',['irq_init',['../interrupts_8h.html#a4f77024da33605c6d49c12845b5dcbb6',1,'core-c.c']]],
+  ['isspace_6',['isspace',['../ctype_8h.html#a56be4166e4673843042a548a7f513dbc',1,'ctype.c']]],
+  ['itoa_7',['itoa',['../itoa_8h.html#a47151f09c258ca2306c93ed6d2e389a3',1,'itoa.c']]],
+  ['itoa_2eh_8',['itoa.h',['../itoa_8h.html',1,'']]],
+  ['itobcd_9',['itoBCD',['../itoBCD_8h.html#a820b78ba82d38ebd2bd1b89621af6e72',1,'itoBCD.c']]],
+  ['itobcd_2eh_10',['itoBCD.h',['../itoBCD_8h.html',1,'']]]
 ];

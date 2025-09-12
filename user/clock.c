@@ -151,14 +151,18 @@ void print_time(rtc_time_t *time){
     
     //time->hour = (time->hour + 24 - 4) % 24;
     my_strcpy(buffer, "\r\n\nTime: ");
+
+    if (time->hour < 10) my_strcat(buffer, "0");
     itoa(time->hour, num);
     my_strcat(buffer, num);
     my_strcat(buffer, ":");
 
+    if (time->minute < 10) my_strcat(buffer, "0");
     itoa(time->minute, num);
     my_strcat(buffer, num);
     my_strcat(buffer, ":");
 
+    if (time->second < 10) my_strcat(buffer, "0");
     itoa(time->second, num);
     my_strcat(buffer, num);
     my_strcat(buffer, "\r\n\n");
@@ -174,14 +178,17 @@ void print_date(const rtc_date_t *date){
 
     my_strcpy(buffer, "\r\n\nDate: ");
 
+    if (date->month < 10) my_strcat(buffer, "0");
     itoa(date->month, num);
     my_strcat(buffer, num);
     my_strcat(buffer, "/");
 
+    if (date->day < 10) my_strcat(buffer, "0");    
     itoa(date->day, num);
     my_strcat(buffer, num);
     my_strcat(buffer, "/");
 
+    if (date->year < 10) my_strcat(buffer, "0");
     itoa(date->year, num);
     my_strcat(buffer, num);
     my_strcat(buffer, "\r\n\n");

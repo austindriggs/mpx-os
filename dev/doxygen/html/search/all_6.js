@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['help_2eh_0',['help.h',['../help_8h.html',1,'']]],
-  ['help_5fcommand_1',['help_command',['../help_8h.html#a69dab28c1335373653d426491225e939',1,'help.c']]]
+  ['gdt_2eh_0',['gdt.h',['../gdt_8h.html',1,'']]],
+  ['gdt_5finit_1',['gdt_init',['../gdt_8h.html#ad2acd7bce259a1a32213503c6fa18f14',1,'core-c.c']]],
+  ['get_5fdate_2',['get_date',['../clock_8h.html#a1fa4d901b4cb126c53d3ca5bc5b26f8c',1,'clock.c']]],
+  ['get_5ftime_3',['get_time',['../clock_8h.html#a56568103648c26ca27ad4a9c6764656b',1,'clock.c']]],
+  ['getting_20started_4',['GETTING STARTED',['../md_README.html#autotoc_md1',1,'']]]
 ];

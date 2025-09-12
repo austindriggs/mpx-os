@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['pic_5finit_0',['pic_init',['../interrupts_8h.html#afc70164c232cee70941b16e3f2ca029a',1,'core-c.c']]],
-  ['proc1_1',['proc1',['../processes_8h.html#a953d53b5d8bba0c5f36c49911876eaa0',1,'core.c']]],
-  ['proc2_2',['proc2',['../processes_8h.html#ababf3a8cb41db24ebd166203db634911',1,'core.c']]],
-  ['proc3_3',['proc3',['../processes_8h.html#a59b88eb10208caac157ee15f9766664f',1,'core.c']]],
-  ['proc4_4',['proc4',['../processes_8h.html#a08225926fb673d2f0cf33fdf41760ded',1,'core.c']]],
-  ['proc5_5',['proc5',['../processes_8h.html#aa268f9868ecd59cc58e70145e5e33872',1,'core.c']]]
+  ['memcpy_0',['memcpy',['../string_8h.html#ac2592cc12722de7972874c847da5e8f0',1,'core.c']]],
+  ['memset_1',['memset',['../string_8h.html#a5db3b02071f2cd97278bdefcb0bf8f48',1,'core.c']]],
+  ['my_5fstrcat_2',['my_strcat',['../clock_8h.html#a9fb124558640262a703679abf0b26801',1,'clock.c']]],
+  ['my_5fstrcpy_3',['my_strcpy',['../clock_8h.html#a2102d43e9846f8aac0c682742d258639',1,'clock.c']]]
 ];
