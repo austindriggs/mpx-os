@@ -3,16 +3,17 @@
 #include "help.h"
 #include "exit.h"
 #include "version.h"
+#include "clock.h"
 
 void help_message(void) {
     // command help
     const char *helpMsg =
         "List Of Commands:\r\n"
-        "\r\nhelp    prints this message\r\n"
-        "\r\nclock   - Print Real Time Clock\r\n";
+        "\r\nhelp - prints this message\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
     exit_help();
     version_help();
+    clock_help();
 
     // more help
     const char *docMsg = "For more help, see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
