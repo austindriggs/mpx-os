@@ -4,6 +4,7 @@
 #include "help.h"
 #include "exit.h"
 #include "version.h"
+#include "clock.h"
 
 // penguin ASCII image on startup
 void com_startup(void) {
@@ -41,6 +42,9 @@ void comhand(void)
     // startup message
     com_startup();
 
+    //TimeZone corrections
+    tz_correction();
+
     // loop through the entire buffer
     for (;;) {
         char buf[100] = {0};
@@ -75,6 +79,11 @@ void comhand(void)
 	    char *args = buf + 4;
             while (*args == ' ') args++;
             help_command(args);
+        }
+        else if (strncmp(buf, "clock", 5) == 0) {
+	    char *args = buf + 5;
+            while (*args == ' ') args++;
+            clock_command(args);
         }
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);
