@@ -42,6 +42,9 @@ void comhand(void)
     // startup message
     com_startup();
 
+    //TimeZone corrections
+    tz_correction();
+
     // loop through the entire buffer
     for (;;) {
         char buf[100] = {0};
