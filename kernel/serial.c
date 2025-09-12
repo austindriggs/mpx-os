@@ -90,7 +90,7 @@ int serial_poll(device dev, char *buffer, size_t len)
 			(input >= 'A' && input <= 'Z') ||
 			(input >= '0' && input <= '9') ||
 			(input >= '!' && input <= '/') ||
-			(input == ' ')) {
+			(input == ' ') || (input == ':')) {
 
 			buffer[index] = input;
 			outb(dev, input); // echo
@@ -122,7 +122,7 @@ int serial_poll(device dev, char *buffer, size_t len)
 		// Handles multi-byte characters that use the escape character
 		else if (input == ESC_KEY){
 			input = inb(dev);
-			while (specialKey != 'A' || specialKey !='B' || specialKey != 'C' || specialKey != 'D' || specialKey != '3'){
+			while (1){
 				specialKey = inb(dev);
 				
 				if (specialKey == 'A'){
