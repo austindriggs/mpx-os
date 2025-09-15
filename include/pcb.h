@@ -21,12 +21,12 @@
 #define PCB_STACK_SIZE 1024 // Minimum 1024
 
 
-enum pcb_class{
+enum process_class{
     CLASS_SYSTEM = 0,
     CLASS_USER = 1
 };
 
-enum exec_state{
+enum execution_state{
     STATE_READY = 0,
     STATE_RUNNING = 1,
     STATE_BLOCKED = 2

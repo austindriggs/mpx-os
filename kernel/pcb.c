@@ -1,6 +1,7 @@
 #include "pcb.h"
 #include <string.h>     
 #include <sys_req.h>   
+#include <memory.h>
 
 /**
  * TODO
