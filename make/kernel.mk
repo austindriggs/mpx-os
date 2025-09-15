@@ -19,5 +19,6 @@ KERNEL_OBJECTS=\
   kernel/comhand.o\
 	kernel/kmain.o\
 	kernel/core-c.o\
+  kernel/pcb.o\
   kernel/itoa.o\
   kernel/itoBCD.o

@@ -89,3 +89,18 @@ char *strtok(char * restrict s1, const char * restrict s2)
 	tok_tmp = NULL;
 	return s1;
 }
+
+//Added in strncpy
+char* strncpy(char* dest, const char* src, unsigned int n){
+	if (!dest || !src || n == 0) return dest;
+
+    unsigned int i;
+    for (i = 0; i < n && src[i] != '\0'; i++) {
+        dest[i] = src[i];
+    }
+    for (; i < n; i++) {
+        dest[i] = '\0';
+    }
+    return dest;
+}
+

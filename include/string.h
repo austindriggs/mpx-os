@@ -48,5 +48,5 @@ size_t strlen(const char *s);
  TODO
 */
 char* strtok(char * restrict s1, const char * restrict s2);
-
+char* strncpy(char* dest, const char* src, unsigned int n);
 #endif
