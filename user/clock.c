@@ -150,7 +150,7 @@ void print_time(rtc_time_t *time){
     char num[4];
     
     //time->hour = (time->hour + 24 - 4) % 24;
-    my_strcpy(buffer, "\r\n\nTime: ");
+    my_strcpy(buffer, "\r\nTime: ");
 
     if (time->hour < 10) my_strcat(buffer, "0");
     itoa(time->hour, num);
@@ -176,7 +176,7 @@ void print_date(const rtc_date_t *date){
     char buffer[100];
     char num[4];
 
-    my_strcpy(buffer, "\r\n\nDate: ");
+    my_strcpy(buffer, "\r\nDate: ");
 
     if (date->month < 10) my_strcat(buffer, "0");
     itoa(date->month, num);
@@ -262,10 +262,7 @@ void set_date(const rtc_date_t *date) {
 
 void clock_help(void) {
     const char *helpMsg =
-        "\r\nclock [get] [date|time]\r\n"
-        "\r\nclock [set] [date] [MM/DD/YY]\r\n"
-        "\r\nclock [set] [time] [HH:MM:SS]\r\n"
-        "\r\nclock [help] \r\n"
+        "\r\nclock [get|set|help]  [date|time] [MM/DD/YY|HH:MM:SS]\r\n"
         "  clock get time         prints the current time as: {hour}:{minute}:{second}\r\n"
         "  clock get date         prints the current date as: {day}/{month}/{year}\r\n"
         "  clock set time         sets the time to the desired HH/MM/SS\r\n"
