@@ -153,13 +153,20 @@ int serial_poll(device dev, char *buffer, size_t len)
 						input = inb(dev);
 					}
 					if (index<(endOfLine-1)){
-						buffer[index] = ' ';
-						index++;
+						for (int i = index; i<endOfLine-1; i++){
+							buffer[i] = buffer[i+1];
+							outb(dev, buffer[i]);
+						}
 						outb(dev, ' ');
+						for (int i = index; i<endOfLine; i++){
+							sys_req(WRITE, COM1, "\033[D", 3);
+						}
+						endOfLine--;
 					}
 					else if (index == (endOfLine-1)){
 						buffer[index] = '\0';
 						sys_req(WRITE, COM1, " \033[D", 4);
+						endOfLine--;
 					}
 					else {
 
