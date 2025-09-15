@@ -1,8 +1,6 @@
 # Macaroni Penguins
 
-CS450: Operating Systems Structure
-
-Fall 2025
+CS450: Operating Systems Structure (Fall 2025)
 
 See the repo at https://github.com/WVU-CS450/MacaroniPenguins.
 
@@ -67,3 +65,8 @@ make pdf
 ```
 
 In the same directory, a `refman.pdf` is generated. Save this file as [doc/PROGRAMMER-GUIDE.pdf](doc/PROGRAMMER-GUIDE.pdf). 
+
+
+## RELEASES
+
+View all of the [Releases](https://github.com/WVU-CS450/MacaroniPenguins/releases/) or view previous documentation in [doc/.legacy/](doc/.legacy/).
