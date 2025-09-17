@@ -8,5 +8,7 @@ USER_OBJECTS=\
 	user/exit.o\
 	user/help.o\
 	user/version.o\
-	user/clock.o
+	user/clock.o\
+	user/pcb/setPriority.o\
+	user/pcb/showPCB.o\
   
