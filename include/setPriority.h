@@ -7,6 +7,8 @@
 
 void set_priority_command(const char* args);
 
+void set_priority_help(void);
+
 void setPriority(char* name, int newPriority);
 
 

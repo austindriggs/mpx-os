@@ -4,6 +4,8 @@
 #include "exit.h"
 #include "version.h"
 #include "clock.h"
+#include "setPriority.h"
+#include "showPCB.h"
 
 void help_message(void) {
     // command help
@@ -14,6 +16,8 @@ void help_message(void) {
     exit_help();
     version_help();
     clock_help();
+    set_priority_help();
+    show_pcb_help();
 
     // more help
     const char *docMsg = "For more help, see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";

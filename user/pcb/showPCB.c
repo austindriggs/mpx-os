@@ -4,6 +4,18 @@
 #include <comhand.h>
 #include <itoa.h>
 
+void show_pcb_help(void){
+    const char *helpMessage = 
+            "\r\nshow [name|ready|blocked|all|help]\r\n"
+            "  show name        prints details for the named process\r\n"
+            "  show ready       prints details of processes in ready queue\r\n"
+            "  show blocked     prints details of processes in blocked queue\r\n"
+            "  show all         prints details of all processes\r\n"
+            "  show help        prints this message\r\n"
+            "\r\n";
+    sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
+}
+
 void showPCB(const char* name){
     char buffer[20];
     struct pcb* pcbPTR = pcb_find(name);
@@ -92,7 +104,7 @@ void showAllPCB(void){
 }
 
 void show_command(const char* args){
-    if (args == NULL || *args=='\0'){
+    if (args == NULL || *args=='\0' || (strcmp(args, "all")==0)){
         showAllPCB();
     }
     else if (strcmp(args, "ready") == 0){
@@ -101,7 +113,10 @@ void show_command(const char* args){
     else if (strcmp(args, "blocked") == 0){
         showBlocked();
     }
-    else {
+    else if (strcmp(args, "help")==0){
+        show_pcb_help();
+    }
+    else{
         showPCB(args);
     }
 }

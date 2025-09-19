@@ -19,9 +19,21 @@ void setPriority(char* name, int newPriority){
     }
 }
 
+void set_priority_help(void){
+    const char *helpMessage =
+            "\r\npriority set [name|help] [priority]\r\n"
+            "  priority set name priority       sets the priority of a process to an integer priority value\r\n"
+            "  priority help                    prints this message\r\n"
+            "\r\n";
+    sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
+}
+
 void set_priority_command(const char* args){
     if (args == NULL || *args =='\0'){
         sys_req(WRITE, COM1, "Error: Please ensure a name and priority are given\n", 51);
+    }
+    else if (strcmp(args, "help")==0){
+        set_priority_help();
     }
     else{
         int temp = 0;

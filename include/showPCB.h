@@ -17,4 +17,6 @@ void showBlocked(void);
 
 void showAllPCB(void);
 
+void show_pcb_help(void);
+
 #endif
