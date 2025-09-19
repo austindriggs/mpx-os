@@ -4,6 +4,9 @@
 #include <comhand.h>
 #include <itoa.h>
 
+/**
+ * Help message for showing pcbs
+ */
 void show_pcb_help(void){
     const char *helpMessage = 
             "\r\nshow [name|ready|blocked|all|help]\r\n"
@@ -16,9 +19,14 @@ void show_pcb_help(void){
     sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
 }
 
+/**
+ * Takes process name (string) and prints details for the process
+ */
 void showPCB(const char* name){
     char buffer[20];
-    struct pcb* pcbPTR = pcb_find(name);
+    struct pcb* pcbPTR = pcb_find(name);\
+
+    // Checks if the process exists
     if (pcbPTR == NULL){
         sys_req(WRITE, COM1, "Invalid Process: Given process does not exist\n", 46);
     }
@@ -67,13 +75,18 @@ void showPCB(const char* name){
     }
 }
 
+/**
+ * Prints all processes in the ready queue
+ */
 void showReady(void){
-    // Move through ready queue
-    // Call showPCB and print each PCB in queue
     struct pcb* nextPtr = ready_queue.head;
+    
+    // Checks if there are any processes in the ready queue
     if (nextPtr == NULL){
         sys_req(WRITE, COM1, "No processes in the ready queue\n", 32);
     }
+
+    // If there are processes, move through queue and print each
     else{
         sys_req(WRITE, COM1, "Ready Processes:\n", 17);
         while(nextPtr){
@@ -83,12 +96,18 @@ void showReady(void){
     }
 }
 
+/**
+ * Prints all processes in the blocked queue
+ */
 void showBlocked(void){
-    // Same as showReady, but blocked queue
     struct pcb* nextPtr = blocked_queue.head;
+
+    // Checks if there are any processes in the blocked queue
     if (nextPtr == NULL){
         sys_req(WRITE, COM1, "No processes in the blocked queue\n", 34);
     }
+
+    // If there are processes, move through queue and print each
     else{
         sys_req(WRITE, COM1, "Blocked Processes:\n", 19);
         while(nextPtr){
@@ -98,24 +117,41 @@ void showBlocked(void){
     }
 }
 
+/**
+ * Prints all processes
+ */
 void showAllPCB(void){
     showReady();
     showBlocked();
 }
 
+
+/**
+ * Function for use in command handler. Handles arguments for showing pcbs
+ */
 void show_command(const char* args){
+    
+    // Checks if there are no arguments, or if argument is all
     if (args == NULL || *args=='\0' || (strcmp(args, "all")==0)){
         showAllPCB();
     }
+
+    // Checks if the argument is ready
     else if (strcmp(args, "ready") == 0){
         showReady();
     }
+
+    // Checks if the argument is blocked
     else if (strcmp(args, "blocked") == 0){
         showBlocked();
     }
+
+    // Checks if the argument is help
     else if (strcmp(args, "help")==0){
         show_pcb_help();
     }
+
+    // Handles any other input
     else{
         showPCB(args);
     }

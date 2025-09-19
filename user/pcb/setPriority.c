@@ -3,22 +3,36 @@
 #include <string.h>
 #include <stdlib.h>
 
+/**
+ * Function for setting priority. Takes a string (name) and priority (integer)
+ */
 void setPriority(char* name, int newPriority){
     struct pcb* pcbPTR = pcb_find(name);
+
+    // Checks if the process exists
     if (pcbPTR == NULL){
         sys_req(WRITE, COM1, "Invalid Process: Given process does not exist\n", 46);
     }
+
+    // Checks if the process class
     else if (pcbPTR->process_class == CLASS_SYSTEM){
         sys_req(WRITE, COM1, "Invalid Process: Given process is a kernel/system level process\n", 64);
     }
+
+    // Validates priority is possible
     else if (newPriority>9 || newPriority<0){
         sys_req(WRITE, COM1, "Invalid Priority: Priority level must be between 0 (Highest) and 9 (Lowest)\n", 76);
     }
+
+    // Sets priority
     else if (newPriority<=9 && newPriority>=0){
         pcbPTR->priority = newPriority;
     }
 }
 
+/**
+ * Help message for setting priority
+ */
 void set_priority_help(void){
     const char *helpMessage =
             "\r\npriority set [name|help] [priority]\r\n"
@@ -28,13 +42,22 @@ void set_priority_help(void){
     sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
 }
 
+/**
+ * Creates function for use in command handler, for setting priority and getting help
+ */
 void set_priority_command(const char* args){
+    
+    // Checks for arguments
     if (args == NULL || *args =='\0'){
         sys_req(WRITE, COM1, "Error: Please ensure a name and priority are given\n", 51);
     }
+
+    // Checks if argument is help
     else if (strcmp(args, "help")==0){
         set_priority_help();
     }
+
+    // Handles getting process name and priority number
     else{
         int temp = 0;
         for (int i=0; i<(int)strlen(args); i++){
