@@ -14,12 +14,11 @@ struct pcb_queue blocked_queue = { NULL, NULL };
 struct pcb_queue suspended_ready_queue = { NULL, NULL };
 struct pcb_queue suspended_blocked_queue = { NULL, NULL };
 
-// PCB Allocate
 struct pcb* pcb_allocate(void){
     struct pcb* ptr =(struct pcb*) sys_alloc_mem(sizeof(struct pcb));
     if (!ptr) return NULL;
     memset(ptr, 0, sizeof(struct pcb)); // initialize to 0
-    ptr->stack = (char*) sys_alloc_mem(PCB_STACK_SIZE);
+    ptr->stack = (char*) sys_alloc_mem(PCB_STACK_MIN_SIZE);
     
     // if allocation fails
     if(!ptr->stack){
@@ -27,15 +26,14 @@ struct pcb* pcb_allocate(void){
         return NULL;
     }
     
-    memset(ptr->stack, 0, PCB_STACK_SIZE);
-    ptr->stack_ptr = ptr->stack + PCB_STACK_SIZE - sizeof(void*); // Downward stack movement
+    memset(ptr->stack, 0, PCB_STACK_MIN_SIZE);
+    ptr->stack_ptr = ptr->stack + PCB_STACK_MIN_SIZE - sizeof(void*); // Downward stack movement
     ptr->next = NULL;
     ptr->prev = NULL;
 
     return ptr;
 }
 
-// PCB Free
 int pcb_free(struct pcb* ptr){
     if (!ptr) return -1;
     if (ptr->stack) sys_free_mem(ptr->stack);
@@ -43,14 +41,13 @@ int pcb_free(struct pcb* ptr){
     return 0;
 }
 
-// PCB Setup
 struct pcb* pcb_setup(const char* name, int process_class, int priority){
-    if (!name || strlen(name) >= PCB_NAME_LEN) return NULL;
+    if (!name || strlen(name) >= PCB_NAME_MAX_LEN) return NULL;
     if (priority < 0 || priority > 9) return NULL; // Also handle in User Functions
     struct pcb* ptr = pcb_allocate();
     if (!ptr) return NULL;
-    strncpy(ptr->name, name, PCB_NAME_LEN - 1);
-    ptr->name[PCB_NAME_LEN - 1] = '\0';
+    strncpy(ptr->name, name, PCB_NAME_MAX_LEN - 1);
+    ptr->name[PCB_NAME_MAX_LEN - 1] = '\0';
     ptr->process_class = process_class;
     ptr->priority = priority;
     ptr->execution_state = STATE_READY;
@@ -58,7 +55,6 @@ struct pcb* pcb_setup(const char* name, int process_class, int priority){
     return ptr;
 }
 
-// PCB Find
 struct pcb* pcb_find(const char* name){
     if (!name) return NULL;
     struct pcb_queue* queues[] = {
@@ -79,33 +75,38 @@ struct pcb* pcb_find(const char* name){
     return NULL; // Not found
 }
 
-// PCB Insert (PLEASE REVIEW AND DOUBLE CHECK)
-void pcb_insert(struct pcb* ptr){
+void pcb_insert(struct pcb* ptr) {
+    // Safety check
     if (!ptr) return;
+
     struct pcb_queue* q_ptr = NULL;
-    if (ptr->dispatch_state == DISPATCH_SUSPENDED){
-        if (ptr->execution_state == STATE_BLOCKED){
+
+    // Select correct queue based on dispatch and execution state
+    if (ptr->dispatch_state == DISPATCH_SUSPENDED) {
+        if (ptr->execution_state == STATE_BLOCKED) {
             q_ptr = &suspended_blocked_queue;
         } else {
             q_ptr = &suspended_ready_queue;
         }
     } else {
-        if (ptr->execution_state == STATE_BLOCKED){
+        if (ptr->execution_state == STATE_BLOCKED) {
             q_ptr = &blocked_queue;
         } else {
             q_ptr = &ready_queue;
         }
     }
 
-    // Insert
-    if (q_ptr == &ready_queue){
-        //FIFO within same priority
+    // Insert PCB into the chosen queue
+    if (q_ptr == &ready_queue) {
+        // Priority-ordered insert (FIFO within same priority)
         struct pcb* cur = q_ptr->head;
-        while (cur && cur->priority <= ptr->priority){
+        while (cur && cur->priority <= ptr->priority) {
             cur = cur->next;
         }
-        if (!cur){
-            // insert at tail
+
+        // if cur is NULL, we reached the end of the list
+        if (!cur) {
+            // Insert at tail if no higher-priority PCB found
             if (!q_ptr->head) {
                 q_ptr->head = q_ptr->tail = ptr;
             } else {
@@ -113,8 +114,9 @@ void pcb_insert(struct pcb* ptr){
                 ptr->prev = q_ptr->tail;
                 q_ptr->tail = ptr;
             }
-        } else {
-            // insert before cur
+        } 
+        // else insert before cur
+        else {
             ptr->next = cur;
             ptr->prev = cur->prev;
             if (cur->prev) cur->prev->next = ptr;
@@ -122,33 +124,60 @@ void pcb_insert(struct pcb* ptr){
             cur->prev = ptr;
         }
     } else {
-        // FIFO insert at tail
-        if (!q_ptr->head){
-            q_ptr->head = q_ptr->tail = ptr;
-        } else {
-            q_ptr->tail->next = ptr;
-            ptr->prev = q_ptr->tail;
-            q_ptr->tail = ptr;
-        }
+    // For non-ready queues: insert new PCB at the tail (FIFO order).
+
+    // Case 1: The queue is empty (no head yet).
+    if (!q_ptr->head) {
+        // Make the new PCB both the head and the tail of the queue,
+        // since it's the only element.
+        q_ptr->head = q_ptr->tail = ptr;
+    } else {
+        // Case 2: Queue already has at least one PCB.
+
+        // Link the current tail's 'next' pointer to the new PCB.
+        q_ptr->tail->next = ptr;
+
+        // Link the new PCB's 'prev' pointer back to the old tail.
+        ptr->prev = q_ptr->tail;
+
+        // Update the queue's tail to point to the new PCB.
+        // Now 'ptr' becomes the new last element.
+        q_ptr->tail = ptr;
     }
 }
 
-// PCB Remove (PELASE REVIEW AND DOUBLE CHECK)
-int pcb_remove(struct pcb* ptr){
+}
+
+int pcb_remove(struct pcb* ptr) {
     if (!ptr) return -1;
+
     struct pcb_queue* q_ptr = NULL;
-    if (ptr->dispatch_state == DISPATCH_SUSPENDED){
-        if (ptr->execution_state == STATE_BLOCKED) q_ptr = &suspended_blocked_queue;
-        else q_ptr = &suspended_ready_queue;
+
+    // Determine which queue the PCB belongs to
+    if (ptr->dispatch_state == DISPATCH_SUSPENDED) {
+        if (ptr->execution_state == STATE_BLOCKED)
+            q_ptr = &suspended_blocked_queue;
+        else
+            q_ptr = &suspended_ready_queue;
     } else {
-        if (ptr->execution_state == STATE_BLOCKED) q_ptr = &blocked_queue;
-        else q_ptr = &ready_queue;
+        if (ptr->execution_state == STATE_BLOCKED)
+            q_ptr = &blocked_queue;
+        else
+            q_ptr = &ready_queue;
     }
+
+    // Nothing to remove if queue is empty
     if (!q_ptr || !q_ptr->head) return -1;
+
+    // Relink neighbors to bypass 'ptr'
     if (ptr->prev) ptr->prev->next = ptr->next;
     else q_ptr->head = ptr->next;
+
     if (ptr->next) ptr->next->prev = ptr->prev;
     else q_ptr->tail = ptr->prev;
+
+    // Clear links
     ptr->next = ptr->prev = NULL;
+
     return 0;
 }

@@ -91,7 +91,8 @@ char *strtok(char * restrict s1, const char * restrict s2)
 }
 
 //Added in strncpy
-char* strncpy(char* dest, const char* src, unsigned int n){
+char* strncpy(char* dest, const char* src, unsigned int num_of_chars) {
+	unsigned int n = num_of_chars;
 	if (!dest || !src || n == 0) return dest;
 
     unsigned int i;

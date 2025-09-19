@@ -44,9 +44,21 @@ int strncmp(const char *s1, const char *s2, unsigned int n);
 size_t strlen(const char *s);
 
 /**
- Split string into tokens
- TODO
-*/
+ * @brief Split string into tokens.
+ *
+ * @param s1 String to tokenize (NULL to continue tokenizing).
+ * @param s2 Delimiter characters.
+ * @return Pointer to next token, or NULL if none.
+ */
 char* strtok(char * restrict s1, const char * restrict s2);
-char* strncpy(char* dest, const char* src, unsigned int n);
+
+/**
+ * @brief Copy a string with length limit.
+ *
+ * @param dest Destination buffer.
+ * @param src Source string.
+ * @param num_of_chars Maximum number of characters to copy.
+ * @return Pointer to destination buffer.
+ */
+char* strncpy(char* dest, const char* src, unsigned int num_of_chars);
 #endif
