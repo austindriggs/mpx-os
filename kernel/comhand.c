@@ -6,6 +6,7 @@
 #include "version.h"
 #include "clock.h"
 #include "showPCB.h"
+#include "setPriority.h"
 
 // penguin ASCII image on startup
 void com_startup(void) {
@@ -90,6 +91,11 @@ void comhand(void)
             char *args = buf + 4;
             while (*args == ' ') args++;
             show_command(args);
+        }
+        else if (strncmp(buf, "priority set", 12) == 0){\
+            char *args = buf + 12;
+            while (*args == ' ') args++;
+            set_priority_command(args);
         }
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);
