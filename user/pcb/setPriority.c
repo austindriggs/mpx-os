@@ -67,10 +67,11 @@ void set_priority_command(const char* args){
             }
         }
         if (temp != 0){
-            char name[temp];
+            char name[temp + 1]; 
             for (int i=0; i<temp; i++){
                 name[i] = args[i];
             }
+            name[temp] = '\0'; // Added in null terminator
             const char *numArg = args + temp;
             int priority = atoi(numArg);
             setPriority(name, priority);
