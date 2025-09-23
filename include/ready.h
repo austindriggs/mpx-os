@@ -14,9 +14,9 @@
 void suspend_help(void);
 
 /**
- * @brief Puts a process in the suspended state, and moves it to the appropriate queue.
+ * @brief Puts a non-system process in the suspended state, and moves it to the appropriate queue.
  * @param process_name Process's name (checks for validity)
- * @return int 0 for success, -1 for invalid process/name, and 1 if already suspended.
+ * @return int 0 for success, -1 for invalid process/name or system process, and 1 if already suspended.
  */
 int suspend_pcb(const char* process_name);
 

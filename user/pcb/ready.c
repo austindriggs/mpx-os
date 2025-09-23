@@ -15,17 +15,20 @@
 void suspend_help(void) {
     const char *helpMsg =
         "\r\nsuspend [<name>|help]\r\n"
-        "  suspend <name>    Puts a process in the suspended state, and moves it to the appropriate queue.\r\n"
+        "  suspend <name>    Puts a non-system process in the suspended state, and moves it to the appropriate queue.\r\n"
         "  suspend help      prints this message\r\n\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
-// Puts a process in the suspended state, and moves it to the appropriate queue.
+// Puts a non-system process in the suspended state, and moves it to the appropriate queue.
 int suspend_pcb(const char* process_name) {
     // check for invalid name or process
     if (!process_name || strlen(process_name) == 0) return -1;
     struct pcb* found_pcb_ptr = pcb_find(process_name);
     if (!found_pcb_ptr) return -1;
+
+    // check if system process
+    if (found_pcb_ptr->process_class == CLASS_SYSTEM) return -1;
 
     // check if already suspended
     if (found_pcb_ptr->dispatch_state == DISPATCH_SUSPENDED) return 1;
@@ -44,7 +47,7 @@ void suspend_command(const char *args) {
         suspend_help();
     }
     else if (suspend_pcb(args) == -1) {
-        const char *argMsg = "Invalid process/name. Please try again.\r\n";
+        const char *argMsg = "Invalid process/name or is a system process. Please try again.\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
         suspend_help();
     }
