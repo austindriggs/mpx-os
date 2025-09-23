@@ -45,6 +45,7 @@ int suspend_pcb(const char* process_name) {
 void suspend_command(const char *args) {
     if (args == NULL || *args == '\0' || strcmp(args, "help") == 0) {
         suspend_help();
+        return;
     }
 
     int result = suspend_pcb(args);
@@ -70,6 +71,8 @@ void suspend_command(const char *args) {
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
         suspend_help();
     }
+
+    return;
 }
 
 
@@ -108,6 +111,7 @@ int resume_pcb(const char* process_name) {
 void resume_command(const char *args) {
     if (args == NULL || *args == '\0' || strcmp(args, "help") == 0) {
         resume_help();
+        return;
     }
 
     int result = resume_pcb(args);
@@ -129,4 +133,6 @@ void resume_command(const char *args) {
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
         resume_help();
     }
+
+    return;
 }
