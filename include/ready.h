@@ -21,6 +21,12 @@ void suspend_help(void);
 int suspend_pcb(const char* process_name);
 
 /**
+ * @brief Handles command-line arguments for the suspend command.
+ * @param args Command argument string (process name or "help").
+ */
+void suspend_command(const char *args);
+
+/**
  * @brief Prints the help message for the resume command.
  */
 void resume_help(void);
@@ -31,5 +37,11 @@ void resume_help(void);
  * @return int 0 for success, -1 for invalid process/name, and 1 if already active.
  */
 int resume_pcb(const char* process_name);
+
+/**
+ * @brief Handles command-line arguments for the resume command.
+ * @param args Command argument string (process name or "help").
+ */
+void resume_command(const char *args);
 
 #endif

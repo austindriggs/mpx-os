@@ -97,12 +97,12 @@ void comhand(void)
         else if (strncmp(buf, "suspend", 7) == 0) {
             char *args = buf + 7;
             while (*args == ' ') args++;
-            suspend_pcb(args);
+            suspend_command(args);
         }
         else if (strncmp(buf, "resume", 6) == 0) {
             char *args = buf + 6;
             while (*args == ' ') args++;
-            resume_pcb(args);
+            resume_command(args);
         }
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);
