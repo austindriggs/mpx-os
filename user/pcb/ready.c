@@ -28,7 +28,7 @@ int suspend_pcb(const char* process_name) {
     if (!found_pcb_ptr) return -1;
 
     // check if system process
-    if (found_pcb_ptr->process_class == CLASS_SYSTEM) return -1;
+    if (found_pcb_ptr->process_class == CLASS_SYSTEM) return -2;
 
     // check if already suspended
     if (found_pcb_ptr->dispatch_state == DISPATCH_SUSPENDED) return 1;
@@ -46,16 +46,22 @@ void suspend_command(const char *args) {
     if (args == NULL || *args == '\0' || strcmp(args, "help") == 0) {
         suspend_help();
     }
-    else if (suspend_pcb(args) == -1) {
-        const char *argMsg = "Invalid process/name or is a system process. Please try again.\r\n";
+
+    int result = suspend_pcb(args);
+    if (result == -1) {
+        const char *argMsg = "Invalid process/name. Please try again.\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
         suspend_help();
     }
-    else if (suspend_pcb(args) == 1) {
+    else if (result == -2) {
+        const char *argMsg = "Process is a system process and cannot be suspended.\r\n";
+        sys_req(WRITE, COM1, argMsg, strlen(argMsg));
+    }
+    else if (result == 1) {
         const char *argMsg = "The process is already suspended.";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
-    else if (suspend_pcb(args) == 0) {
+    else if (result == 0) {
         const char *argMsg = "The process has been suspended.";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
@@ -103,16 +109,18 @@ void resume_command(const char *args) {
     if (args == NULL || *args == '\0' || strcmp(args, "help") == 0) {
         resume_help();
     }
-    else if (resume_pcb(args) == -1) {
+
+    int result = resume_pcb(args);
+    if (result == -1) {
         const char *argMsg = "Invalid process/name. Please try again.\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
         resume_help();
     }
-    else if (resume_pcb(args) == 1) {
+    else if (result == 1) {
         const char *argMsg = "The process is already active.";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
-    else if (resume_pcb(args) == 0) {
+    else if (result == 0) {
         const char *argMsg = "The process has been resumed.";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
