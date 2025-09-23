@@ -3,6 +3,9 @@
 
 #include "pcb.h"
 
+//////////////////////////////////////////////////////////////////////////////
+// suspend command
+
 // help message for suspend
 void suspend_help(void) {
     const char *helpMsg =
@@ -30,6 +33,27 @@ int suspend_pcb(const char* process_name) {
     return 0;
 }
 
+// argument handler for resume
+void resume_command(const char *args) {
+    if (args == NULL || *args == '\0') {
+        version_latest();
+    }
+    else if (strcmp(args, "all") == 0) {
+        version_latest();
+        version_history();
+    }
+    else if (strcmp(args, "help") == 0) {
+        version_help();
+    }
+    else {
+        const char *argMsg = "Invalid argument. Please try again.\r\n";
+        sys_req(WRITE, COM1, argMsg, strlen(argMsg));
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// resume command
+
 // help message for resume
 void resume_help(void) {
     const char *helpMsg =
@@ -55,4 +79,22 @@ int resume_pcb(const char* process_name) {
     pcb_insert(found_pcb_ptr);
 
     return 0;
+}
+
+// argument handler for resume
+void resume_command(const char *args) {
+    if (args == NULL || *args == '\0') {
+        version_latest();
+    }
+    else if (strcmp(args, "all") == 0) {
+        version_latest();
+        version_history();
+    }
+    else if (strcmp(args, "help") == 0) {
+        version_help();
+    }
+    else {
+        const char *argMsg = "Invalid argument. Please try again.\r\n";
+        sys_req(WRITE, COM1, argMsg, strlen(argMsg));
+    }
 }
