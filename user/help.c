@@ -6,6 +6,7 @@
 #include "clock.h"
 #include "setPriority.h"
 #include "showPCB.h"
+#include "ready.h"
 
 void help_message(void) {
     // command help
@@ -18,6 +19,8 @@ void help_message(void) {
     clock_help();
     set_priority_help();
     show_pcb_help();
+    suspend_help();
+    resume_help();
 
     // more help
     const char *docMsg = "For more help, see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";

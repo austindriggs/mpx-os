@@ -1,7 +1,8 @@
 .POSIX:
 
 user/core.o: user/core.c include/string.h include/mpx/serial.h \
-  include/mpx/device.h include/processes.h include/sys_req.h include/version.h
+  include/mpx/device.h include/processes.h include/sys_req.h \
+  include/version.h include/ready.h
 
 USER_OBJECTS=\
 	user/core.o\
@@ -11,4 +12,5 @@ USER_OBJECTS=\
 	user/clock.o\
 	user/pcb/setPriority.o\
 	user/pcb/showPCB.o\
+	user/pcb/ready.o\
   

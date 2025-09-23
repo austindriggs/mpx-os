@@ -7,6 +7,7 @@
 #include "clock.h"
 #include "showPCB.h"
 #include "setPriority.h"
+#include "ready.h"
 
 // penguin ASCII image on startup
 void com_startup(void) {
@@ -57,45 +58,51 @@ void comhand(void)
         trim_Input(buf);    // trims \r\n
         sys_req(WRITE, COM1, "\r\n", 2); // Start new line
 
-	// command logic: each function handles its own argument(s) for better encapsulation
-	if (strncmp(buf, "exit", 4) == 0) {
-	    char *args = buf + 4;
-	    while (*args == ' ') args++;
-            if (exit_command(args)) {
-                return;
-            }
+        // command logic: each function handles its own argument(s) for better encapsulation
+        if (strncmp(buf, "exit", 4) == 0) {
+            char *args = buf + 4;
+            while (*args == ' ') args++;
+            if (exit_command(args)) return;
         }
         else if (strncmp(buf, "shutdown", 8) == 0) {
-	    char *args = buf + 8;
-	    while (*args == ' ') args++;
-	    if (exit_command(args)) {
-		return;
-	    }
-	}
-	else if (strncmp(buf, "version", 7) == 0) {
-	    char *args = buf + 7;
-	    while (*args == ' ') args++;
-	    version_command(args);
-	}
+            char *args = buf + 8;
+            while (*args == ' ') args++;
+            if (exit_command(args)) return;
+        }
+        else if (strncmp(buf, "version", 7) == 0) {
+            char *args = buf + 7;
+            while (*args == ' ') args++;
+            version_command(args);
+        }
         else if (strncmp(buf, "help", 4) == 0) {
-	    char *args = buf + 4;
+            char *args = buf + 4;
             while (*args == ' ') args++;
             help_command(args);
         }
         else if (strncmp(buf, "clock", 5) == 0) {
-	    char *args = buf + 5;
+            char *args = buf + 5;
             while (*args == ' ') args++;
             clock_command(args);
         }
-        else if (strncmp(buf, "show", 4) == 0){
+        else if (strncmp(buf, "show", 4) == 0) {
             char *args = buf + 4;
             while (*args == ' ') args++;
             show_command(args);
         }
-        else if (strncmp(buf, "priority set", 12) == 0){\
+        else if (strncmp(buf, "priority set", 12) == 0) {
             char *args = buf + 12;
             while (*args == ' ') args++;
             set_priority_command(args);
+        }
+        else if (strncmp(buf, "suspend", 7) == 0) {
+            char *args = buf + 7;
+            while (*args == ' ') args++;
+            suspend_command(args);
+        }
+        else if (strncmp(buf, "resume", 6) == 0) {
+            char *args = buf + 6;
+            while (*args == ' ') args++;
+            resume_command(args);
         }
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);
