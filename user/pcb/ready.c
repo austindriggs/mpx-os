@@ -15,12 +15,12 @@
 void suspend_help(void) {
     const char *helpMsg =
         "\r\nsuspend [<name>|help]\r\n"
-        "  suspend <name>    Puts a process in the suspended state, and moves it the appropriate queue.\r\n"
+        "  suspend <name>    Puts a process in the suspended state, and moves it to the appropriate queue.\r\n"
         "  suspend help      prints this message\r\n\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
-// Puts a process in the suspended state, and moves it the appropriate queue.
+// Puts a process in the suspended state, and moves it to the appropriate queue.
 int suspend_pcb(const char* process_name) {
     // check for invalid name or process
     if (!process_name || strlen(process_name) == 0) return -1;
@@ -72,12 +72,12 @@ void suspend_command(const char *args) {
 void resume_help(void) {
     const char *helpMsg =
         "\r\nresume [<name>|help]\r\n"
-        "  resume <name>    Puts a process in the active (not suspended) state, and moves it the appropriate queue.\r\n"
+        "  resume <name>    Puts a process in the active (not suspended) state, and moves it to the appropriate queue.\r\n"
         "  resume help      prints this message\r\n\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
-// Puts a process in the active (not suspended) state, and moves it the appropriate queue.
+// Puts a process in the active (not suspended) state, and moves it to the appropriate queue.
 int resume_pcb(const char* process_name) {
     // check for invalid name or process
     if (!process_name || strlen(process_name) == 0) return -1;

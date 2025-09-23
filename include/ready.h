@@ -14,7 +14,7 @@
 void suspend_help(void);
 
 /**
- * @brief Puts a process in the suspended state, and moves it the appropriate queue.
+ * @brief Puts a process in the suspended state, and moves it to the appropriate queue.
  * @param process_name Process's name (checks for validity)
  * @return int 0 for success, -1 for invalid process/name, and 1 if already suspended.
  */
@@ -32,7 +32,7 @@ void suspend_command(const char *args);
 void resume_help(void);
 
 /**
- * @brief Puts a process in the active (not suspended) state, and moves it the appropriate queue.
+ * @brief Puts a process in the active (not suspended) state, and moves it to the appropriate queue.
  * @param process_name Process's name (checks for validity)
  * @return int 0 for success, -1 for invalid process/name, and 1 if already active.
  */
