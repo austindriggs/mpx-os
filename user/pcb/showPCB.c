@@ -13,6 +13,7 @@ void show_pcb_help(void){
             "  show <name>     prints details for the named process\r\n"
             "  show ready      prints details of processes in ready queue\r\n"
             "  show blocked    prints details of processes in blocked queue\r\n"
+            "  show suspended  prints details of processes in the suspended queues\r\n"
             "  show all        prints details of all processes\r\n"
             "  show help       prints this message\r\n"
             "\r\n";
@@ -138,7 +139,7 @@ void showSuspended(void){
         sys_req(WRITE, COM1, "No processes in the suspended-blocked queue\n", 44);
     }
     else{
-        sys_req(WRITE, COM1, "Suspended Blocked Processes:\n");
+        sys_req(WRITE, COM1, "Suspended Blocked Processes:\n", 29);
         while(nextPtr){
             showPCB(nextPtr->name);
             nextPtr = nextPtr->next;
