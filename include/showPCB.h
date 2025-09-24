@@ -19,4 +19,6 @@ void showAllPCB(void);
 
 void show_pcb_help(void);
 
+void showSuspended(void);
+
 #endif

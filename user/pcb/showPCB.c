@@ -117,12 +117,42 @@ void showBlocked(void){
     }
 }
 
+void showSuspended(void){
+    struct pcb* nextPtr = suspended_ready_queue.head;
+
+    // Checks if there are suspended-ready processes
+    if (nextPtr == NULL){
+        sys_req(WRITE, COM1, "No processes in the suspended-ready queue\n", 42);
+    }
+    else{
+        sys_req(WRITE, COM1, "Suspended Ready Processes:\n", 27);
+        while(nextPtr){
+            showPCB(nextPtr->name);
+            nextPtr = nextPtr->next;
+        }
+    }
+
+    nextPtr = suspended_blocked_queue.head;
+
+    if (nextPtr == NULL){
+        sys_req(WRITE, COM1, "No processes in the suspended-blocked queue\n", 44);
+    }
+    else{
+        sys_req(WRITE, COM1, "Suspended Blocked Processes:\n");
+        while(nextPtr){
+            showPCB(nextPtr->name);
+            nextPtr = nextPtr->next;
+        }
+    }
+}
+
 /**
  * Prints all processes
  */
 void showAllPCB(void){
     showReady();
     showBlocked();
+    showSuspended();
 }
 
 
@@ -137,18 +167,22 @@ void show_command(const char* args){
     }
 
     // Checks if the argument is ready
-    else if (strcmp(args, "ready") == 0){
+    else if (strncmp(args, "ready", 5) == 0){
         showReady();
     }
 
     // Checks if the argument is blocked
-    else if (strcmp(args, "blocked") == 0){
+    else if (strncmp(args, "blocked", 7) == 0){
         showBlocked();
     }
 
     // Checks if the argument is help
-    else if (strcmp(args, "help")==0){
+    else if (strncmp(args, "help", 4)==0){
         show_pcb_help();
+    }
+
+    else if (strncmp(args, "suspended", 9)==0){
+        showSuspended();
     }
 
     // Handles any other input

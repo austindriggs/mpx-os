@@ -78,6 +78,7 @@ void set_priority_command(const char* args){
         }
         else{
             sys_req(WRITE, COM1, "Error: Please ensure a name and priority are given\n", 51);
+            set_priority_help();
         }
     }
 }
