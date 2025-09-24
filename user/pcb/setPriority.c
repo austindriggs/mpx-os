@@ -35,9 +35,9 @@ void setPriority(char* name, int newPriority){
  */
 void set_priority_help(void){
     const char *helpMessage =
-            "\r\npriority set [name|help] [priority]\r\n"
-            "  priority set name priority       sets the priority of a process to an integer priority value\r\n"
-            "  priority help                    prints this message\r\n"
+            "\r\npriority set [<name>|help] [<priority>]\r\n"
+            "  priority set <name> <priority>    sets the priority of a process to an integer priority value\r\n"
+            "  priority help                     prints this message\r\n"
             "\r\n";
     sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
 }
