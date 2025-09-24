@@ -9,12 +9,12 @@
  */
 void show_pcb_help(void){
     const char *helpMessage = 
-            "\r\nshow [name|ready|blocked|all|help]\r\n"
-            "  show name        prints details for the named process\r\n"
-            "  show ready       prints details of processes in ready queue\r\n"
-            "  show blocked     prints details of processes in blocked queue\r\n"
-            "  show all         prints details of all processes\r\n"
-            "  show help        prints this message\r\n"
+            "\r\nshow [<name>|ready|blocked|all|help]\r\n"
+            "  show <name>     prints details for the named process\r\n"
+            "  show ready      prints details of processes in ready queue\r\n"
+            "  show blocked    prints details of processes in blocked queue\r\n"
+            "  show all        prints details of all processes\r\n"
+            "  show help       prints this message\r\n"
             "\r\n";
     sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
 }

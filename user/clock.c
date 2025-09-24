@@ -77,7 +77,7 @@ void clock_command(const char *args){
 
         // Expected format: HH:MM:SS
         if (strlen(val) != 8 || val[2] != ':' || val[5] != ':') {
-            const char *err = "Invalid format. Use set time HH:MM:SS\r\n";
+            const char *err = "Invalid format. Use set time <HH:MM:SS>\r\n";
             sys_req(WRITE, COM1, err, strlen(err));
             return;
         }
@@ -109,7 +109,7 @@ void clock_command(const char *args){
 
         // Expected format: DD/MM/YY
         if (strlen(val) != 8 || val[2] != '/' || val[5] != '/') {
-            const char *err = "Invalid format. Use set date MM/DD/YY\r\n";
+            const char *err = "Invalid format. Use set date <MM/DD/YY>\r\n";
             sys_req(WRITE, COM1, err, strlen(err));
             return;
         }
@@ -262,12 +262,12 @@ void set_date(const rtc_date_t *date) {
 
 void clock_help(void) {
     const char *helpMsg =
-        "\r\nclock [get|set|help]  [date|time] [MM/DD/YY|HH:MM:SS]\r\n"
-        "  clock get time         prints the current time as: {hour}:{minute}:{second}\r\n"
-        "  clock get date         prints the current date as: {day}/{month}/{year}\r\n"
-        "  clock set time         sets the time to the desired HH/MM/SS\r\n"
-        "  clock set date         sets the date to the desired MM/DD/YY\r\n"
-        "  clock help             prints this message\r\n"
+        "\r\nclock [get|set|help]  [time <HH:MM:SS>|date <MM/DD/YY>]\r\n"
+        "  clock get time               prints the current time as: hour:minute:second.\r\n"
+        "  clock get date               prints the current date as: month/day/year.\r\n"
+        "  clock set time <HH:MM:SS>    sets the current time to: hour:minute:second.\r\n"
+        "  clock set date <MM/DD/YY>    sets the current date to: month/day/year.\r\n"
+        "  clock help                   prints this message\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
