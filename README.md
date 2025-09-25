@@ -25,7 +25,7 @@ sudo apt install -y clang make nasm git binutils-i686-linux-gnu qemu-system-x86 
 
 Then run `make` and `./mpx.sh`.
 
-For more information, either run the `help` command inside of MacaroniOS, or consult the [doc/USER-GUIDE.pdf](doc/USER-GUIDE.pdf).
+For more information, either run the `help` command (or `help verbose`) inside of MacaroniOS, or consult the [doc/USER-GUIDE.pdf](doc/USER-GUIDE.pdf).
 
 
 ## CONTRIBUTING
