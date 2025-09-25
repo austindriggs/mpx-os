@@ -11,17 +11,17 @@ void setPriority(char* name, int newPriority){
 
     // Checks if the process exists
     if (pcbPTR == NULL){
-        sys_req(WRITE, COM1, "Invalid Process: Given process does not exist\n", 46);
+        sys_req(WRITE, COM1, "\033[31mInvalid Process: Given process does not exist\033[0m\n", 56);
     }
 
     // Checks if the process class
     else if (pcbPTR->process_class == CLASS_SYSTEM){
-        sys_req(WRITE, COM1, "Invalid Process: Given process is a kernel/system level process\n", 64);
+        sys_req(WRITE, COM1, "\033[31mInvalid Process: Given process is a kernel/system level process\033[0m\n", 74);
     }
 
     // Validates priority is possible
     else if (newPriority>9 || newPriority<0){
-        sys_req(WRITE, COM1, "Invalid Priority: Priority level must be between 0 (Highest) and 9 (Lowest)\n", 76);
+        sys_req(WRITE, COM1, "\033[31mInvalid Priority: Priority level must be between 0 (Highest) and 9 (Lowest)\033[0m\n", 86);
     }
 
     // Sets priority
@@ -35,10 +35,10 @@ void setPriority(char* name, int newPriority){
  */
 void set_priority_help(void){
     const char *helpMessage =
-            "\r\npriority set [<name>|help] [<priority>]\r\n"
-            "  priority set <name> <priority>    sets the priority of a process to an integer priority value\r\n"
-            "  priority set help                 prints this message\r\n"
-            "\r\n";
+        "\r\n\033[33mpriority set\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mpriority\033[0m>]\r\n"
+        "  \033[33mpriority set\033[0m <\033[36mname\033[0m> <\033[36mpriority\033[0m>    sets the priority of a process to an integer priority value\r\n"
+        "  \033[33mpriority set\033[0m \033[36mhelp\033[0m                 prints this message\r\n"
+        "\r\n";
     sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
 }
 
@@ -49,7 +49,8 @@ void set_priority_command(const char* args){
     
     // Checks for arguments
     if (args == NULL || *args =='\0'){
-        sys_req(WRITE, COM1, "Error: Please ensure a name and priority are given\n", 51);
+        sys_req(WRITE, COM1, "\033[31mError: Please ensure a name and priority are given\033[0m\n", 61);
+        set_priority_help();
     }
 
     // Checks if argument is help
@@ -77,7 +78,7 @@ void set_priority_command(const char* args){
             setPriority(name, priority);
         }
         else{
-            sys_req(WRITE, COM1, "Error: Please ensure a name and priority are given\n", 51);
+            sys_req(WRITE, COM1, "\033[31mError: Please ensure a name and priority are given\033[0m\n", 61);
             set_priority_help();
         }
     }

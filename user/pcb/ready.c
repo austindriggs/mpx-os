@@ -14,9 +14,9 @@
 // help message for suspend
 void suspend_help(void) {
     const char *helpMsg =
-        "\r\nsuspend [<name>|help]\r\n"
-        "  suspend <name>    Puts a non-system process in the suspended state, and moves it to the appropriate queue.\r\n"
-        "  suspend help      prints this message\r\n\r\n";
+        "\r\n\033[33msuspend\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "  \033[33msuspend\033[0m <\033[36mname\033[0m>    Puts a non-system process in the suspended state, and moves it to the appropriate queue.\r\n"
+        "  \033[33msuspend\033[0m \033[36mhelp\033[0m      prints this message\r\n\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
@@ -50,16 +50,16 @@ void suspend_command(const char *args) {
 
     int result = suspend_pcb(args);
     if (result == -1) {
-        const char *argMsg = "Invalid process/name. Please try again.\r\n";
+        const char *argMsg = "\033[31mInvalid process/name. Please try again.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
         suspend_help();
     }
     else if (result == -2) {
-        const char *argMsg = "Process is a system process and cannot be suspended.\r\n";
+        const char *argMsg = "\033[31mProcess is a system process and cannot be suspended.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
     else if (result == 1) {
-        const char *argMsg = "The process is already suspended.\r\n";
+        const char *argMsg = "\033[31mThe process is already suspended.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
     else if (result == 0) {
@@ -67,9 +67,8 @@ void suspend_command(const char *args) {
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
     else {
-        const char *argMsg = "Invalid argument. Please try again.\r\n";
+        const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
-        suspend_help();
     }
 
     return;
@@ -83,9 +82,9 @@ void suspend_command(const char *args) {
 // help message for resume
 void resume_help(void) {
     const char *helpMsg =
-        "\r\nresume [<name>|help]\r\n"
-        "  resume <name>    Puts a process in the active (not suspended) state, and moves it to the appropriate queue.\r\n"
-        "  resume help      prints this message\r\n\r\n";
+        "\r\n\033[33mresume\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "  \033[33mresume\033[0m <\033[36mname\033[0m>    Puts a process in the active (not suspended) state, and moves it to the appropriate queue.\r\n"
+        "  \033[33mresume\033[0m \033[36mhelp\033[0m      prints this message\r\n\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
@@ -116,12 +115,12 @@ void resume_command(const char *args) {
 
     int result = resume_pcb(args);
     if (result == -1) {
-        const char *argMsg = "Invalid process/name. Please try again.\r\n";
+        const char *argMsg = "\033[31mInvalid process/name. Please try again.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
         resume_help();
     }
     else if (result == 1) {
-        const char *argMsg = "The process is already active.\r\n";
+        const char *argMsg = "\033[31mThe process is already active.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
     else if (result == 0) {
@@ -129,9 +128,8 @@ void resume_command(const char *args) {
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
     else {
-        const char *argMsg = "Invalid argument. Please try again.\r\n";
+        const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
-        resume_help();
     }
 
     return;

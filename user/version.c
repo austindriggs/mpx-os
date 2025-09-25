@@ -4,10 +4,10 @@
 
 void version_help(void) {
     const char *helpMsg =
-        "\r\nversion [all|help]\r\n"
-        "  version         prints information about the current version as: R<x> <date> <hash> (<status>)\r\n"
-        "  version all     prints information about all version history as: R<x> <date> <hash>\r\n"
-        "  version help    prints this message\r\n"
+        "\r\n\033[33mversion\033[0m [\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
+        "  \033[33mversion\033[0m         prints information about the current version as: R<x> <date> <hash> (<status>)\r\n"
+        "  \033[33mversion\033[0m \033[36mall\033[0m     prints information about all version history as: R<x> <date> <hash>\r\n"
+        "  \033[33mversion\033[0m \033[36mhelp\033[0m    prints this message\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
@@ -69,7 +69,8 @@ void version_command(const char *args) {
         version_help();
     }
     else {
-        const char *argMsg = "Invalid argument. Please try again.\r\n";
+        const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
+        version_help();
     }
 }

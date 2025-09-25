@@ -15,4 +15,8 @@ void help_message(void);
  */
 void help_command(const char *args);
 
+/**
+ * @brief Prints all commands individual help functions.
+ */
+void help_verbose(void);
 #endif

@@ -5,11 +5,11 @@
 
 void exit_help(void) {
     const char *helpMsg =
-        "\r\nexit [help|force]\r\n"
-        "  exit          prompts for confirmation before shutting down\r\n"
-        "  exit help     displays this message\r\n"
-        "  exit force    shuts down without confirmation\r\n"
-	"\r\n";
+        "\r\n\033[33mexit\033[0m [\033[36mhelp\033[0m|\033[36mforce\033[0m]\r\n"
+        "  \033[33mexit\033[0m          prompts for confirmation before shutting down\r\n"
+        "  \033[33mexit\033[0m \033[36mhelp\033[0m     displays this message\r\n"
+        "  \033[33mexit\033[0m \033[36mforce\033[0m    shuts down without confirmation\r\n"
+        "\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
@@ -48,9 +48,10 @@ int exit_command(const char *args) {
 	    return 1;
         }
         else {
-            const char *argMsg = "Invalid argument. Please try again.\r\n";
+            const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n";
             sys_req(WRITE, COM1, argMsg, strlen(argMsg));
-	    return 0;
+            exit_help();
+            return 0;
         }
     }
 
