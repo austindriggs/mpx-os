@@ -107,8 +107,13 @@ void comhand(void)
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);
         }
+        else if (strncmp(buf, "clear", 5) == 0) {
+            // Need to see if we can remove the history when scrolling up
+           sys_req(WRITE, COM1, "\033[2J\033[H", 7);
+           com_startup();
+        }
         else {
-            const char *invalidMsg = "Invalid command. Try again, type 'help' for all commands.\r\n";
+            const char *invalidMsg = "\033[31mInvalid command. Try again, type 'help' for all commands.\033[0m\r\n";
             sys_req(WRITE, COM1, invalidMsg, strlen(invalidMsg));
         }
     }

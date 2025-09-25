@@ -11,9 +11,19 @@
 void help_message(void) {
     // command help
     const char *helpMsg =
-        "List Of Commands:\r\n"
-        "\r\nhelp - prints this message\r\n";
+        "List Of Commands [arguments]:\r\n"
+        "\033[33mhelp\033[0m             [\033[36mverbose\033[0m]\r\n"
+        "\033[33mversion\033[0m          [\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
+        "\033[33mexit\033[0m             [\033[36mhelp\033[0m|\033[36mforce\033[0m]\r\n"
+        "\033[33mclock\033[0m            [\033[36mget\033[0m|\033[36mset\033[0m|\033[36mhelp\033[0m]  [\033[36mdate\033[0m|\033[36mtime\033[0m]\r\n"
+        "\033[33mshow\033[0m             [\033[36mname\033[0m|\033[36mready\033[0m|\033[36mblocked\033[0m|\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
+        "\033[33mpriority set\033[0m     [\033[36mname\033[0m|\033[36mhelp\033[0m] [\033[36mpriority\033[0m]\r\n"
+        "\033[33msuspend\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33mresume\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
+}
+
+void help_verbose(void) {
     exit_help();
     version_help();
     clock_help();
@@ -22,8 +32,8 @@ void help_message(void) {
     suspend_help();
     resume_help();
 
-    // more help
-    const char *docMsg = "For more help, see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
+    const char *docMsg =
+        "For more help, see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
     sys_req(WRITE, COM1, docMsg, strlen(docMsg));
 }
 
@@ -32,10 +42,14 @@ void help_command(const char *args) {
         help_message();
     }
     else if (strcmp(args, "help") == 0) {
-	help_message();
+        help_message();
+    }
+    else if (strcmp(args, "verbose") == 0) {
+        help_verbose();
     }
     else {
-        const char *argMsg = "Invalid argument. Please try again.\r\n";
-	sys_req(WRITE, COM1, argMsg, strlen(argMsg));
+        const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n";
+        sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
 }
+

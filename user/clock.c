@@ -77,8 +77,9 @@ void clock_command(const char *args){
 
         // Expected format: HH:MM:SS
         if (strlen(val) != 8 || val[2] != ':' || val[5] != ':') {
-            const char *err = "Invalid format. Use set time <HH:MM:SS>\r\n";
+            const char *err = "\033[31mInvalid format. Use set time <HH:MM:SS>\033[0m\r\n";
             sys_req(WRITE, COM1, err, strlen(err));
+            clock_help();
             return;
         }
 
@@ -95,8 +96,9 @@ void clock_command(const char *args){
         int second = atoi(buf);
 
         if (hour < 0 || hour > 23 || minute < 0 || minute > 59 || second < 0 || second > 59) {
-            const char *err = "Invalid time values.\r\n";
+            const char *err = "\033[31mInvalid time values.\033[0m\r\n";
             sys_req(WRITE, COM1, err, strlen(err));
+            clock_help();
             return;
         }
 
@@ -109,8 +111,9 @@ void clock_command(const char *args){
 
         // Expected format: DD/MM/YY
         if (strlen(val) != 8 || val[2] != '/' || val[5] != '/') {
-            const char *err = "Invalid format. Use set date <MM/DD/YY>\r\n";
+            const char *err = "\033[31mInvalid format. Use set date <MM/DD/YY>\033[0m\r\n";
             sys_req(WRITE, COM1, err, strlen(err));
+            clock_help();
             return;
         }
 
@@ -127,8 +130,9 @@ void clock_command(const char *args){
         int year = atoi(buf);
 
         if (day < 1 || day > 31 || month < 1 || month > 12) {
-            const char *err = "Invalid date values.\r\n";
+            const char *err = "\033[31mInvalid date values.\033[0m\r\n";
             sys_req(WRITE, COM1, err, strlen(err));
+            clock_help();
             return;
         }
 
@@ -140,8 +144,9 @@ void clock_command(const char *args){
         clock_help();
     }
     else {
-        const char *argMsg = "Invalid argument. Please try again.\r\n";
+        const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
+        clock_help();
     }
 }
 
@@ -262,12 +267,12 @@ void set_date(const rtc_date_t *date) {
 
 void clock_help(void) {
     const char *helpMsg =
-        "\r\nclock [get|set|help]  [time <HH:MM:SS>|date <MM/DD/YY>]\r\n"
-        "  clock get time               prints the current time as: hour:minute:second.\r\n"
-        "  clock get date               prints the current date as: month/day/year.\r\n"
-        "  clock set time <HH:MM:SS>    sets the current time to: hour:minute:second.\r\n"
-        "  clock set date <MM/DD/YY>    sets the current date to: month/day/year.\r\n"
-        "  clock help                   prints this message\r\n"
+        "\r\n\033[33mclock\033[0m [\033[36mget\033[0m|\033[36mset\033[0m|\033[36mhelp\033[0m]  [\033[36mtime\033[0m <\033[36mHH:MM:SS\033[0m>|\033[36mdate\033[0m <\033[36mMM/DD/YY\033[0m>]\r\n"
+        "  \033[33mclock\033[0m \033[36mget\033[0m \033[36mtime\033[0m               prints the current time as: hour:minute:second.\r\n"
+        "  \033[33mclock\033[0m \033[36mget\033[0m \033[36mdate\033[0m               prints the current date as: month/day/year.\r\n"
+        "  \033[33mclock\033[0m \033[36mset\033[0m \033[36mtime\033[0m <\033[36mHH:MM:SS\033[0m>    sets the current time to: hour:minute:second.\r\n"
+        "  \033[33mclock\033[0m \033[36mset\033[0m \033[36mdate\033[0m <\033[36mMM/DD/YY\033[0m>    sets the current date to: month/day/year.\r\n"
+        "  \033[33mclock\033[0m \033[36mhelp\033[0m                   prints this message\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
