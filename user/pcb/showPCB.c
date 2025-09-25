@@ -30,6 +30,7 @@ void showPCB(const char* name){
     // Checks if the process exists
     if (pcbPTR == NULL){
         sys_req(WRITE, COM1, "\033[31mInvalid Process: Given process does not exist\033[0m\n", 56);
+        show_pcb_help();
     }
     else {
 

@@ -113,8 +113,9 @@ void comhand(void)
            com_startup();
         }
         else {
-            const char *invalidMsg = "\033[31mInvalid command. Try again, type 'help' for all commands.\033[0m\r\n";
+            const char *invalidMsg = "\033[31mInvalid command. Please try again.\033[0m\r\n\r\n";
             sys_req(WRITE, COM1, invalidMsg, strlen(invalidMsg));
+            help_message();
         }
     }
 }

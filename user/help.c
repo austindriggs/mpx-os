@@ -24,13 +24,17 @@ void help_message(void) {
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
-void help_verbose(void) {
+void help_help(void) {
     const char *helpMsg =
         "List of Commands [arguments]:\r\n\r\n"
         "\033[33mhelp\033[0m [\033[36mverbose\033[0m]\r\n"
         "  \033[33mhelp\033[0m            prints a basic help message\r\n"
         "  \033[33mhelp\033[0m \033[36mverbose\033[0m    prints this message.\r\n\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
+}
+
+void help_verbose(void) {
+    help_help();
     exit_help();
     version_help();
     clock_help();
@@ -45,6 +49,7 @@ void help_verbose(void) {
 }
 
 void help_command(const char *args) {
+    
     if (args == NULL || *args == '\0') {
         help_message();
     }
@@ -57,6 +62,7 @@ void help_command(const char *args) {
     else {
         const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
-    }
+        help_help();
+    }   
 }
 
