@@ -11,7 +11,7 @@
 void help_message(void) {
     // command help
     const char *helpMsg =
-        "List Of Commands [arguments]:\r\n"
+        "List of Commands [arguments]:\r\n\r\n"
         "\033[33mhelp\033[0m             [\033[36mverbose\033[0m]\r\n"
         "\033[33mversion\033[0m          [\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
         "\033[33mexit\033[0m             [\033[36mhelp\033[0m|\033[36mforce\033[0m]\r\n"
@@ -19,11 +19,18 @@ void help_message(void) {
         "\033[33mshow\033[0m             [<\033[36mname\033[0m>|\033[36mready\033[0m|\033[36mblocked\033[0m|\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
         "\033[33mpriority set\033[0m     [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mpriority\033[0m>]\r\n"
         "\033[33msuspend\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "\033[33mresume\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n\r\n";
+        "\033[33mresume\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n\r\n"
+	"For more help, run '\033[33mhelp\033[0m \033[36mverbose\033[0m' or see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
 void help_verbose(void) {
+    const char *helpMsg =
+        "List of Commands [arguments]:\r\n\r\n"
+        "\033[33mhelp\033[0m [\033[36mverbose\033[0m]\r\n"
+        "  \033[33mhelp\033[0m            prints a basic help message\r\n"
+        "  \033[33mhelp\033[0m \033[36mverbose\033[0m    prints this message.\r\n\r\n";
+    sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
     exit_help();
     version_help();
     clock_help();
