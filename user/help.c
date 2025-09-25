@@ -60,7 +60,7 @@ void help_command(const char *args) {
         help_verbose();
     }
     else {
-        const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n";
+        const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
         help_help();
     }   
