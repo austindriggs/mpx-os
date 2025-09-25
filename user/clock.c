@@ -268,6 +268,7 @@ void set_date(const rtc_date_t *date) {
 void clock_help(void) {
     const char *helpMsg =
         "\r\n\033[33mclock\033[0m [\033[36mget\033[0m|\033[36mset\033[0m|\033[36mhelp\033[0m]  [\033[36mtime\033[0m <\033[36mHH:MM:SS\033[0m>|\033[36mdate\033[0m <\033[36mMM/DD/YY\033[0m>]\r\n"
+        "  \033[33mclock\033[0m                        prints the current date and time.\r\n"
         "  \033[33mclock\033[0m \033[36mget\033[0m \033[36mtime\033[0m               prints the current time as: hour:minute:second.\r\n"
         "  \033[33mclock\033[0m \033[36mget\033[0m \033[36mdate\033[0m               prints the current date as: month/day/year.\r\n"
         "  \033[33mclock\033[0m \033[36mset\033[0m \033[36mtime\033[0m <\033[36mHH:MM:SS\033[0m>    sets the current time to: hour:minute:second.\r\n"
