@@ -44,7 +44,7 @@ When you're done, add your contributions to [dev/CONTRIBUTIONS.docx](dev/CONTRIB
 Install doxygen and dependancies:
 ```bash
 sudo apt update
-sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra
+sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra wslu
 ```
 
 Create the configuration file (convention is a Doxyfile):

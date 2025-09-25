@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['access_0',['access',['../structgdt__entry.html#af8f88469b3301c3e777e97b470a97413',1,'gdt_entry']]]
+  ['ready_5fqueue_0',['ready_queue',['../pcb_8h.html#a8ef412c491c81313233bdd2ab53475c5',1,'pcb.c']]]
 ];

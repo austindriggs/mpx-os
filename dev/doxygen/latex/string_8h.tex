@@ -25,7 +25,9 @@ int {\bfseries strncmp} (const char \texorpdfstring{$\ast$}{*}s1, const char \te
 size\+\_\+t \mbox{\hyperlink{string_8h_aa383452fe445bfae989358c9d7d96f4f}{strlen}} (const char \texorpdfstring{$\ast$}{*}s)
 \item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{string_8h_ae8e613ef4bfd16a5568e1a059f9558a8}{strtok}} (char \texorpdfstring{$\ast$}{*}restrict s1, const char \texorpdfstring{$\ast$}{*}restrict s2)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Split string into tokens. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{string_8h_ac5f32893f7ca1657f2de1e4f65c61e2f}{strncpy}} (char \texorpdfstring{$\ast$}{*}dest, const char \texorpdfstring{$\ast$}{*}src, unsigned int num\+\_\+of\+\_\+chars)
+\begin{DoxyCompactList}\small\item\em Copy a string with length limit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -100,10 +102,45 @@ Returns the length of a string.
 \begin{DoxyReturn}{Returns}
 The number of bytes in the string (not counting NUL terminator) 
 \end{DoxyReturn}
+\Hypertarget{string_8h_ac5f32893f7ca1657f2de1e4f65c61e2f}\label{string_8h_ac5f32893f7ca1657f2de1e4f65c61e2f} 
+\index{string.h@{string.h}!strncpy@{strncpy}}
+\index{strncpy@{strncpy}!string.h@{string.h}}
+\doxysubsubsection{\texorpdfstring{strncpy()}{strncpy()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} strncpy (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{dest,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{src,  }\item[{unsigned int}]{num\+\_\+of\+\_\+chars }\end{DoxyParamCaption})}
+
+
+
+Copy a string with length limit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dest} & Destination buffer. \\
+\hline
+{\em src} & Source string. \\
+\hline
+{\em num\+\_\+of\+\_\+chars} & Maximum number of characters to copy. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to destination buffer. 
+\end{DoxyReturn}
 \Hypertarget{string_8h_ae8e613ef4bfd16a5568e1a059f9558a8}\label{string_8h_ae8e613ef4bfd16a5568e1a059f9558a8} 
 \index{string.h@{string.h}!strtok@{strtok}}
 \index{strtok@{strtok}!string.h@{string.h}}
 \doxysubsubsection{\texorpdfstring{strtok()}{strtok()}}
 {\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} strtok (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}restrict}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{s2 }\end{DoxyParamCaption})}
 
-Split string into tokens TODO 
+
+
+Split string into tokens. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & String to tokenize (NULL to continue tokenizing). \\
+\hline
+{\em s2} & Delimiter characters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to next token, or NULL if none. 
+\end{DoxyReturn}

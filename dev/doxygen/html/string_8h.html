@@ -111,7 +111,11 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>strncmp</b> (const cha
 <tr class="memitem:aa383452fe445bfae989358c9d7d96f4f" id="r_aa383452fe445bfae989358c9d7d96f4f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8h.html#aa383452fe445bfae989358c9d7d96f4f">strlen</a> (const char *s)</td></tr>
 <tr class="separator:aa383452fe445bfae989358c9d7d96f4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8e613ef4bfd16a5568e1a059f9558a8" id="r_ae8e613ef4bfd16a5568e1a059f9558a8"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8h.html#ae8e613ef4bfd16a5568e1a059f9558a8">strtok</a> (char *restrict s1, const char *restrict s2)</td></tr>
+<tr class="memdesc:ae8e613ef4bfd16a5568e1a059f9558a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split string into tokens.  <br /></td></tr>
 <tr class="separator:ae8e613ef4bfd16a5568e1a059f9558a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f32893f7ca1657f2de1e4f65c61e2f" id="r_ac5f32893f7ca1657f2de1e4f65c61e2f"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8h.html#ac5f32893f7ca1657f2de1e4f65c61e2f">strncpy</a> (char *dest, const char *src, unsigned int num_of_chars)</td></tr>
+<tr class="memdesc:ac5f32893f7ca1657f2de1e4f65c61e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy a string with length limit.  <br /></td></tr>
+<tr class="separator:ac5f32893f7ca1657f2de1e4f65c61e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A subset of standard C library functions. </p>
@@ -263,6 +267,51 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>strncmp</b> (const cha
 
 </div>
 </div>
+<a id="ac5f32893f7ca1657f2de1e4f65c61e2f" name="ac5f32893f7ca1657f2de1e4f65c61e2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f32893f7ca1657f2de1e4f65c61e2f">&#9670;&#160;</a></span>strncpy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * strncpy </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>num_of_chars</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy a string with length limit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>Destination buffer. </td></tr>
+    <tr><td class="paramname">src</td><td>Source string. </td></tr>
+    <tr><td class="paramname">num_of_chars</td><td>Maximum number of characters to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to destination buffer. </dd></dl>
+
+</div>
+</div>
 <a id="ae8e613ef4bfd16a5568e1a059f9558a8" name="ae8e613ef4bfd16a5568e1a059f9558a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8e613ef4bfd16a5568e1a059f9558a8">&#9670;&#160;</a></span>strtok()</h2>
 
@@ -288,7 +337,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>strncmp</b> (const cha
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Split string into tokens TODO </p>
+
+<p>Split string into tokens. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s1</td><td>String to tokenize (NULL to continue tokenizing). </td></tr>
+    <tr><td class="paramname">s2</td><td>Delimiter characters. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to next token, or NULL if none. </dd></dl>
 
 </div>
 </div>

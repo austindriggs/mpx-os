@@ -10,3 +10,4 @@ make pdf
 
 # Copy to doc/ with new name
 cp refman.pdf ../../../doc/PROGRAMMER-GUIDE.pdf
+wslview doc/PROGRAMMER-GUIDE.pdf
