@@ -27,6 +27,63 @@ void setPriority(char* name, int newPriority){
     // Sets priority
     else if (newPriority<=9 && newPriority>=0){
         pcbPTR->priority = newPriority;
+        struct pcb* prevPTR = pcbPTR->prev;
+        struct pcb* nextPTR = pcbPTR->next;
+        if (prevPTR->priority > newPriority){
+            while (prevPTR != NULL && prevPTR->priority > newPriority){
+
+                // Update from initial previous to initial next
+                prevPTR->next = nextPTR;
+
+                // Update from intial next to initial prev
+                nextPTR->prev = prevPTR;
+
+                // Update prev to prev of initial previous
+                pcbPTR->prev = prevPTR->prev;
+
+                // Update next of previous of initial previous to pcbPTR
+                if (prevPTR->prev != NULL){
+                    prevPTR->prev->next = pcbPTR;
+                }
+
+                // Update next to be initial previous
+                pcbPTR->next = prevPTR;
+
+                // Update prev of initial previous to pcbPTR
+                prevPTR->prev = pcbPTR;
+
+                // Change what initial previous and initial next are
+                prevPTR = pcbPTR->prev;
+                nextPTR = pcbPTR->next;
+            }
+        }
+        else if (nextPTR->priority < newPriority){
+            while (nextPTR != NULL && nextPTR->priority >= newPriority){
+                
+                // Update from initial previous to initial next
+                prevPTR->next = nextPTR;
+
+                // Update from initial next to initial prev
+                nextPTR->prev = prevPTR;
+
+                // Update next from initial next to next next
+                pcbPTR->next = nextPTR->next;
+
+                // Update prev of next next to pcbPTR
+                if (nextPTR->next != NULL){
+                    nextPTR->next->prev = pcbPTR;
+                }
+
+                // Update next next to pcbPTR
+                nextPTR->next = pcbPTR;
+
+                // Update pcbPTR prev to initial next
+                pcbPTR->prev = nextPTR;
+
+                prevPTR = pcbPTR->prev;
+                nextPTR = pcbPTR->next;
+            }
+        }
     }
 }
 
