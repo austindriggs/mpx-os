@@ -47,6 +47,8 @@ sudo apt update
 sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra wslu
 ```
 
+> If you get some errors, maybe try `sudo apt upgrade -y`.
+
 Create the configuration file (convention is a Doxyfile):
 ```bash
 doxygen -g Doxyfile
