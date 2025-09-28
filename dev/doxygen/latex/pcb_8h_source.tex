@@ -1,0 +1,66 @@
+\doxysection{pcb.\+h}
+\hypertarget{pcb_8h_source}{}\label{pcb_8h_source}\index{include/pcb.h@{include/pcb.h}}
+\mbox{\hyperlink{pcb_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ PCB\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ PCB\_H}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ PCB\_NAME\_MAX\_LEN\ 16\ }}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ PCB\_STACK\_MIN\_SIZE\ 1024}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{enum}\ process\_class\{}
+\DoxyCodeLine{00021\ \ \ \ \ CLASS\_SYSTEM\ =\ 0,}
+\DoxyCodeLine{00022\ \ \ \ \ CLASS\_USER\ =\ 1}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{enum}\ execution\_state\{}
+\DoxyCodeLine{00026\ \ \ \ \ STATE\_READY\ =\ 0,}
+\DoxyCodeLine{00027\ \ \ \ \ STATE\_RUNNING\ =\ 1,}
+\DoxyCodeLine{00028\ \ \ \ \ STATE\_BLOCKED\ =\ 2}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{enum}\ dispatch\_state\{}
+\DoxyCodeLine{00032\ \ \ \ \ DISPATCH\_ACTIVE\ =\ 0,}
+\DoxyCodeLine{00033\ \ \ \ \ DISPATCH\_SUSPENDED\ =\ 1}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb}{pcb}}\{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{char}\ name[PCB\_NAME\_MAX\_LEN];}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{enum}\ process\_class\ process\_class;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ priority;\ \textcolor{comment}{//\ 0\ (highest)\ to\ 9}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{enum}\ execution\_state\ execution\_state;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{enum}\ dispatch\_state\ dispatch\_state;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{char}*\ stack;\ \textcolor{comment}{//\ Dynamically\ allocated,\ might\ manually\ allocate\ based\ on\ memory\ management.}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{char}*\ stack\_ptr;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb}{pcb}}*\ next;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb}{pcb}}*\ prev;}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb__queue}{pcb\_queue}}\{}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb}{pcb}}*\ head;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb}{pcb}}*\ tail;}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//\ Queue\ initialization}}
+\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb__queue}{pcb\_queue}}\ \mbox{\hyperlink{pcb_8h_a8ef412c491c81313233bdd2ab53475c5}{ready\_queue}};}
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb__queue}{pcb\_queue}}\ blocked\_queue;}
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb__queue}{pcb\_queue}}\ suspended\_ready\_queue;}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb__queue}{pcb\_queue}}\ suspended\_blocked\_queue;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ PCB\ Kernal\ Function}}
+\DoxyCodeLine{00060\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb}{pcb}}*\ pcb\_allocate(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{int}\ pcb\_free(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structpcb}{pcb}}*\ ptr);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb}{pcb}}*\ pcb\_setup(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{int}\ process\_class,\ \textcolor{keywordtype}{int}\ priority);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structpcb}{pcb}}*\ pcb\_find(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{pcb_8h_a89d20bd921f9a3ba77cf1114018e1f36}{pcb\_insert}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structpcb}{pcb}}*\ ptr);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{pcb_8h_a50bc645af963fe3a08aafb20a8a114a7}{pcb\_remove}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structpcb}{pcb}}*\ ptr);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

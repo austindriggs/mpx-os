@@ -48,13 +48,13 @@ PROJECT_NAME           = "MacaroniOS"
 # could be handy for archiving the generated documentation or if some version
 # control system is used.
 
-PROJECT_NUMBER         = Version: R1
+PROJECT_NUMBER         = Version: R2
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          =  CS450: Operating Systems Structure
+PROJECT_BRIEF          = A freestanding C environment, dubbed "Macaroni OS", developed in a group project for Operating System Structures (CS450) at WVU.
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55
@@ -943,7 +943,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = README.md include/ include/mpx kernel/ lib/ user/ mpx.sh
+INPUT                  = README.md include/ include/mpx kernel/ lib/ user/ user/pcb mpx.sh 
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses

@@ -6,7 +6,7 @@
   \indexspace
 
   \item {atoi}
-    \subitem {stdlib.h}, \hyperpage{26}
+    \subitem {stdlib.h}, \hyperpage{31}
 
   \indexspace
 
@@ -54,11 +54,15 @@
   \item {include/mpx/panic.h}, \hyperpage{20, 21}
   \item {include/mpx/serial.h}, \hyperpage{21}, \hyperpage{23}
   \item {include/mpx/vm.h}, \hyperpage{23, 24}
-  \item {include/processes.h}, \hyperpage{24, 25}
-  \item {include/stdlib.h}, \hyperpage{26}
-  \item {include/string.h}, \hyperpage{26}, \hyperpage{29}
-  \item {include/sys\_req.h}, \hyperpage{29, 30}
-  \item {include/version.h}, \hyperpage{30, 31}
+  \item {include/pcb.h}, \hyperpage{24}, \hyperpage{26}
+  \item {include/processes.h}, \hyperpage{27, 28}
+  \item {include/ready.h}, \hyperpage{29, 30}
+  \item {include/setPriority.h}, \hyperpage{31}
+  \item {include/showPCB.h}, \hyperpage{31}
+  \item {include/stdlib.h}, \hyperpage{31, 32}
+  \item {include/string.h}, \hyperpage{32}, \hyperpage{35}
+  \item {include/sys\_req.h}, \hyperpage{35, 36}
+  \item {include/version.h}, \hyperpage{36, 37}
   \item {interrupts.h}
     \subitem {cli}, \hyperpage{18}
     \subitem {idt\_init}, \hyperpage{18}
@@ -91,13 +95,13 @@
 
   \item {Macaroni Penguins}, \hyperpage{1}
   \item {memcpy}
-    \subitem {string.h}, \hyperpage{27}
+    \subitem {string.h}, \hyperpage{32}
   \item {memory.h}
     \subitem {sys\_alloc\_mem}, \hyperpage{15}
     \subitem {sys\_free\_mem}, \hyperpage{15}
     \subitem {sys\_set\_heap\_functions}, \hyperpage{16}
   \item {memset}
-    \subitem {string.h}, \hyperpage{27}
+    \subitem {string.h}, \hyperpage{33}
 
   \indexspace
 
@@ -108,30 +112,51 @@
 
   \item {panic.h}
     \subitem {\_\_attribute\_\_}, \hyperpage{21}
+  \item {pcb}, \hyperpage{7}
+  \item {pcb.h}
+    \subitem {pcb\_insert}, \hyperpage{25}
+    \subitem {pcb\_remove}, \hyperpage{25}
+    \subitem {ready\_queue}, \hyperpage{26}
+  \item {pcb\_insert}
+    \subitem {pcb.h}, \hyperpage{25}
+  \item {pcb\_queue}, \hyperpage{7}
+  \item {pcb\_remove}
+    \subitem {pcb.h}, \hyperpage{25}
   \item {pic\_init}
     \subitem {interrupts.h}, \hyperpage{18}
   \item {proc1}
-    \subitem {processes.h}, \hyperpage{24}
+    \subitem {processes.h}, \hyperpage{27}
   \item {proc2}
-    \subitem {processes.h}, \hyperpage{24}
+    \subitem {processes.h}, \hyperpage{27}
   \item {proc3}
-    \subitem {processes.h}, \hyperpage{25}
+    \subitem {processes.h}, \hyperpage{27}
   \item {proc4}
-    \subitem {processes.h}, \hyperpage{25}
+    \subitem {processes.h}, \hyperpage{28}
   \item {proc5}
-    \subitem {processes.h}, \hyperpage{25}
+    \subitem {processes.h}, \hyperpage{28}
   \item {processes.h}
-    \subitem {proc1}, \hyperpage{24}
-    \subitem {proc2}, \hyperpage{24}
-    \subitem {proc3}, \hyperpage{25}
-    \subitem {proc4}, \hyperpage{25}
-    \subitem {proc5}, \hyperpage{25}
-    \subitem {sys\_idle\_process}, \hyperpage{25}
+    \subitem {proc1}, \hyperpage{27}
+    \subitem {proc2}, \hyperpage{27}
+    \subitem {proc3}, \hyperpage{27}
+    \subitem {proc4}, \hyperpage{28}
+    \subitem {proc5}, \hyperpage{28}
+    \subitem {sys\_idle\_process}, \hyperpage{28}
 
   \indexspace
 
-  \item {rtc\_date\_t}, \hyperpage{7}
-  \item {rtc\_time\_t}, \hyperpage{7}
+  \item {ready.h}
+    \subitem {resume\_command}, \hyperpage{29}
+    \subitem {resume\_pcb}, \hyperpage{29}
+    \subitem {suspend\_command}, \hyperpage{30}
+    \subitem {suspend\_pcb}, \hyperpage{30}
+  \item {ready\_queue}
+    \subitem {pcb.h}, \hyperpage{26}
+  \item {resume\_command}
+    \subitem {ready.h}, \hyperpage{29}
+  \item {resume\_pcb}
+    \subitem {ready.h}, \hyperpage{29}
+  \item {rtc\_date\_t}, \hyperpage{8}
+  \item {rtc\_time\_t}, \hyperpage{8}
 
   \indexspace
 
@@ -146,32 +171,39 @@
   \item {serial\_poll}
     \subitem {serial.h}, \hyperpage{22}
   \item {stdlib.h}
-    \subitem {atoi}, \hyperpage{26}
+    \subitem {atoi}, \hyperpage{31}
   \item {sti}
     \subitem {interrupts.h}, \hyperpage{18}
-  \item {stores}, \hyperpage{7}
+  \item {stores}, \hyperpage{8}
   \item {strcmp}
-    \subitem {string.h}, \hyperpage{28}
+    \subitem {string.h}, \hyperpage{33}
   \item {string.h}
-    \subitem {memcpy}, \hyperpage{27}
-    \subitem {memset}, \hyperpage{27}
-    \subitem {strcmp}, \hyperpage{28}
-    \subitem {strlen}, \hyperpage{28}
-    \subitem {strtok}, \hyperpage{28}
+    \subitem {memcpy}, \hyperpage{32}
+    \subitem {memset}, \hyperpage{33}
+    \subitem {strcmp}, \hyperpage{33}
+    \subitem {strlen}, \hyperpage{33}
+    \subitem {strncpy}, \hyperpage{34}
+    \subitem {strtok}, \hyperpage{34}
   \item {strlen}
-    \subitem {string.h}, \hyperpage{28}
+    \subitem {string.h}, \hyperpage{33}
+  \item {strncpy}
+    \subitem {string.h}, \hyperpage{34}
   \item {strtok}
-    \subitem {string.h}, \hyperpage{28}
+    \subitem {string.h}, \hyperpage{34}
+  \item {suspend\_command}
+    \subitem {ready.h}, \hyperpage{30}
+  \item {suspend\_pcb}
+    \subitem {ready.h}, \hyperpage{30}
   \item {sys\_alloc\_mem}
     \subitem {memory.h}, \hyperpage{15}
   \item {sys\_free\_mem}
     \subitem {memory.h}, \hyperpage{15}
   \item {sys\_idle\_process}
-    \subitem {processes.h}, \hyperpage{25}
+    \subitem {processes.h}, \hyperpage{28}
   \item {sys\_req}
-    \subitem {sys\_req.h}, \hyperpage{29}
+    \subitem {sys\_req.h}, \hyperpage{35}
   \item {sys\_req.h}
-    \subitem {sys\_req}, \hyperpage{29}
+    \subitem {sys\_req}, \hyperpage{35}
   \item {sys\_set\_heap\_functions}
     \subitem {memory.h}, \hyperpage{16}
 
@@ -183,9 +215,9 @@
   \indexspace
 
   \item {version.h}
-    \subitem {version\_command}, \hyperpage{31}
+    \subitem {version\_command}, \hyperpage{37}
   \item {version\_command}
-    \subitem {version.h}, \hyperpage{31}
+    \subitem {version.h}, \hyperpage{37}
   \item {vm.h}
     \subitem {kmalloc}, \hyperpage{23}
     \subitem {vm\_init}, \hyperpage{24}

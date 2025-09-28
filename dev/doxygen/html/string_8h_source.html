@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="penguin_ascii.png"/></td>
   <td id="projectalign">
-   <div id="projectname">MacaroniOS<span id="projectnumber">&#160;Version: R1</span>
+   <div id="projectname">MacaroniOS<span id="projectnumber">&#160;Version: R2</span>
    </div>
-   <div id="projectbrief">CS450: Operating Systems Structure</div>
+   <div id="projectbrief">A freestanding C environment, dubbed Macaroni OS, developed in a group project for Operating System Structures (CS450) at WVU.</div>
   </td>
  </tr>
  </tbody>
@@ -98,14 +98,16 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">size_t</span> <a class="code hl_function" href="string_8h.html#aa383452fe445bfae989358c9d7d96f4f">strlen</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *s);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">char</span>* <a class="code hl_function" href="string_8h.html#ae8e613ef4bfd16a5568e1a059f9558a8">strtok</a>(<span class="keywordtype">char</span> * restrict s1, <span class="keyword">const</span> <span class="keywordtype">char</span> * restrict s2);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">char</span>* <a class="code hl_function" href="string_8h.html#ae8e613ef4bfd16a5568e1a059f9558a8">strtok</a>(<span class="keywordtype">char</span> * restrict s1, <span class="keyword">const</span> <span class="keywordtype">char</span> * restrict s2);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">char</span>* <a class="code hl_function" href="string_8h.html#ac5f32893f7ca1657f2de1e4f65c61e2f">strncpy</a>(<span class="keywordtype">char</span>* dest, <span class="keyword">const</span> <span class="keywordtype">char</span>* src, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> num_of_chars);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="astring_8h_html_a11bd144d7d44914099a3aeddf1c8567d"><div class="ttname"><a href="string_8h.html#a11bd144d7d44914099a3aeddf1c8567d">strcmp</a></div><div class="ttdeci">int strcmp(const char *s1, const char *s2)</div><div class="ttdef"><b>Definition</b> string.c:5</div></div>
 <div class="ttc" id="astring_8h_html_a5db3b02071f2cd97278bdefcb0bf8f48"><div class="ttname"><a href="string_8h.html#a5db3b02071f2cd97278bdefcb0bf8f48">memset</a></div><div class="ttdeci">void * memset(void *address, int c, size_t n)</div><div class="ttdef"><b>Definition</b> core.c:31</div></div>
 <div class="ttc" id="astring_8h_html_aa383452fe445bfae989358c9d7d96f4f"><div class="ttname"><a href="string_8h.html#aa383452fe445bfae989358c9d7d96f4f">strlen</a></div><div class="ttdeci">size_t strlen(const char *s)</div><div class="ttdef"><b>Definition</b> string.c:35</div></div>
 <div class="ttc" id="astring_8h_html_ac2592cc12722de7972874c847da5e8f0"><div class="ttname"><a href="string_8h.html#ac2592cc12722de7972874c847da5e8f0">memcpy</a></div><div class="ttdeci">void * memcpy(void *restrict dst, const void *restrict src, size_t n)</div><div class="ttdef"><b>Definition</b> core.c:20</div></div>
-<div class="ttc" id="astring_8h_html_ae8e613ef4bfd16a5568e1a059f9558a8"><div class="ttname"><a href="string_8h.html#ae8e613ef4bfd16a5568e1a059f9558a8">strtok</a></div><div class="ttdeci">char * strtok(char *restrict s1, const char *restrict s2)</div><div class="ttdef"><b>Definition</b> string.c:44</div></div>
+<div class="ttc" id="astring_8h_html_ac5f32893f7ca1657f2de1e4f65c61e2f"><div class="ttname"><a href="string_8h.html#ac5f32893f7ca1657f2de1e4f65c61e2f">strncpy</a></div><div class="ttdeci">char * strncpy(char *dest, const char *src, unsigned int num_of_chars)</div><div class="ttdoc">Copy a string with length limit.</div><div class="ttdef"><b>Definition</b> string.c:94</div></div>
+<div class="ttc" id="astring_8h_html_ae8e613ef4bfd16a5568e1a059f9558a8"><div class="ttname"><a href="string_8h.html#ae8e613ef4bfd16a5568e1a059f9558a8">strtok</a></div><div class="ttdeci">char * strtok(char *restrict s1, const char *restrict s2)</div><div class="ttdoc">Split string into tokens.</div><div class="ttdef"><b>Definition</b> string.c:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

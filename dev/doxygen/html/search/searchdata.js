@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
   0: "_abcdeghikmoprstv",
-  1: "rs",
-  2: "ceghimpsv",
+  1: "prs",
+  2: "ceghimprsv",
   3: "_abceghikmprstv",
-  4: "cios",
-  5: "mp"
+  4: "r",
+  5: "cios",
+  6: "mp"
 };
 
 var indexSectionNames =
@@ -14,8 +15,9 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "defines",
-  5: "pages"
+  4: "variables",
+  5: "defines",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -24,7 +26,8 @@ var indexSectionLabels =
   1: "Data Structures",
   2: "Files",
   3: "Functions",
-  4: "Macros",
-  5: "Pages"
+  4: "Variables",
+  5: "Macros",
+  6: "Pages"
 };
 

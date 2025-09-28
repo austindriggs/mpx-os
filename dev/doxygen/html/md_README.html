@@ -22,9 +22,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="penguin_ascii.png"/></td>
   <td id="projectalign">
-   <div id="projectname">MacaroniOS<span id="projectnumber">&#160;Version: R1</span>
+   <div id="projectname">MacaroniOS<span id="projectnumber">&#160;Version: R2</span>
    </div>
-   <div id="projectbrief">CS450: Operating Systems Structure</div>
+   <div id="projectbrief">A freestanding C environment, dubbed Macaroni OS, developed in a group project for Operating System Structures (CS450) at WVU.</div>
   </td>
  </tr>
  </tbody>
@@ -74,8 +74,7 @@ $(function() {
   <div class="headertitle"><div class="title">Macaroni Penguins</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> CS450: Operating Systems Structure</p>
-<p>Fall 2025</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> CS450: Operating Systems Structure (Fall 2025)</p>
 <p>See the repo at <a href="https://github.com/WVU-CS450/MacaroniPenguins">https://github.com/WVU-CS450/MacaroniPenguins</a>.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 GETTING STARTED</h1>
@@ -84,7 +83,7 @@ GETTING STARTED</h1>
 </div><!-- fragment --><p>Prep your linux environment by running the following commands: </p><div class="fragment"><div class="line">sudo apt update</div>
 <div class="line">sudo apt install -y clang make nasm git binutils-i686-linux-gnu qemu-system-x86 gdb</div>
 </div><!-- fragment --><p>Then run <code>make</code> and <code>./mpx.sh</code>.</p>
-<p>For more information, either run the <code>help</code> command inside of MacaroniOS, or consult the <a href="doc/USER-GUIDE.pdf">doc/USER-GUIDE.pdf</a>.</p>
+<p>For more information, either run the <code>help</code> command (or <code>help verbose</code>) inside of MacaroniOS, or consult the <a href="doc/USER-GUIDE.pdf">doc/USER-GUIDE.pdf</a>.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 CONTRIBUTING</h1>
 <p>After making changes, running <code>version</code> will show that your working directory is 'dirty'. This simply means that you have uncommitted changes.</p>
@@ -94,14 +93,17 @@ CONTRIBUTING</h1>
 <h1><a class="anchor" id="autotoc_md3"></a>
 DOXYGEN</h1>
 <p>Install doxygen and dependancies: </p><div class="fragment"><div class="line">sudo apt update</div>
-<div class="line">sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra</div>
+<div class="line">sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra wslu</div>
 </div><!-- fragment --><p>Create the configuration file (convention is a Doxyfile): </p><div class="fragment"><div class="line">doxygen -g Doxyfile</div>
 </div><!-- fragment --><p>Edit the file to your liking, reference the <a href="https://www.doxygen.nl/manual/index.html">doxygen manual</a> if needed, then run doxygen: </p><div class="fragment"><div class="line">doxygen</div>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;When releasing a new version of MacaroniOS, remember to change the <code>PROJECT_NUMER</code> (to R1, R2, etc) and <code>OUTPUT_DIRECTORY</code> (from <code>dev/doxygen</code> to <code>doc</code>). Also remember to change <code>user/version.c</code>. </p>
 </blockquote>
 <p>Then <code>cd</code> into the generated latex directory and run: </p><div class="fragment"><div class="line">make pdf</div>
-</div><!-- fragment --><p>In the same directory, a <code>refman.pdf</code> is generated. Save this file as <a href="doc/PROGRAMMER-GUIDE.pdf">doc/PROGRAMMER-GUIDE.pdf</a>. </p>
+</div><!-- fragment --><p>In the same directory, a <code>refman.pdf</code> is generated. Save this file as <a href="doc/PROGRAMMER-GUIDE.pdf">doc/PROGRAMMER-GUIDE.pdf</a>.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+RELEASES</h1>
+<p>View all of the <a href="https://github.com/WVU-CS450/MacaroniPenguins/releases/">Releases</a> or view previous documentation in <a href="doc/.legacy/">doc/.legacy/</a>. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
