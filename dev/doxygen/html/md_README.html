@@ -94,13 +94,17 @@ CONTRIBUTING</h1>
 DOXYGEN</h1>
 <p>Install doxygen and dependancies: </p><div class="fragment"><div class="line">sudo apt update</div>
 <div class="line">sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra wslu</div>
-</div><!-- fragment --><p>Create the configuration file (convention is a Doxyfile): </p><div class="fragment"><div class="line">doxygen -g Doxyfile</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>&zwj;If you get some errors, maybe try <code>sudo apt upgrade -y</code>. If you are getting an "WSL Interoperability is disabled" error, see <a href="https://github.com/microsoft/WSL/issues/13449">WSL issue 13449</a> and run the permenant fix codeblock. </p>
+</blockquote>
+<p>Create the configuration file (convention is a Doxyfile): </p><div class="fragment"><div class="line">doxygen -g Doxyfile</div>
 </div><!-- fragment --><p>Edit the file to your liking, reference the <a href="https://www.doxygen.nl/manual/index.html">doxygen manual</a> if needed, then run doxygen: </p><div class="fragment"><div class="line">doxygen</div>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;When releasing a new version of MacaroniOS, remember to change the <code>PROJECT_NUMER</code> (to R1, R2, etc) and <code>OUTPUT_DIRECTORY</code> (from <code>dev/doxygen</code> to <code>doc</code>). Also remember to change <code>user/version.c</code>. </p>
 </blockquote>
 <p>Then <code>cd</code> into the generated latex directory and run: </p><div class="fragment"><div class="line">make pdf</div>
 </div><!-- fragment --><p>In the same directory, a <code>refman.pdf</code> is generated. Save this file as <a href="doc/PROGRAMMER-GUIDE.pdf">doc/PROGRAMMER-GUIDE.pdf</a>.</p>
+<p>Alternatively, you can run the doxyfile shell script to automate everything above.</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 RELEASES</h1>
 <p>View all of the <a href="https://github.com/WVU-CS450/MacaroniPenguins/releases/">Releases</a> or view previous documentation in <a href="doc/.legacy/">doc/.legacy/</a>. </p>

@@ -45,6 +45,8 @@ Install doxygen and dependancies\+:
 \end{DoxyCode}
 
 
+\begin{quote}
+If you get some errors, maybe try {\ttfamily sudo apt upgrade -\/y}. If you are getting an "{}\+WSL Interoperability is disabled"{} error, see \href{https://github.com/microsoft/WSL/issues/13449}{\texttt{ WSL issue 13449}} and run the permenant fix codeblock. \end{quote}
 Create the configuration file (convention is a Doxyfile)\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{doxygen\ -\/g\ Doxyfile}
@@ -68,5 +70,7 @@ Then {\ttfamily cd} into the generated latex directory and run\+:
 \end{DoxyCode}
 
 
-In the same directory, a {\ttfamily refman.\+pdf} is generated. Save this file as \href{doc/PROGRAMMER-GUIDE.pdf}{\texttt{ doc/\+PROGRAMMER-\/\+GUIDE.\+pdf}}.\hypertarget{md_README_autotoc_md4}{}\doxysection{\texorpdfstring{RELEASES}{RELEASES}}\label{md_README_autotoc_md4}
+In the same directory, a {\ttfamily refman.\+pdf} is generated. Save this file as \href{doc/PROGRAMMER-GUIDE.pdf}{\texttt{ doc/\+PROGRAMMER-\/\+GUIDE.\+pdf}}.
+
+Alternatively, you can run the doxyfile shell script to automate everything above.\hypertarget{md_README_autotoc_md4}{}\doxysection{\texorpdfstring{RELEASES}{RELEASES}}\label{md_README_autotoc_md4}
 View all of the \href{https://github.com/WVU-CS450/MacaroniPenguins/releases/}{\texttt{ Releases}} or view previous documentation in \href{doc/.legacy/}{\texttt{ doc/.legacy/}}. 
