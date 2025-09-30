@@ -29,7 +29,7 @@ void create_pcb(const char* name, int process_class, int priority){
 
     // Checks if the name is appropriate length
     else if (name == NULL || strlen(name) < 8 || strlen(name) > PCB_NAME_MAX_LEN){
-        sys_req(WRITE, COM1, "\033[31mInvalid Name: Given name must be at least 8 characters\033[0m\n", 65);
+        sys_req(WRITE, COM1, "\033[31mInvalid Name: Given name must 8-16 characters\033[0m\n", 56);
     }
 
     // Checks if the process class is valid
