@@ -13,7 +13,7 @@ void create_help(void){
     const char *helpMessage =
         "\r\n\033[33mcreate\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mclass\033[0m>] [<\033[36mpriority\033[0m>]\r\n"
         "  \033[33mcreate\033[0m <\033[36mname\033[0m> <\033[36mclass\033[0m> <\033[36mpriority\033[0m>    create a new process with the given name, class, and priority\r\n"
-        "  \033[33mcreate\033[0m \033[36mhelp\033[0m                                                       prints this message\r\n"
+        "  \033[33mcreate\033[0m \033[36mhelp\033[0m                         prints this message\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
 }
