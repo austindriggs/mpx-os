@@ -13,7 +13,7 @@
 void block_help(void){
     const char *helpMessage =
         "\r\n\033[33mblock\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "  \033[33mblock\033[0m <\033[36mname\033[0m>      block the requested process with the given name\r\n"
+        "  \033[33mblock\033[0m <\033[36mname\033[0m>      block the requested process with the given name (1-16 characters)\r\n"
         "  \033[33mblock\033[0m \033[36mhelp\033[0m        prints this message\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
@@ -28,8 +28,9 @@ void block_pcb(const char* name){
     }
 
     // Checks if the name is appropriate length
-    else if (name == NULL || strlen(name) < 8 || strlen(name) > PCB_NAME_MAX_LEN){
-        sys_req(WRITE, COM1, "\033[31mInvalid Name: Given name must be 8-16 characters\033[0m\n", 56);
+    else if (name == NULL || strlen(name) < 1 || strlen(name) > PCB_NAME_MAX_LEN){
+        sys_req(WRITE, COM1, "\033[31mInvalid Name: Given name must be 1-16 characters\033[0m\n", 59);
+        block_help();
     }
 
     // Checks if the process exists
@@ -72,7 +73,7 @@ void block_pcb_command(const char* args){
 void unblock_help(void){
     const char *helpMessage =
         "\r\n\033[33munblock\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "  \033[33munblock\033[0m <\033[36mname\033[0m>      unblock the requested process with the given name\r\n"
+        "  \033[33munblock\033[0m <\033[36mname\033[0m>      unblock the requested process with the given name (1-16 characters)\r\n"
         "  \033[33munblock\033[0m \033[36mhelp\033[0m        prints this message\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
@@ -87,8 +88,9 @@ void unblock_pcb(const char* name){
     }
 
     // Checks if the name is appropriate length
-    else if (name == NULL || strlen(name) < 8 || strlen(name) > PCB_NAME_MAX_LEN){
-        sys_req(WRITE, COM1, "\033[31mInvalid Name: Given name must be 8-16 characters\033[0m\n", 56);
+    else if (name == NULL || strlen(name) < 1 || strlen(name) > PCB_NAME_MAX_LEN){
+        sys_req(WRITE, COM1, "\033[31mInvalid Name: Given name must be 1-16 characters\033[0m\n", 59);
+        unblock_help();
     }
 
     // Checks if the process exists
