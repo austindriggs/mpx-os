@@ -1,6 +1,6 @@
 # Macaroni Penguins
 
-CS450: Operating Systems Structure (Fall 2025)
+A freestanding C environment, dubbed "Macaroni OS", developed in a group project for Operating System Structures (CS450) at WVU in Fall 2025.
 
 See the repo at https://github.com/WVU-CS450/MacaroniPenguins.
 
@@ -48,6 +48,7 @@ sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra 
 ```
 
 > If you get some errors, maybe try `sudo apt upgrade -y`.
+> If you are getting an "WSL Interoperability is disabled" error, see [WSL issue 13449](https://github.com/microsoft/WSL/issues/13449) and run the permenant fix codeblock.
 
 Create the configuration file (convention is a Doxyfile):
 ```bash
@@ -67,6 +68,8 @@ make pdf
 ```
 
 In the same directory, a `refman.pdf` is generated. Save this file as [doc/PROGRAMMER-GUIDE.pdf](doc/PROGRAMMER-GUIDE.pdf). 
+
+Alternatively, you can run the doxyfile shell script to automate everything above.
 
 
 ## RELEASES
