@@ -8,6 +8,8 @@ kernel/kmain.c.save
 *.tmp
 *.save
 doc/~$NTRIBUTIONS.docx
+dev/~\$NTRIBUTIONS.docx
+dev/doxygen*
 
 # depending on your version of ubuntu
 make/CFLAGS
