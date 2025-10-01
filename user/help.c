@@ -19,7 +19,9 @@ void help_message(void) {
         "\033[33mshow\033[0m             [<\033[36mname\033[0m>|\033[36mready\033[0m|\033[36mblocked\033[0m|\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
         "\033[33mpriority set\033[0m     [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mpriority\033[0m>]\r\n"
         "\033[33msuspend\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "\033[33mresume\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n\r\n"
+        "\033[33mresume\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33mclear\033[0m\r\n"
+        "\r\n"
 	"For more help, run '\033[33mhelp\033[0m \033[36mverbose\033[0m' or see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
@@ -43,8 +45,10 @@ void help_verbose(void) {
     suspend_help();
     resume_help();
 
-    const char *docMsg =
-        "For more help, see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
+    const char *clearMsg = "\r\n\033[33mclear\033[0m    Clears the terminal and prints a new intro message.\r\n\r\n";
+    sys_req(WRITE, COM1, clearMsg, strlen(clearMsg));
+
+    const char *docMsg = "For more help, see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
     sys_req(WRITE, COM1, docMsg, strlen(docMsg));
 }
 
