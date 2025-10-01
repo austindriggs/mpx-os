@@ -26,17 +26,18 @@ void setPriority(char* name, int newPriority){
 
     // Sets priority
     else if (newPriority<=9 && newPriority>=0){
-        pcbPTR->priority = newPriority;
         struct pcb* prevPTR = pcbPTR->prev;
         struct pcb* nextPTR = pcbPTR->next;
-        if (prevPTR->priority > newPriority){
+        if (prevPTR != NULL && prevPTR->priority > newPriority){
             while (prevPTR != NULL && prevPTR->priority > newPriority){
 
                 // Update from initial previous to initial next
                 prevPTR->next = nextPTR;
 
                 // Update from intial next to initial prev
-                nextPTR->prev = prevPTR;
+                if (nextPTR != NULL){
+                    nextPTR->prev = prevPTR;
+                }
 
                 // Update prev to prev of initial previous
                 pcbPTR->prev = prevPTR->prev;
@@ -47,19 +48,23 @@ void setPriority(char* name, int newPriority){
                 }
 
                 // Update next to be initial previous
-                pcbPTR->next = prevPTR;
+                if (pcbPTR->next != NULL){
+                    pcbPTR->next = prevPTR;
+                }
 
                 // Update prev of initial previous to pcbPTR
                 prevPTR->prev = pcbPTR;
 
                 // Change what initial previous and initial next are
                 prevPTR = pcbPTR->prev;
-                nextPTR = pcbPTR->next;
+
+                if (pcbPTR->next != NULL){
+                    nextPTR = pcbPTR->next;
+                }
             }
         }
-        else if (nextPTR->priority < newPriority){
-            while (nextPTR != NULL && nextPTR->priority >= newPriority){
-                
+        else if (nextPTR != NULL && nextPTR->priority <= newPriority && pcbPTR->priority != newPriority){
+            while (nextPTR != NULL && nextPTR->priority <= newPriority){
                 // Update from initial previous to initial next
                 prevPTR->next = nextPTR;
 
@@ -69,11 +74,11 @@ void setPriority(char* name, int newPriority){
                 // Update next from initial next to next next
                 pcbPTR->next = nextPTR->next;
 
-                // Update prev of next next to pcbPTR
+                 // Update prev of next next to pcbPTR
                 if (nextPTR->next != NULL){
                     nextPTR->next->prev = pcbPTR;
                 }
-
+                
                 // Update next next to pcbPTR
                 nextPTR->next = pcbPTR;
 
@@ -84,6 +89,7 @@ void setPriority(char* name, int newPriority){
                 nextPTR = pcbPTR->next;
             }
         }
+        pcbPTR->priority = newPriority;
     }
 }
 
@@ -117,6 +123,7 @@ void set_priority_command(const char* args){
 
     // Handles getting process name and priority number
     else{
+        int isNumber = 1;
         int temp = 0;
         for (int i=0; i<(int)strlen(args); i++){
             if (args[i] == ' ' && i<(int)strlen(args) && i != 0){
@@ -131,8 +138,20 @@ void set_priority_command(const char* args){
             }
             name[temp] = '\0'; // Added in null terminator
             const char *numArg = args + temp;
-            int priority = atoi(numArg);
-            setPriority(name, priority);
+            for (int i = 0; i<(int)strlen(numArg)-1; i++){
+                if ((numArg[i] <= '0' || numArg[i] >= '9') && (numArg[i]!='\0' && numArg[i]!=' ')){
+                    isNumber = 0;
+                    break;
+                }
+            }
+            if (isNumber == 1){
+                int priority = atoi(numArg);
+                setPriority(name, priority);
+            }
+            else {
+                sys_req(WRITE, COM1, "\033[31mError: Please ensure the priority argument is a number\033[0m\n", 64);
+                set_priority_help();
+            }
         }
         else{
             sys_req(WRITE, COM1, "\033[31mError: Please ensure a name and priority are given\033[0m\n", 61);
