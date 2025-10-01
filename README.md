@@ -7,10 +7,12 @@ See the repo at https://github.com/WVU-CS450/MacaroniPenguins.
 
 ## GETTING STARTED
 
-Install WSL if you need to (some features may only work inside of an Ubuntu WSL distro):
+Install WSL if you need to:
 ```bash
 wsl --install -d ubuntu
 ```
+
+> It is recommended to use an Ubuntu WSL distro, as some things like the doxyfile.sh script only work in this specific environment, but it is not required.
 
 Clone this repo into a linux environment (WSL, Ubuntu, etc):
 ```bash
@@ -55,7 +57,7 @@ Create the configuration file (convention is a Doxyfile) with `doxygen -g Doxyfi
 
 > When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) (this should also get changed in `user/version.c`).
 
-This script runs doxygen to generates a bunch of latex files in the dev folder, makes those files into a pdf, and then renames and moves it to become the [doc/PROGRAMMERS-GUIDE.pdf](doc/PROGRAMMERS-GUIDE.pdf).
+This script runs doxygen to generates a bunch of latex files in the dev folder, makes those files into a pdf, renames the pdf and moves it to become the [doc/PROGRAMMERS-GUIDE.pdf](doc/PROGRAMMERS-GUIDE.pdf), and opens the pdf (opening it uses `wslview` which is only works in a WSL environment).
 
 
 ## RELEASES
