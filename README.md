@@ -12,6 +12,8 @@ Install WSL if you need to:
 wsl --install -d ubuntu
 ```
 
+> It is recommended to use an Ubuntu WSL distro, as some things like the doxyfile.sh script only work in this specific environment, but it is not required.
+
 Clone this repo into a linux environment (WSL, Ubuntu, etc):
 ```bash
 git clone https://github.com/WVU-CS450/MacaroniPenguins.git
@@ -30,9 +32,7 @@ For more information, either run the `help` command (or `help verbose`) inside o
 
 ## CONTRIBUTING
 
-After making changes, running `version` will show that your working directory is 'dirty'. This simply means that you have uncommitted changes.
-
-Ensure you have checked out the correct branch and pulled its latest changes. Stage/add the relevant files before committing them.
+After making changes to the code, running `version` will show that your working directory is 'dirty'. This simply means that you have uncommitted changes. Ensure you have checked out the correct branch and pulled its latest changes. Stage/add the relevant files before committing them.
 
 Now you can run `make clean` and `make` again, run `./mpx.sh`, and finally run `version` to see your latest commit hash and showing that your working directory is 'clean'.
 
@@ -50,26 +50,14 @@ sudo apt install -y doxygen texlive-full texlive-latex-base texlive-latex-extra 
 > If you get some errors, maybe try `sudo apt upgrade -y`.
 > If you are getting an "WSL Interoperability is disabled" error, see [WSL issue 13449](https://github.com/microsoft/WSL/issues/13449) and run the permenant fix codeblock.
 
-Create the configuration file (convention is a Doxyfile):
+Create the configuration file (convention is a Doxyfile) with `doxygen -g Doxyfile`. Edit the file to your liking, reference the [doxygen manual](https://www.doxygen.nl/manual/index.html) if needed, then run this script:
 ```bash
-doxygen -g Doxyfile
+./doxyfile.sh
 ```
 
-Edit the file to your liking, reference the [doxygen manual](https://www.doxygen.nl/manual/index.html) if needed, then run doxygen:
-```bash
-doxygen
-```
+> When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) (this should also get changed in `user/version.c`).
 
-> When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) and `OUTPUT_DIRECTORY` (from `dev/doxygen` to `doc`). Also remember to change `user/version.c`.
-
-Then `cd` into the generated latex directory and run:
-```
-make pdf
-```
-
-In the same directory, a `refman.pdf` is generated. Save this file as [doc/PROGRAMMER-GUIDE.pdf](doc/PROGRAMMER-GUIDE.pdf). 
-
-Alternatively, you can run the doxyfile shell script to automate everything above.
+This script runs doxygen to generates a bunch of latex files in the dev folder, makes those files into a pdf, renames the pdf and moves it to become the [doc/PROGRAMMER-GUIDE.pdf](doc/PROGRAMMER-GUIDE.pdf), and opens the pdf (opening it uses `wslview` which is only works in a WSL environment).
 
 
 ## RELEASES

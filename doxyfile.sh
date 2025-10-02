@@ -2,7 +2,7 @@
 set -e  # exit on error
 
 # Run doxygen
-doxygen
+doxygen Doxyfile
 
 # Move into latex directory and build pdf
 cd dev/doxygen/latex

@@ -66,7 +66,7 @@ void help_command(const char *args) {
     else if (strcmp(args, "help") == 0) {
         help_message();
     }
-    else if (strcmp(args, "verbose") == 0) {
+    else if (strcmp(args, "verbose") == 0 || strcmp(args, "v") == 0) {
         help_verbose();
     }
     else {
