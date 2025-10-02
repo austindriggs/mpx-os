@@ -57,7 +57,7 @@ Create the configuration file (convention is a Doxyfile) with `doxygen -g Doxyfi
 
 > When releasing a new version of MacaroniOS, remember to change the `PROJECT_NUMER` (to R1, R2, etc) (this should also get changed in `user/version.c`).
 
-This script runs doxygen to generates a bunch of latex files in the dev folder, makes those files into a pdf, renames the pdf and moves it to become the [doc/PROGRAMMERS-GUIDE.pdf](doc/PROGRAMMERS-GUIDE.pdf), and opens the pdf (opening it uses `wslview` which is only works in a WSL environment).
+This script runs doxygen to generates a bunch of latex files in the dev folder, makes those files into a pdf, renames the pdf and moves it to become the [doc/PROGRAMMER-GUIDE.pdf](doc/PROGRAMMER-GUIDE.pdf), and opens the pdf (opening it uses `wslview` which is only works in a WSL environment).
 
 
 ## RELEASES
