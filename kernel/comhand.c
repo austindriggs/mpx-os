@@ -8,6 +8,8 @@
 #include "showPCB.h"
 #include "setPriority.h"
 #include "ready.h"
+#include "init.h"
+#include "block.h"
 
 // penguin ASCII image on startup
 void com_startup(void) {
@@ -103,6 +105,26 @@ void comhand(void)
             char *args = buf + 6;
             while (*args == ' ') args++;
             resume_command(args);
+        }
+        else if (strncmp(buf, "create", 6) == 0) {
+            char *args = buf + 6;
+            while (*args == ' ') args++;
+            create_pcb_command(args);
+        }
+        else if (strncmp(buf, "delete", 6) == 0) {
+            char *args = buf + 6;
+            while (*args == ' ') args++;
+            delete_pcb_command(args);
+        }
+        else if (strncmp(buf, "block", 5) == 0) {
+            char *args = buf + 5;
+            while (*args == ' ') args++;
+            block_pcb_command(args);
+        }
+        else if (strncmp(buf, "unblock", 7) == 0) {
+            char *args = buf + 7;
+            while (*args == ' ') args++;
+            unblock_pcb_command(args);
         }
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);

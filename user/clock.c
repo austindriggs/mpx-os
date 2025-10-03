@@ -104,7 +104,7 @@ void clock_command(const char *args){
 
         rtc_time_t t = { second, minute, hour };
         set_time(&t);
-        print_time(&t);
+        //print_time(&t);
     }
     else if (strncmp(args, "set date ", 9) == 0) {
         const char *val = args + 9;  // skip "set date "
@@ -138,7 +138,7 @@ void clock_command(const char *args){
 
         rtc_date_t d = { day, month, year };
         set_date(&d);
-        print_date(&d);
+        //print_date(&d);
     }
     else if (strcmp(args, "help") == 0) {
         clock_help();

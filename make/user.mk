@@ -13,4 +13,6 @@ USER_OBJECTS=\
 	user/pcb/setPriority.o\
 	user/pcb/showPCB.o\
 	user/pcb/ready.o\
+	user/pcb/init.o\
+	user/pcb/block.o\
   
