@@ -35,42 +35,42 @@ void showPCB(const char* name){
     else {
 
         // Print name
-        sys_req(WRITE, COM1, "Name: ", 6);
+        sys_req(WRITE, COM1, "Name: ", strlen("Name: "));
         sys_req(WRITE, COM1, pcbPTR->name, strlen(pcbPTR->name));
         sys_req(WRITE, COM1, "\n", 1);
 
         // Print Class
-        sys_req(WRITE, COM1, "Class: ", 7);
+        sys_req(WRITE, COM1, "Class: ", strlen("Class: "));
         if (pcbPTR->process_class == CLASS_SYSTEM){
-            sys_req(WRITE, COM1, "System/Kernel\n", 14);
+            sys_req(WRITE, COM1, "System/Kernel\n", strlen("System/Kernel\n"));
         }
         else{
-            sys_req(WRITE, COM1, "User\n", 12);
+            sys_req(WRITE, COM1, "User\n", strlen("User\n"));
         }
 
         // Print state
-        sys_req(WRITE, COM1, "State: ", 7);
+        sys_req(WRITE, COM1, "State: ", strlen("State: "));
         if (pcbPTR->execution_state == STATE_READY){
-            sys_req(WRITE, COM1, "Ready\n", 6);
+            sys_req(WRITE, COM1, "Ready\n", strlen("Ready\n"));
         }
         else if (pcbPTR->execution_state == STATE_RUNNING){
-            sys_req(WRITE, COM1, "Running\n", 8);
+            sys_req(WRITE, COM1, "Running\n", strlen("Running\n"));
         }
         else {
-            sys_req(WRITE, COM1, "Blocked\n", 8);
+            sys_req(WRITE, COM1, "Blocked\n", strlen("Blocked\n"));
         }
 
         // Print suspension state
-        sys_req(WRITE, COM1, "Suspension Status: ", 19);
+        sys_req(WRITE, COM1, "Suspension Status: ", strlen("Suspension Status: "));
         if (pcbPTR->dispatch_state == DISPATCH_ACTIVE){
-            sys_req(WRITE, COM1, "Not suspended\n", 14);
+            sys_req(WRITE, COM1, "Not suspended\n", strlen("Not suspended\n"));
         }
         else {
-            sys_req(WRITE, COM1, "Suspended\n", 10);
+            sys_req(WRITE, COM1, "Suspended\n", strlen("Suspended\n"));
         }
 
         // Print priority
-        sys_req(WRITE, COM1, "Priority: ", 10);
+        sys_req(WRITE, COM1, "Priority: ", strlen("Priority: "));
         itoa(pcbPTR->priority, buffer);
         sys_req(WRITE, COM1, buffer, strlen(buffer));
         sys_req(WRITE, COM1, "\n\n", 2);
