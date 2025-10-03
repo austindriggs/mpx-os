@@ -8,9 +8,10 @@
  */
 void setPriority(char* name, int newPriority){
     struct pcb* pcbPTR = pcb_find(name);
-    if (pcbPTR == NULL) {
+
+    // Checks if the process exists
+    if (pcbPTR == NULL){
         sys_req(WRITE, COM1, "\033[31mInvalid Process: Given process does not exist\033[0m\n", 56);
-        return;
     }
 
     // Checks if the process class
@@ -36,6 +37,9 @@ void setPriority(char* name, int newPriority){
                 // Update from intial next to initial prev
                 if (nextPTR != NULL){
                     nextPTR->prev = prevPTR;
+                } else {
+                // Update tail if prevPTR was tail
+                ready_queue.tail = prevPTR;
                 }
 
                 // Update prev to prev of initial previous
@@ -44,6 +48,9 @@ void setPriority(char* name, int newPriority){
                 // Update next of previous of initial previous to pcbPTR
                 if (prevPTR->prev != NULL){
                     prevPTR->prev->next = pcbPTR;
+                } else {
+                    // pcbPTR becomes new head
+                    ready_queue.head = pcbPTR;
                 }
 
                 // Update next to be initial previous
@@ -76,7 +83,10 @@ void setPriority(char* name, int newPriority){
                  // Update prev of next next to pcbPTR
                 if (nextPTR->next != NULL){
                     nextPTR->next->prev = pcbPTR;
-                }
+                } else {
+                    // pcbPTR is new tail
+                    ready_queue.tail = pcbPTR;
+                }   
                 
                 // Update next next to pcbPTR
                 nextPTR->next = pcbPTR;
