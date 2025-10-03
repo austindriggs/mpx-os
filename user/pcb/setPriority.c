@@ -8,10 +8,9 @@
  */
 void setPriority(char* name, int newPriority){
     struct pcb* pcbPTR = pcb_find(name);
-
-    // Checks if the process exists
-    if (pcbPTR == NULL){
+    if (pcbPTR == NULL) {
         sys_req(WRITE, COM1, "\033[31mInvalid Process: Given process does not exist\033[0m\n", 56);
+        return;
     }
 
     // Checks if the process class
@@ -159,3 +158,4 @@ void set_priority_command(const char* args){
         }
     }
 }
+
