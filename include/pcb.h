@@ -50,7 +50,7 @@ struct pcb_queue{
     struct pcb* tail;
 };
 
-// Queue initialization
+// Queue initialization   
 extern struct pcb_queue ready_queue;
 extern struct pcb_queue blocked_queue;
 extern struct pcb_queue suspended_ready_queue;
