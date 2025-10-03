@@ -28,7 +28,7 @@ void create_pcb(const char* name, int process_class, int priority){
 
     // Checks if the process exists
     if (p != NULL){
-        sys_req(WRITE, COM1, "\033[31mInvalid Name: Given process already exists\033[0m\n", 56);
+        sys_req(WRITE, COM1, "\033[31mInvalid Name: Given process already exists\033[0m\n", 53);
     }
 
     // Checks if the name is appropriate length
@@ -52,6 +52,7 @@ void create_pcb(const char* name, int process_class, int priority){
     else {
         struct pcb* newProcess = pcb_setup(name, process_class, priority);
         pcb_insert(newProcess);
+        sys_req(WRITE, COM1, "\033[36mProcess created successfully\033[0m\n", 39);
     }
     
 }
@@ -88,15 +89,27 @@ void create_pcb_command(const char* args){
             name[temp] = '\0'; // Added in null terminator
             //parse process class
             char class[2];
+            char priority_char[2];
             const char *numArg = args + temp +1;
             strncpy(class, numArg, 1);
             class[1]='\0';
             int process_class = atoi(class);
+            if(class[0]<'0'||class[0]>'1' || *(numArg+1)!=' '){
+                sys_req(WRITE, COM1, "\033[31mError: Class must be valid number\033[0m\n", 44);
+                create_help();
+                return;
+            }
             //parse process priority
             numArg+=2;
-            int priority = atoi(numArg);
+            strncpy(priority_char, numArg, 1);
+            priority_char[1]='\0';
+            int priority = atoi(priority_char);
+            if((priority_char[0]<'0' || priority_char[0]>'9') || *(numArg+1)!='\0'){
+                sys_req(WRITE, COM1, "\033[31mError: Priority must be valid number\033[0m\n", 47);
+                create_help();
+                return;
+            }
             create_pcb(name, process_class, priority);
-            showAllPCB();
         }
         else{
             sys_req(WRITE, COM1, "\033[31mError: Please ensure a name, class, and priority are given\033[0m\n", 69);
@@ -145,6 +158,7 @@ void delete_pcb(const char* name){
     else{
         pcb_remove(proc_to_delete );
         pcb_free(proc_to_delete );
+        sys_req(WRITE, COM1, "\033[36mProcess deleted successfully\033[0m\n", 39);
     }
 }
 
@@ -164,6 +178,5 @@ void delete_pcb_command(const char* args){
     // Handles getting process name
     else{
         delete_pcb(args);
-        showAllPCB();
     }
 }

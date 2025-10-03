@@ -44,11 +44,20 @@ void block_pcb(const char* name){
         pcb_remove(p);
         p->execution_state=STATE_BLOCKED;
         pcb_insert(p);
+        sys_req(WRITE, COM1, "\033[36mProcess blocked successfully\033[0m\n", 39);
     }
 }
 
 //function for use in comhand
 void block_pcb_command(const char* args){
+    //validation
+    for (int i=0; i<(int)strlen(args); i++){
+        if (args[i] == ' '){
+            sys_req(WRITE, COM1, "\033[31mError: Please ensure a valid name is given\033[0m\n", 47);
+            block_help();
+            return;
+        }
+    }
     if (args == NULL || *args =='\0'){
         sys_req(WRITE, COM1, "\033[31mError: Please ensure a name is given\033[0m\n", 47);
         block_help();
@@ -61,7 +70,7 @@ void block_pcb_command(const char* args){
 
     // Handles blocking process
     else{
-        block_pcb(args);
+            block_pcb(args);
     }
 }
 
@@ -104,11 +113,20 @@ void unblock_pcb(const char* name){
         pcb_remove(p);
         p->execution_state=STATE_READY;
         pcb_insert(p);
+        sys_req(WRITE, COM1, "\033[36mProcess unblocked successfully\033[0m\n", 41);
     }
 }
 
 //function for use in comhand
 void unblock_pcb_command(const char* args){
+    //validation
+    for (int i=0; i<(int)strlen(args); i++){
+        if (args[i] == ' '){
+            sys_req(WRITE, COM1, "\033[31mError: Please ensure a valid name is given\033[0m\n", 47);
+            unblock_help();
+            return;
+        }
+    }
     if (args == NULL || *args =='\0'){
         sys_req(WRITE, COM1, "\033[31mError: Please ensure a name is given\033[0m\n", 47);
         unblock_help();
@@ -119,8 +137,8 @@ void unblock_pcb_command(const char* args){
         unblock_help();
     }
 
-    // Handles blocking process
+    // Handles unblocking process
     else{
-        unblock_pcb(args);
+            unblock_pcb(args);
     }
 }
