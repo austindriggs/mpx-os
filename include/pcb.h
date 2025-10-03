@@ -56,13 +56,41 @@ extern struct pcb_queue blocked_queue;
 extern struct pcb_queue suspended_ready_queue;
 extern struct pcb_queue suspended_blocked_queue;
 
-// PCB Kernal Function
+/**
+ * @brief Allocates a new PCB and its stack.
+ *
+ * Initializes all members to zero and sets stack pointer.
+ *
+ * @return Pointer to the allocated PCB, or NULL if allocation fails.
+ */
 struct pcb* pcb_allocate(void);
 
+/**
+ * @brief Frees a previously allocated PCB and its stack.
+ *
+ * @param ptr Pointer to the PCB to free.
+ * @return 0 on success, -1 if ptr is NULL.
+ */
 int pcb_free(struct pcb* ptr);
 
+/**
+ * @brief Initializes a PCB with given name, class, and priority.
+ *
+ * Sets default execution and dispatch states.
+ *
+ * @param name Name of the process.
+ * @param process_class Class of the process (SYSTEM/USER).
+ * @param priority Initial priority (0-9).
+ * @return Pointer to initialized PCB, or NULL if allocation/setup fails.
+ */
 struct pcb* pcb_setup(const char* name, int process_class, int priority);
 
+/**
+ * @brief Finds a PCB by its name in all queues.
+ *
+ * @param name Name of the process to find.
+ * @return Pointer to the PCB if found, NULL otherwise.
+ */
 struct pcb* pcb_find(const char* name);
 
 /**
