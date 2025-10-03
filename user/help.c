@@ -18,14 +18,15 @@ void help_message(void) {
         "\033[33mversion\033[0m          [\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
         "\033[33mexit\033[0m             [\033[36mhelp\033[0m|\033[36mforce\033[0m]\r\n"
         "\033[33mclock\033[0m            [\033[36mget\033[0m|\033[36mset\033[0m|\033[36mhelp\033[0m]  [<\033[36mdate\033[0m>|<\033[36mtime\033[0m>]\r\n"
+        "\033[33mcreate\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mclass\033[0m>] [<\033[36mpriority\033[0m>]\r\n"
+        "\033[33mdelete\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
         "\033[33mshow\033[0m             [<\033[36mname\033[0m>|\033[36mready\033[0m|\033[36mblocked\033[0m|\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
         "\033[33mpriority set\033[0m     [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mpriority\033[0m>]\r\n"
         "\033[33msuspend\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
         "\033[33mresume\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "\033[33mcreate\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mclass\033[0m>] [<\033[36mpriority\033[0m>]\r\n"
-        "\033[33mdelete\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
         "\033[33mblock\033[0m            [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "\033[33munblock\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n\r\n"
+        "\033[33munblock\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33mclear\033[0m\r\n\r\n"
 	"For more help, run '\033[33mhelp\033[0m \033[36mverbose\033[0m' or see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
@@ -44,17 +45,21 @@ void help_verbose(void) {
     exit_help();
     version_help();
     clock_help();
-    set_priority_help();
-    show_pcb_help();
-    suspend_help();
-    resume_help();
     create_help();
     delete_help();
+    show_pcb_help();
+    set_priority_help();
+    suspend_help();
+    resume_help();
     block_help();
     unblock_help();
 
+    const char *clearMsg =
+        "\r\n";
+    sys_req(WRITE, COM1, clearMsg, strlen(clearMsg));
+
     const char *docMsg =
-        "For more help, see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
+        "\033[33mclear\033[0m clears the terminal\r\n";
     sys_req(WRITE, COM1, docMsg, strlen(docMsg));
 }
 

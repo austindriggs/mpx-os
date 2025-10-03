@@ -25,7 +25,7 @@ void show_pcb_help(void){
  */
 void showPCB(const char* name){
     char buffer[20];
-    struct pcb* pcbPTR = pcb_find(name);\
+    struct pcb* pcbPTR = pcb_find(name);
 
     // Checks if the process exists
     if (pcbPTR == NULL){
@@ -90,7 +90,7 @@ void showReady(void){
 
     // If there are processes, move through queue and print each
     else{
-        sys_req(WRITE, COM1, "Ready Processes:\n", 17);
+        sys_req(WRITE, COM1, "\033[32mReady Processes:\033[0m\n", 27); 
         while(nextPtr){
             showPCB(nextPtr->name);
             nextPtr = nextPtr->next;
@@ -111,7 +111,7 @@ void showBlocked(void){
 
     // If there are processes, move through queue and print each
     else{
-        sys_req(WRITE, COM1, "Blocked Processes:\n", 19);
+        sys_req(WRITE, COM1, "\033[31mBlocked Processes:\033[0m\n\r", 29); 
         while(nextPtr){
             showPCB(nextPtr->name);
             nextPtr = nextPtr->next;
@@ -127,7 +127,7 @@ void showSuspended(void){
         sys_req(WRITE, COM1, "No processes in the suspended-ready queue\n", 42);
     }
     else{
-        sys_req(WRITE, COM1, "Suspended Ready Processes:\n", 27);
+        sys_req(WRITE, COM1, "\033[33mSuspended Ready Processes:\033[0m\n\r", 37); 
         while(nextPtr){
             showPCB(nextPtr->name);
             nextPtr = nextPtr->next;
@@ -140,7 +140,7 @@ void showSuspended(void){
         sys_req(WRITE, COM1, "No processes in the suspended-blocked queue\n", 44);
     }
     else{
-        sys_req(WRITE, COM1, "Suspended Blocked Processes:\n", 29);
+        sys_req(WRITE, COM1, "\033[33mSuspended Blocked Processes:\033[0m\n\r", 39);
         while(nextPtr){
             showPCB(nextPtr->name);
             nextPtr = nextPtr->next;
