@@ -63,7 +63,7 @@ void suspend_command(const char *args) {
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
     else if (result == 0) {
-        const char *argMsg = "The process has been suspended.\r\n";
+        const char *argMsg = "\033[36mThe process has been suspended.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
     else {
@@ -124,7 +124,7 @@ void resume_command(const char *args) {
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
     else if (result == 0) {
-        const char *argMsg = "The process has been resumed.\r\n";
+        const char *argMsg = "\033[36mThe process has been resumed.\033[0m\r\n";
         sys_req(WRITE, COM1, argMsg, strlen(argMsg));
     }
     else {
