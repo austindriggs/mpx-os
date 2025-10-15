@@ -7,6 +7,8 @@ kernel.bin
 kernel/kmain.c.save
 *.tmp
 *.save
+
+# made files
 doc/~$NTRIBUTIONS.docx
 dev/~\$NTRIBUTIONS.docx
 dev/doxygen*
@@ -14,7 +16,8 @@ dev/doxygen*
 # depending on your version of ubuntu
 make/CFLAGS
 
-# austin fzf
+# austin's development
+dev/my_dev*
 selected
 
 # vscode users
