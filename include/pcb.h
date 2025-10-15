@@ -45,6 +45,12 @@ struct pcb{
     struct pcb* prev;
 };
 
+struct context{
+    uint16_t gs, fs, es, ss, ds;
+    uint32_t edi, esi, ebp, esp, ebx, edx, ecx, eax;
+    uint32_t eip, cs, eflags;
+};
+
 struct pcb_queue{
     struct pcb* head;
     struct pcb* tail;
