@@ -10,6 +10,8 @@
 #include "ready.h"
 #include "init.h"
 #include "block.h"
+#include "yield.h"
+#include "loadR3.h"
 
 // penguin ASCII image on startup
 void com_startup(void) {
@@ -133,6 +135,16 @@ void comhand(void)
             // Need to see if we can remove the history when scrolling up
            sys_req(WRITE, COM1, "\033[2J\033[H", 7);
            com_startup();
+        }
+        else if (strncmp(buf, "yield", 5)==0){
+            char *args = buf + 5;
+            while (*args == ' ') args++;
+            yield_command(args);
+        }
+        else if (strncmp(buf, "load", 4)==0){
+            char *args = buf+4;
+            while (*args == ' ') args++;
+            load_command(args);
         }
         else {
             const char *invalidMsg = "\033[31mInvalid command. Please try again.\033[0m\r\n\r\n";

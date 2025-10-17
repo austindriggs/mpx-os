@@ -2,6 +2,7 @@
 #include <string.h>     
 #include <sys_req.h>   
 #include <memory.h>
+#include <showPCB.h>
 
 /**
  * TODO
@@ -18,7 +19,7 @@ struct pcb* pcb_allocate(void){
     struct pcb* ptr =(struct pcb*) sys_alloc_mem(sizeof(struct pcb));
     if (!ptr) return NULL;
     memset(ptr, 0, sizeof(struct pcb)); // initialize to 0
-    ptr->stack = (char*) sys_alloc_mem(PCB_STACK_MIN_SIZE);
+    ptr->stack = sys_alloc_mem(PCB_STACK_MIN_SIZE);
     
     // if allocation fails
     if(!ptr->stack){
@@ -27,7 +28,7 @@ struct pcb* pcb_allocate(void){
     }
     
     memset(ptr->stack, 0, PCB_STACK_MIN_SIZE);
-    ptr->stack_ptr = ptr->stack + PCB_STACK_MIN_SIZE - sizeof(void*); // Downward stack movement
+    ptr->stack_ptr = (struct context*)((uint8_t *)ptr->stack + PCB_STACK_MIN_SIZE - sizeof(struct context)); // Downward stack movement
     ptr->next = NULL;
     ptr->prev = NULL;
 
@@ -41,7 +42,7 @@ int pcb_free(struct pcb* ptr){
     return 0;
 }
 
-struct pcb* pcb_setup(const char* name, int process_class, int priority){
+struct pcb* pcb_setup(const char* name, int process_class, int priority, void (*function)(void)){
     if (!name || strlen(name) >= PCB_NAME_MAX_LEN) return NULL;
     if (priority < 0 || priority > 9) return NULL; // Also handle in User Functions
     struct pcb* ptr = pcb_allocate();
@@ -52,6 +53,15 @@ struct pcb* pcb_setup(const char* name, int process_class, int priority){
     ptr->priority = priority;
     ptr->execution_state = STATE_READY;
     ptr->dispatch_state = DISPATCH_ACTIVE;
+    ptr->stack_ptr->fs = 0x10;
+    ptr->stack_ptr->gs = 0x10;
+    ptr->stack_ptr->ds = 0x10;
+    ptr->stack_ptr->es = 0x10;
+    ptr->stack_ptr->cs = 0x08;
+    ptr->stack_ptr->ebp = 0;
+    ptr->stack_ptr->esp = (uint32_t)((uint8_t *)ptr->stack_ptr + sizeof(struct context));
+    ptr->stack_ptr->eflags = 0x202;
+    ptr->stack_ptr->eip = (uint32_t)function;
     return ptr;
 }
 

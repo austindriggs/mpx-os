@@ -23,6 +23,7 @@ void create_help(void){
 }
 
 //creates a new pcb and inserts it into the queue
+/*
 void create_pcb(const char* name, int process_class, int priority){
     struct pcb* p = pcb_find(name);
 
@@ -56,6 +57,7 @@ void create_pcb(const char* name, int process_class, int priority){
     }
     
 }
+*/
 
 //function for use in comhand
 void create_pcb_command(const char* args){
@@ -71,6 +73,7 @@ void create_pcb_command(const char* args){
     }
 
     // Handles getting process name, class, and priority number
+    /*
     else{
         // get a substring for the process name from the args
         int temp = 0;
@@ -116,6 +119,7 @@ void create_pcb_command(const char* args){
             create_help();
         }
     }
+    */
 }
 
 

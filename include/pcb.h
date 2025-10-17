@@ -33,22 +33,22 @@ enum dispatch_state{
     DISPATCH_SUSPENDED = 1
 };
 
+struct context{
+    int gs, fs, es, ds;
+    int edi, esi, ebp, esp, ebx, edx, ecx, eax;
+    int eip, cs, eflags;
+} __attribute__((packed));
+
 struct pcb{
     char name[PCB_NAME_MAX_LEN];
     enum process_class process_class;
     int priority; // 0 (highest) to 9
     enum execution_state execution_state;
     enum dispatch_state dispatch_state;
-    char* stack; // Dynamically allocated, might manually allocate based on memory management.
-    char* stack_ptr;
+    void *stack; // Dynamically allocated, might manually allocate based on memory management.
+    struct context* stack_ptr;
     struct pcb* next;
     struct pcb* prev;
-};
-
-struct context{
-    uint16_t gs, fs, es, ss, ds;
-    uint32_t edi, esi, ebp, esp, ebx, edx, ecx, eax;
-    uint32_t eip, cs, eflags;
 };
 
 struct pcb_queue{
@@ -89,7 +89,7 @@ int pcb_free(struct pcb* ptr);
  * @param priority Initial priority (0-9).
  * @return Pointer to initialized PCB, or NULL if allocation/setup fails.
  */
-struct pcb* pcb_setup(const char* name, int process_class, int priority);
+struct pcb* pcb_setup(const char* name, int process_class, int priority, void (*function)(void));
 
 /**
  * @brief Finds a PCB by its name in all queues.

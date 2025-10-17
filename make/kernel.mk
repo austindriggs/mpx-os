@@ -21,4 +21,5 @@ KERNEL_OBJECTS=\
 	kernel/core-c.o\
   kernel/pcb.o\
   kernel/itoa.o\
-  kernel/itoBCD.o
+  kernel/itoBCD.o\
+  kernel/sys_call.o\
