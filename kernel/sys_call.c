@@ -45,6 +45,7 @@ struct context* sys_call(struct context *curContext){
     else if (curContext->eax == EXIT){
         if (newProc == NULL){
             pcb_free(curProc);
+            curProc = NULL;
             sysStackPtr->eax = -1;
             return sysStackPtr;
         }
