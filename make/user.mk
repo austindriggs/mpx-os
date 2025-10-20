@@ -15,4 +15,6 @@ USER_OBJECTS=\
 	user/pcb/ready.o\
 	user/pcb/init.o\
 	user/pcb/block.o\
+	user/yield.o\
+	user/loadR3.o\
   

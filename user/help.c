@@ -9,6 +9,8 @@
 #include "ready.h"
 #include "init.h"
 #include "block.h"
+#include "yield.h"
+#include "loadR3.h"
 
 void help_message(void) {
     // command help
@@ -26,6 +28,8 @@ void help_message(void) {
         "\033[33mresume\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
         "\033[33mblock\033[0m            [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
         "\033[33munblock\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33myield\033[0m            [\033[36mhelp\033[0m]\r\n"
+        "\033[33mload\033[0m             [<\033[36mname\033[0m>|\033[36mhelp\033[0m|\033[36msuspended\033[0m]\r\n"
         "\033[33mclear\033[0m\r\n\r\n"
 	"For more help, run '\033[33mhelp\033[0m \033[36mverbose\033[0m' or see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
@@ -53,6 +57,8 @@ void help_verbose(void) {
     resume_help();
     block_help();
     unblock_help();
+    yield_help();
+    load_help();
 
     const char *clearMsg =
         "\r\n";
