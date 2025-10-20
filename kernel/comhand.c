@@ -109,9 +109,13 @@ void comhand(void)
             resume_command(args);
         }
         else if (strncmp(buf, "create", 6) == 0) {
+            /*
             char *args = buf + 6;
             while (*args == ' ') args++;
             create_pcb_command(args);
+            */
+            char* createMsg = "\033[31mError: This function is depreciated and no longer usable\033[0m\r\n";
+            sys_req(WRITE, COM1, createMsg, strlen(createMsg));
         }
         else if (strncmp(buf, "delete", 6) == 0) {
             char *args = buf + 6;

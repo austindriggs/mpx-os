@@ -28,7 +28,7 @@ struct pcb* pcb_allocate(void){
     }
     
     memset(ptr->stack, 0, PCB_STACK_MIN_SIZE);
-    ptr->stack_ptr = (struct context*)((uint8_t *)ptr->stack + PCB_STACK_MIN_SIZE - sizeof(struct context)); // Downward stack movement
+    ptr->contextPtr = (struct context*)((uint8_t *)ptr->stack + PCB_STACK_MIN_SIZE - sizeof(struct context)); // Downward stack movement
     ptr->next = NULL;
     ptr->prev = NULL;
 
@@ -53,15 +53,15 @@ struct pcb* pcb_setup(const char* name, int process_class, int priority, void (*
     ptr->priority = priority;
     ptr->execution_state = STATE_READY;
     ptr->dispatch_state = DISPATCH_ACTIVE;
-    ptr->stack_ptr->fs = 0x10;
-    ptr->stack_ptr->gs = 0x10;
-    ptr->stack_ptr->ds = 0x10;
-    ptr->stack_ptr->es = 0x10;
-    ptr->stack_ptr->cs = 0x08;
-    ptr->stack_ptr->ebp = 0;
-    ptr->stack_ptr->esp = (uint32_t)((uint8_t *)ptr->stack_ptr + sizeof(struct context));
-    ptr->stack_ptr->eflags = 0x202;
-    ptr->stack_ptr->eip = (uint32_t)function;
+    ptr->contextPtr->fs = 0x10;
+    ptr->contextPtr->gs = 0x10;
+    ptr->contextPtr->ds = 0x10;
+    ptr->contextPtr->es = 0x10;
+    ptr->contextPtr->cs = 0x08;
+    ptr->contextPtr->ebp = 0;
+    ptr->contextPtr->esp = (uint32_t)((uint8_t *)ptr->contextPtr + sizeof(struct context));
+    ptr->contextPtr->eflags = 0x202;
+    ptr->contextPtr->eip = (uint32_t)function;
     return ptr;
 }
 

@@ -34,9 +34,9 @@ enum dispatch_state{
 };
 
 struct context{
-    int gs, fs, es, ds;
-    int edi, esi, ebp, esp, ebx, edx, ecx, eax;
-    int eip, cs, eflags;
+    uint32_t gs, fs, es, ds;
+    uint32_t edi, esi, ebp, esp, ebx, edx, ecx, eax;
+    uint32_t eip, cs, eflags;
 } __attribute__((packed));
 
 struct pcb{
@@ -46,7 +46,7 @@ struct pcb{
     enum execution_state execution_state;
     enum dispatch_state dispatch_state;
     void *stack; // Dynamically allocated, might manually allocate based on memory management.
-    struct context* stack_ptr;
+    struct context* contextPtr;
     struct pcb* next;
     struct pcb* prev;
 };

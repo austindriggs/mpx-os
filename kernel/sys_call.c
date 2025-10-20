@@ -16,47 +16,45 @@ static struct pcb *curProc = NULL;
 static struct context *sysStackPtr = NULL;
 
 struct context* sys_call(struct context *curContext){
-    if (sysStackPtr == NULL){
+    if (curProc == NULL){
         sysStackPtr = curContext;
-
     }
     struct pcb *newProc = ready_queue.head;
     if (curContext->eax == IDLE){
         if (newProc == NULL){
-            curContext->eax = 0;
+            curContext->eax = -1;
             return curContext;
         }
         else {
             if (curProc == NULL){
                 pcb_remove(newProc);
                 curProc = newProc;
-                curContext->eax = 0;
-                return newProc->stack_ptr;
+                curContext->eax = -1;
+                return newProc->contextPtr;
             }
             else{
-                curProc->stack_ptr = curContext;
+                curProc->contextPtr = curContext;
                 pcb_insert(curProc);
                 pcb_remove(newProc);
                 curProc = newProc;
-                curContext->eax = 0;
-                return newProc->stack_ptr;
+                curContext->eax = -1;
+                return newProc->contextPtr;
             }
         }
     }
     else if (curContext->eax == EXIT){
         if (newProc == NULL){
             pcb_free(curProc);
-            curProc = NULL;
-            sysStackPtr->eax = 0;
+            sysStackPtr->eax = -1;
             return sysStackPtr;
         }
         else {
             pcb_free(curProc);
             pcb_remove(newProc);
             curProc = newProc;
-            curContext = curProc->stack_ptr;
-            curContext->eax = 0;
-            return newProc->stack_ptr;
+            curContext = curProc->contextPtr;
+            curContext->eax = -1;
+            return newProc->contextPtr;
         }
     }
     else {
