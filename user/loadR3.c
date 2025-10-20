@@ -17,13 +17,13 @@ void load_help(void){
 void loadR3(void){
     struct pcb* newProc = pcb_setup("proc1", CLASS_USER, 1, proc1);
     pcb_insert(newProc);
-    newProc = pcb_setup("proc2", CLASS_USER, 2, proc2);
+    newProc = pcb_setup("proc2", CLASS_USER, 1, proc2);
     pcb_insert(newProc);
-    newProc = pcb_setup("proc3", CLASS_USER, 3, proc3);
+    newProc = pcb_setup("proc3", CLASS_USER, 1, proc3);
     pcb_insert(newProc);
-    newProc = pcb_setup("proc4", CLASS_USER, 4, proc4);
+    newProc = pcb_setup("proc4", CLASS_USER, 1, proc4);
     pcb_insert(newProc);
-    newProc = pcb_setup("proc5", CLASS_USER, 5, proc5);
+    newProc = pcb_setup("proc5", CLASS_USER, 1, proc5);
     pcb_insert(newProc);
 }
 
@@ -37,24 +37,25 @@ void loadR3_suspended(void){
 }
 
 void loadProcess(const char* name){
+    struct pcb* newProc;
     if (strcmp(name, "proc1")==0){
-        struct pcb* newProc = pcb_setup("proc1", CLASS_USER, 1, proc1);
+        newProc = pcb_setup("proc1", CLASS_USER, 1, proc1);
         pcb_insert(newProc);
     }
     else if (strcmp(name, "proc2")==0){
-        struct pcb* newProc = pcb_setup("proc2", CLASS_USER, 1, proc2);
+        newProc = pcb_setup("proc2", CLASS_USER, 1, proc2);
         pcb_insert(newProc);
     }
-    else if (strcmp(name, "proc2")==0){
-        struct pcb* newProc = pcb_setup("proc3", CLASS_USER, 1, proc3);
+    else if (strcmp(name, "proc3")==0){
+        newProc = pcb_setup("proc3", CLASS_USER, 1, proc3);
         pcb_insert(newProc);
     }
-    else if (strcmp(name, "proc2")==0){
-        struct pcb* newProc = pcb_setup("proc4", CLASS_USER, 1, proc4);
+    else if (strcmp(name, "proc4")==0){
+        newProc = pcb_setup("proc4", CLASS_USER, 1, proc4);
         pcb_insert(newProc);
     }
-    else if (strcmp(name, "proc2")==0){
-        struct pcb* newProc = pcb_setup("proc5", CLASS_USER, 1, proc5);
+    else if (strcmp(name, "proc5")==0){
+        newProc = pcb_setup("proc5", CLASS_USER, 1, proc5);
         pcb_insert(newProc);
     }
     else{
