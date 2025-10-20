@@ -26,79 +26,12 @@ void setPriority(char* name, int newPriority){
 
     // Sets priority
     else if (newPriority<=9 && newPriority>=0){
-        struct pcb* prevPTR = pcbPTR->prev;
-        struct pcb* nextPTR = pcbPTR->next;
-        if (prevPTR != NULL && prevPTR->priority > newPriority){
-            while (prevPTR != NULL && prevPTR->priority > newPriority){
-
-                // Update from initial previous to initial next
-                prevPTR->next = nextPTR;
-
-                // Update from intial next to initial prev
-                if (nextPTR != NULL){
-                    nextPTR->prev = prevPTR;
-                } else {
-                // Update tail if prevPTR was tail
-                ready_queue.tail = prevPTR;
-                }
-
-                // Update prev to prev of initial previous
-                pcbPTR->prev = prevPTR->prev;
-
-                // Update next of previous of initial previous to pcbPTR
-                if (prevPTR->prev != NULL){
-                    prevPTR->prev->next = pcbPTR;
-                } else {
-                    // pcbPTR becomes new head
-                    ready_queue.head = pcbPTR;
-                }
-
-                // Update next to be initial previous
-                if (pcbPTR->next != NULL){
-                    pcbPTR->next = prevPTR;
-                }
-
-                // Update prev of initial previous to pcbPTR
-                prevPTR->prev = pcbPTR;
-
-                // Change what initial previous and initial next are
-                prevPTR = pcbPTR->prev;
-
-                if (pcbPTR->next != NULL){
-                    nextPTR = pcbPTR->next;
-                }
-            }
-        }
-        else if (nextPTR != NULL && nextPTR->priority <= newPriority && pcbPTR->priority != newPriority){
-            while (nextPTR != NULL && nextPTR->priority <= newPriority){
-                // Update from initial previous to initial next
-                prevPTR->next = nextPTR;
-
-                // Update from initial next to initial prev
-                nextPTR->prev = prevPTR;
-
-                // Update next from initial next to next next
-                pcbPTR->next = nextPTR->next;
-
-                 // Update prev of next next to pcbPTR
-                if (nextPTR->next != NULL){
-                    nextPTR->next->prev = pcbPTR;
-                } else {
-                    // pcbPTR is new tail
-                    ready_queue.tail = pcbPTR;
-                }   
-                
-                // Update next next to pcbPTR
-                nextPTR->next = pcbPTR;
-
-                // Update pcbPTR prev to initial next
-                pcbPTR->prev = nextPTR;
-
-                prevPTR = pcbPTR->prev;
-                nextPTR = pcbPTR->next;
-            }
-        }
+        /*
+         * To Fix Page fault errors, changed the priority set to remove the process from the queue, change its priority and reinsert it.
+         */
+        (void) pcb_remove(pcbPTR); /* ignore error code; pcb_remove will find the PCB if it's in a queue */
         pcbPTR->priority = newPriority;
+        pcb_insert(pcbPTR);
     }
 }
 
