@@ -82,8 +82,9 @@ void suspend_command(const char *args) {
 // help message for resume
 void resume_help(void) {
     const char *helpMsg =
-        "\r\n\033[33mresume\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\r\n\033[33mresume\033[0m [<\033[36mname\033[0m>|\033[36mall\033[0m]|\033[36mhelp\033[0m]\r\n"
         "  \033[33mresume\033[0m <\033[36mname\033[0m>    Puts a process in the active (not suspended) state, and moves it to the appropriate queue.\r\n"
+        "  \033[33mresume\033[0m \033[36mall\033[0m      Puts all suspended processes in the ready state, and moves it to the appropriate queue.\r\n"
         "  \033[33mresume\033[0m \033[36mhelp\033[0m      prints this message\r\n\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
@@ -112,6 +113,28 @@ void resume_command(const char *args) {
         resume_help();
         return;
     }
+    else if (args == NULL || *args == '\0' || strcmp(args, "all") == 0) {
+        struct pcb* curPtr = suspended_ready_queue.head;
+        struct pcb* tempPtr;
+        // Checks if there are any processes in the ready queue
+        if (curPtr == NULL){
+            sys_req(WRITE, COM1, "No processes in the suspended ready queue\n", 42);
+        }
+
+        // If there are processes, move through queue and print each 
+
+        else{
+            char* message = "\033[32mResuming all Processes:\033[0m\n";
+            sys_req(WRITE, COM1, message, strlen(message)); 
+            while(curPtr){
+                tempPtr = curPtr->next;
+                resume_pcb(curPtr->name);
+                curPtr = tempPtr;
+            }
+        }
+        return;
+    }
+
 
     int result = resume_pcb(args);
     if (result == -1) {
