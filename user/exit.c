@@ -2,6 +2,7 @@
 #include <string.h>
 #include "comhand.h"
 #include "exit.h"
+#include <sys_req.h>
 
 void exit_help(void) {
     const char *helpMsg =
@@ -28,7 +29,8 @@ int exit_command(const char *args) {
             if (confirmation[0] == 'y' || confirmation[0] == 'Y') {
                 const char *exitMsg = "\r\nExiting...\r\n";
                 sys_req(WRITE, COM1, exitMsg, strlen(exitMsg));
-                return 1; // tell comhand to exit
+                //return 1; // tell comhand to exit
+                sys_req(EXIT);
             } else if (confirmation[0] == 'n' || confirmation[0] == 'N') {
                 const char *returnMsg = "\r\nReturning...\r\n";
                 sys_req(WRITE, COM1, returnMsg, strlen(returnMsg));
@@ -45,7 +47,8 @@ int exit_command(const char *args) {
 	    return 0;
         }
 	else if (strcmp(args, "force") == 0 || strcmp(args, "f") == 0) {
-	    return 1;
+	    //return 1;
+        sys_req(EXIT);
         }
         else {
             const char *argMsg = "\033[31mInvalid argument. Please try again.\033[0m\r\n";
