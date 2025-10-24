@@ -45,6 +45,14 @@ int pcb_free(struct pcb* ptr){
 struct pcb* pcb_setup(const char* name, int process_class, int priority, void (*function)(void)){
     if (!name || strlen(name) >= PCB_NAME_MAX_LEN) return NULL;
     if (priority < 0 || priority > 9) return NULL; // Also handle in User Functions
+    if (pcb_find(name)!=NULL){
+        char* errorMsg = "\033[31mError: Process with name '";
+        sys_req(WRITE, COM1, errorMsg, strlen(errorMsg));
+        sys_req(WRITE, COM1, name, strlen(name));
+        errorMsg = "' already exists\033[0m\r\n";
+        sys_req(WRITE, COM1, errorMsg, strlen(errorMsg));
+        return NULL;
+    }
     struct pcb* ptr = pcb_allocate();
     if (!ptr) return NULL;
     strncpy(ptr->name, name, PCB_NAME_MAX_LEN - 1);
