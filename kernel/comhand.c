@@ -12,6 +12,7 @@
 #include "block.h"
 #include "yield.h"
 #include "loadR3.h"
+#include "alarm.h"
 
 // penguin ASCII image on startup
 void com_startup(void) {
@@ -149,6 +150,11 @@ void comhand(void)
             char *args = buf+4;
             while (*args == ' ') args++;
             load_command(args);
+        }
+        else if (strncmp(buf, "alarm", 5)==0){
+            char *args = buf+5;
+            while (*args == ' ') args++;
+            alarm_command(args);
         }
         else {
             const char *invalidMsg = "\033[31mInvalid command. Please try again.\033[0m\r\n\r\n";
