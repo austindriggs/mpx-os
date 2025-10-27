@@ -20,10 +20,11 @@ struct context* sys_call(struct context *curContext){
         sysStackPtr = curContext;
     }
     struct pcb *newProc = ready_queue.head;
+    
     if (curContext->eax == IDLE){
         if (newProc == NULL){
             curContext->eax = -1;
-            return curContext;
+            return sysStackPtr; // Changed to sysStackPtr from curContext so it returns to kmain for shutdown, instead of constantly looping.
         }
         else {
             if (curProc == NULL){

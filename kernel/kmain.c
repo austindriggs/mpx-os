@@ -90,12 +90,15 @@ void kmain(void)
 	// Pass execution to your command handler so the user can interact with
 	// the system.
 	klogv(COM1, "Transferring control to commhand...");
-	struct pcb* newProc = pcb_setup("commhand", CLASS_SYSTEM, 0, comhand);
-    pcb_insert(newProc);
+	struct pcb* comProc = pcb_setup("commhand", CLASS_SYSTEM, 0, comhand);
+    pcb_insert(comProc);
+	
 	//Insert System Idle Process
-	//newProc = pcb_setup("idle", CLASS_SYSTEM, 9, sys_idle_process);
-	//pcb_insert(newProc);
+	struct pcb* idleProc = pcb_setup("idle", CLASS_SYSTEM, 9, sys_idle_process);
+	pcb_insert(idleProc);
+	
 	__asm__ volatile ("int $0x60" :: "a"(IDLE));
+
 
 	// 10) System Shutdown -- *headers to be determined by your design*
 	// After your command handler returns, take care of any clean up that
