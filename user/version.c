@@ -19,7 +19,7 @@ void version_latest(void) {
 
     // main version
     *write_ptr++ = 'R';
-    *write_ptr++ = '2';
+    *write_ptr++ = '4';
     *write_ptr++ = ' ';
 
     // git metadata
@@ -52,6 +52,8 @@ void version_latest(void) {
 
 void version_history(void) {
     const char *historyMsg =
+        "R3 2025-10-20 9b0243f\r\n"
+        "R2 2025-10-03 15c9229\r\n"
 	"R1 2025-09-12 956ee13\r\n"
         "R0 2025-08-24 6738747\r\n";
     sys_req(WRITE, COM1, historyMsg, strlen(historyMsg));
