@@ -6,6 +6,8 @@
 #include <string.h>
 #include <memory.h>
 #include <comhand.h>
+#include <pcb.h>
+#include <processes.h>
 
 static void klogv(device dev, const char *msg)
 {
@@ -88,8 +90,15 @@ void kmain(void)
 	// Pass execution to your command handler so the user can interact with
 	// the system.
 	klogv(COM1, "Transferring control to commhand...");
-	// R4: __asm__ volatile ("int $0x60" :: "a"(IDLE));
-	comhand();
+	struct pcb* comProc = pcb_setup("commhand", CLASS_SYSTEM, 0, comhand);
+    pcb_insert(comProc);
+	
+	//Insert System Idle Process
+	struct pcb* idleProc = pcb_setup("idle", CLASS_SYSTEM, 9, sys_idle_process);
+	pcb_insert(idleProc);
+	
+	__asm__ volatile ("int $0x60" :: "a"(IDLE));
+
 
 	// 10) System Shutdown -- *headers to be determined by your design*
 	// After your command handler returns, take care of any clean up that

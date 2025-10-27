@@ -62,11 +62,16 @@ void comhand(void)
         trim_Input(buf);    // trims \r\n
         sys_req(WRITE, COM1, "\r\n", 2); // Start new line
 
+        // Yield CPU after reading input to allow multitasking
+        yield();
+        
         // command logic: each function handles its own argument(s) for better encapsulation
         if (strncmp(buf, "exit", 4) == 0) {
             char *args = buf + 4;
             while (*args == ' ') args++;
-            if (exit_command(args)) return;
+            if (exit_command(args)){
+                sys_req(EXIT);
+            }
         }
         else if (strncmp(buf, "shutdown", 8) == 0) {
             char *args = buf + 8;
@@ -141,9 +146,11 @@ void comhand(void)
            com_startup();
         }
         else if (strncmp(buf, "yield", 5)==0){
-            char *args = buf + 5;
-            while (*args == ' ') args++;
-            yield_command(args);
+            //char *args = buf + 5;
+            //while (*args == ' ') args++;
+            //yield_command(args);
+            char* createMsg = "\033[31mError: This function is depreciated and no longer usable\033[0m\r\n";
+            sys_req(WRITE, COM1, createMsg, strlen(createMsg));
         }
         else if (strncmp(buf, "load", 4)==0){
             char *args = buf+4;
