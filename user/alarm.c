@@ -8,13 +8,22 @@
 #include "itoa.h"
 #include "alarm.h"
 #include "clock.h"
+#include <pcb.h>
+#include <processes.h>
+#include <loadR3.h>
+#include "sys_req.h"
 
-void alarm(const int hours, const int minutes, const int seconds, const char* message){
+char* message;
 
-    sys_req(WRITE, COM1, "\033[31mError: Please ensure a name, class, and priority are given\033[0m\n", 69);
+void alarm(void){
+    sys_req(WRITE, COM1, message, strlen(message));
+	sys_req(EXIT);
+}
 
 
 
+void alarm_create(const int hours, const int minutes, const int seconds, const char* message){
+    
 }
 
 void alarm_command(const char* args){
@@ -31,7 +40,7 @@ void alarm_command(const char* args){
     }
     char time_str[9]; //to hold time substring of args
     const char* time_ptr = strncpy(time_str, args, 8);
-    const char* message = args + 9;  // skip "HH:MM:SS "
+    message = args + 9;  // skip "HH:MM:SS "
     
     // Expected format: HH:MM:SS
     if (strlen(time_ptr) != 8 || time_ptr[2] != ':' || time_ptr[5] != ':') {
@@ -59,7 +68,7 @@ void alarm_command(const char* args){
             alarm_help();
             return;
         }
-        alarm(hour, minute, second, message);
+        alarm_create(hour, minute, second, message);
 }
 
 void alarm_help(void){
@@ -74,4 +83,3 @@ void alarm_help(void){
         "\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
-
