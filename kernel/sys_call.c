@@ -12,15 +12,23 @@
 #include "block.h"
 #include "yield.h"
 
+// Pointer for current process
 static struct pcb *curProc = NULL;
+
+// Pointer to system stack/kernel context
 static struct context *sysStackPtr = NULL;
 
 struct context* sys_call(struct context *curContext){
+
+    // Save kernel context
     if (curProc == NULL){
         sysStackPtr = curContext;
     }
+
+    // Struct for next process
     struct pcb *newProc = ready_queue.head;
     
+    // If IDLE, save current process and run next process, if any
     if (curContext->eax == IDLE){
         if (newProc == NULL){
             curContext->eax = -1;
@@ -43,6 +51,8 @@ struct context* sys_call(struct context *curContext){
             }
         }
     }
+
+    // If EXIT, delete current process and run next process, if any
     else if (curContext->eax == EXIT){
         if (newProc == NULL){
             pcb_free(curProc);
@@ -59,6 +69,8 @@ struct context* sys_call(struct context *curContext){
             return newProc->contextPtr;
         }
     }
+
+    // Returns current context if neither IDLE nor EXIT
     else {
         curContext->eax = -1;
         return curContext;

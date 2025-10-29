@@ -5,6 +5,7 @@
 #include "string.h"
 #include "ready.h"
 
+// Displays help message
 void load_help(void){
     char *helpMsg = "\033[33mload\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m|\033[36msuspended\033[0m]\r\n"
         "  \033[33mload\033[0m            loads all 5 premade processes\r\n"
@@ -14,7 +15,9 @@ void load_help(void){
         sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
+// Loads all R3 processes
 void loadR3(void){
+    // Struct used for setup, reused for each process
     struct pcb* newProc = pcb_setup("proc1", CLASS_USER, 1, proc1);
     pcb_insert(newProc);
     newProc = pcb_setup("proc2", CLASS_USER, 1, proc2);
@@ -27,6 +30,7 @@ void loadR3(void){
     pcb_insert(newProc);
 }
 
+// Loads and supsends all processes
 void loadR3_suspended(void){
     loadR3();
     suspend_pcb("proc1");
@@ -36,7 +40,9 @@ void loadR3_suspended(void){
     suspend_pcb("proc5");
 }
 
+// Loads a specific process
 void loadProcess(const char* name){
+    // Struct for a named process
     struct pcb* newProc;
     if (strcmp(name, "proc1")==0){
         newProc = pcb_setup("proc1", CLASS_USER, 1, proc1);
