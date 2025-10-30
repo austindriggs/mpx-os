@@ -3,6 +3,11 @@
 #include <pcb.h>
 #include <sys_req.h>
 
+/**
+ * @file sys_call.h
+ * @brief Handles context switching when sys_req function is used
+ * @param curContext Pointer to the current context
+ */
 struct context *sys_call(struct context *curContext);
 
 #endif

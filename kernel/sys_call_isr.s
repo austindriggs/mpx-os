@@ -5,7 +5,8 @@ global sys_call_isr
 extern sys_call			; The C function that sys_call_isr will call
 sys_call_isr:
 	pusha				; Pushes general purpose registers
-	push ds
+
+	push ds				; Pushes remaining registers
 	push es
 	push fs
 	push gs
@@ -16,10 +17,11 @@ sys_call_isr:
 
 	mov esp, eax
 
-	pop gs
+	pop gs				; Pops last 4 registers pushed
 	pop fs
 	pop es
 	pop ds
-	popa
+
+	popa				; Pops general purpose registers
 	
 	iret
