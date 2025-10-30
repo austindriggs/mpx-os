@@ -7,7 +7,7 @@
 
 // Displays help message
 void load_help(void){
-    char *helpMsg = "\033[33mload\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m|\033[36msuspended\033[0m]\r\n"
+    char *helpMsg = "\r\n\033[33mload\033[0m [<\033[36mname\033[0m>|\033[36mhelp\033[0m|\033[36msuspended\033[0m]\r\n"
         "  \033[33mload\033[0m            loads all 5 premade processes\r\n"
         "  \033[33mload \033[0m<\033[36mname\033[0m>     loads a specific process, name is like 'proc1'\r\n"
         "  \033[33mload \033[36msuspended  \033[0mloads all 5 processes as suspended\r\n"
