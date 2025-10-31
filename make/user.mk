@@ -17,4 +17,5 @@ USER_OBJECTS=\
 	user/pcb/block.o\
 	user/yield.o\
 	user/loadR3.o\
+	user/alarm.o\
   

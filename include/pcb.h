@@ -45,6 +45,7 @@ struct pcb{
     int priority; // 0 (highest) to 9
     enum execution_state execution_state;
     enum dispatch_state dispatch_state;
+    void *args;  // optional pointer for process-specific data (i.e alarm)
     void *stack; // Dynamically allocated, might manually allocate based on memory management.
     struct context* contextPtr;
     struct pcb* next;

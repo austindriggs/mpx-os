@@ -18,6 +18,11 @@ static struct pcb *curProc = NULL;
 // Pointer to system stack/kernel context
 static struct context *sysStackPtr = NULL;
 
+// Helper to return current process
+struct pcb* sys_get_current_process(void) {
+    return curProc;
+}
+
 struct context* sys_call(struct context *curContext){
 
     // Save kernel context
