@@ -10,4 +10,9 @@
  */
 struct context *sys_call(struct context *curContext);
 
+/**
+ * @brief Helper that returns the current process
+ */
+struct pcb* sys_get_current_process(void);
+
 #endif
