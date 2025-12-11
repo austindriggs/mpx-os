@@ -11,7 +11,8 @@ void load_help(void){
         "  \033[33mload\033[0m            loads all 5 premade processes\r\n"
         "  \033[33mload \033[0m<\033[36mname\033[0m>     loads a specific process, name is like 'proc1'\r\n"
         "  \033[33mload \033[36msuspended  \033[0mloads all 5 processes as suspended\r\n"
-        "  \033[33mload \033[36mhelp \033[0m      prints this message\r\n";
+        "  \033[33mload \033[36mhelp \033[0m      prints this message\r\n"
+        "\r\n";
         sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 
@@ -28,6 +29,8 @@ void loadR3(void){
     pcb_insert(newProc);
     newProc = pcb_setup("proc5", CLASS_USER, 1, proc5);
     pcb_insert(newProc);
+    char *msg = "Processes have been loaded\r\n";
+    sys_req(WRITE, COM1, msg, strlen(msg));
 }
 
 // Loads and supsends all processes
@@ -44,25 +47,31 @@ void loadR3_suspended(void){
 void loadProcess(const char* name){
     // Struct for a named process
     struct pcb* newProc;
+    char *msg = "Process has been loaded\r\n";
     if (strcmp(name, "proc1")==0){
         newProc = pcb_setup("proc1", CLASS_USER, 1, proc1);
         pcb_insert(newProc);
+        sys_req(WRITE, COM1, msg, strlen(msg));
     }
     else if (strcmp(name, "proc2")==0){
         newProc = pcb_setup("proc2", CLASS_USER, 1, proc2);
         pcb_insert(newProc);
+        sys_req(WRITE, COM1, msg, strlen(msg));
     }
     else if (strcmp(name, "proc3")==0){
         newProc = pcb_setup("proc3", CLASS_USER, 1, proc3);
         pcb_insert(newProc);
+        sys_req(WRITE, COM1, msg, strlen(msg));
     }
     else if (strcmp(name, "proc4")==0){
         newProc = pcb_setup("proc4", CLASS_USER, 1, proc4);
         pcb_insert(newProc);
+        sys_req(WRITE, COM1, msg, strlen(msg));
     }
     else if (strcmp(name, "proc5")==0){
         newProc = pcb_setup("proc5", CLASS_USER, 1, proc5);
         pcb_insert(newProc);
+        sys_req(WRITE, COM1, msg, strlen(msg));
     }
     else{
         char *errorMsg = "\033[31mError: Please enter a valid process name, like 'proc1'\033[0m\r\n";

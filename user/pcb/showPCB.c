@@ -9,13 +9,13 @@
  */
 void show_pcb_help(void){
     const char *helpMessage = 
-        "\r\n\033[33mshow\033[0m [<\033[36mname\033[0m>|\033[36mready\033[0m|\033[36mblocked\033[0m|\033[36msuspended\033[0m|\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
-        "  \033[33mshow\033[0m <\033[36mname\033[0m>     prints details for the named process\r\n"
-        "  \033[33mshow\033[0m \033[36mready\033[0m      prints details of processes in ready queue\r\n"
-        "  \033[33mshow\033[0m \033[36mblocked\033[0m    prints details of processes in blocked queue\r\n"
-        "  \033[33mshow\033[0m \033[36msuspended\033[0m  prints details of processes in the suspended queues\r\n"
-        "  \033[33mshow\033[0m \033[36mall\033[0m        prints details of all processes\r\n"
-        "  \033[33mshow\033[0m \033[36mhelp\033[0m       prints this message\r\n"
+        "\r\n\033[33mshow pcb\033[0m [<\033[36mname\033[0m>|\033[36mready\033[0m|\033[36mblocked\033[0m|\033[36msuspended\033[0m|\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
+        "  \033[33mshow pcb\033[0m <\033[36mname\033[0m>     prints details for the named process\r\n"
+        "  \033[33mshow pcb\033[0m \033[36mready\033[0m      prints details of processes in ready queue\r\n"
+        "  \033[33mshow pcb\033[0m \033[36mblocked\033[0m    prints details of processes in blocked queue\r\n"
+        "  \033[33mshow pcb\033[0m \033[36msuspended\033[0m  prints details of processes in the suspended queues\r\n"
+        "  \033[33mshow pcb\033[0m \033[36mall\033[0m        prints details of all processes\r\n"
+        "  \033[33mshow pcb\033[0m \033[36mhelp\033[0m       prints this message\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMessage, strlen(helpMessage));
 }
@@ -161,7 +161,7 @@ void showAllPCB(void){
 /**
  * Function for use in command handler. Handles arguments for showing pcbs
  */
-void show_command(const char* args){
+void show_pcb_command(const char* args){
     
     // Checks if there are no arguments, or if argument is all
     if (args == NULL || *args=='\0' || (strcmp(args, "all")==0)){

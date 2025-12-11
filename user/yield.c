@@ -8,7 +8,8 @@ void yield(void){
 void yield_help(void){
     const char *helpMsg = "\r\n\033[33myield\033[0m [\033[36mhelp\033[0m]\r\n"
         "  \033[33myield\033[0m         yields the currently running process\r\n"
-        "  \033[33myield \033[36mhelp    \033[0mprints this message\r\n";
+        "  \033[33myield \033[36mhelp    \033[0mprints this message\r\n"
+        "\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }
 

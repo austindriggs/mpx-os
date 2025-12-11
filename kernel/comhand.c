@@ -13,8 +13,12 @@
 #include "yield.h"
 #include "loadR3.h"
 #include "alarm.h"
+#include "mcb/allocate.h"
+#include "mcb/free.h"
+#include "mcb/show.h"
 
-// penguin ASCII image on startup
+
+// macaroni penguin ASCII image on startup
 void com_startup(void) {
     sys_req(WRITE, COM1, "\r\n---------------------------------------------------------------------------\r\n", 80);
     sys_req(WRITE, COM1, "\r\n", 3);
@@ -48,7 +52,7 @@ void trim_Input(char *str){
 void comhand(void)
 {
     // startup message
-    com_startup();
+    //com_startup();
 
     //TimeZone corrections
     tz_correction();
@@ -65,6 +69,9 @@ void comhand(void)
 
         // Yield CPU after reading input to allow multitasking
         yield();
+
+        // to test some commands, we create user functions, but they are deprecated before "production"
+        char* deprecated_msg = "\033[31mError: This function is depreciated and no longer usable.\033[0m\r\n";
         
         // command logic: each function handles its own argument(s) for better encapsulation
         if (strncmp(buf, "exit", 4) == 0) {
@@ -77,7 +84,9 @@ void comhand(void)
         else if (strncmp(buf, "shutdown", 8) == 0) {
             char *args = buf + 8;
             while (*args == ' ') args++;
-            if (exit_command(args)) return;
+            if (exit_command(args)){
+                sys_req(EXIT);
+            }
         }
         else if (strncmp(buf, "version", 7) == 0) {
             char *args = buf + 7;
@@ -94,10 +103,10 @@ void comhand(void)
             while (*args == ' ') args++;
             clock_command(args);
         }
-        else if (strncmp(buf, "show", 4) == 0) {
-            char *args = buf + 4;
+        else if (strncmp(buf, "show pcb", 8) == 0) {
+            char *args = buf + 8;
             while (*args == ' ') args++;
-            show_command(args);
+            show_pcb_command(args);
         }
         else if (strncmp(buf, "priority set", 12) == 0) {
             char *args = buf + 12;
@@ -115,13 +124,10 @@ void comhand(void)
             resume_command(args);
         }
         else if (strncmp(buf, "create", 6) == 0) {
-            /*
-            char *args = buf + 6;
-            while (*args == ' ') args++;
-            create_pcb_command(args);
-            */
-            char* createMsg = "\033[31mError: This function is depreciated and no longer usable\033[0m\r\n";
-            sys_req(WRITE, COM1, createMsg, strlen(createMsg));
+            // char *args = buf + 6;
+            // while (*args == ' ') args++;
+            // create_pcb_command(args);
+            sys_req(WRITE, COM1, deprecated_msg, strlen(deprecated_msg));
         }
         else if (strncmp(buf, "delete", 6) == 0) {
             char *args = buf + 6;
@@ -129,29 +135,32 @@ void comhand(void)
             delete_pcb_command(args);
         }
         else if (strncmp(buf, "block", 5) == 0) {
-            char *args = buf + 5;
-            while (*args == ' ') args++;
-            block_pcb_command(args);
+            //char *args = buf + 5;
+            //while (*args == ' ') args++;
+            //block_pcb_command(args);
+            sys_req(WRITE, COM1, deprecated_msg, strlen(deprecated_msg));
+
         }
         else if (strncmp(buf, "unblock", 7) == 0) {
-            char *args = buf + 7;
-            while (*args == ' ') args++;
-            unblock_pcb_command(args);
+            //char *args = buf + 7;
+            //while (*args == ' ') args++;
+            //unblock_pcb_command(args);
+            sys_req(WRITE, COM1, deprecated_msg, strlen(deprecated_msg));
+
         }
         else if (buf[0] == '\0') {
             sys_req(WRITE, COM1, "\r", 2);
         }
         else if (strncmp(buf, "clear", 5) == 0) {
-            // Need to see if we can remove the history when scrolling up
-           sys_req(WRITE, COM1, "\033[2J\033[H", 7);
-           com_startup();
+            // this only moves the entire terminal up
+            sys_req(WRITE, COM1, "\033[2J\033[H", 7);
+            //com_startup();
         }
         else if (strncmp(buf, "yield", 5)==0){
-            //char *args = buf + 5;
-            //while (*args == ' ') args++;
-            //yield_command(args);
-            char* createMsg = "\033[31mError: This function is depreciated and no longer usable\033[0m\r\n";
-            sys_req(WRITE, COM1, createMsg, strlen(createMsg));
+            // char *args = buf + 5;
+            // while (*args == ' ') args++;
+            // yield_command(args);
+            sys_req(WRITE, COM1, deprecated_msg, strlen(deprecated_msg));
         }
         else if (strncmp(buf, "load", 4)==0){
             char *args = buf+4;
@@ -162,6 +171,23 @@ void comhand(void)
             char *args = buf+5;
             while (*args == ' ') args++;
             alarm_command(args);
+        }
+        else if (strncmp(buf, "allocate", 8) == 0) {
+            // char *args = buf + 8;
+            // while (*args == ' ') args++;
+            // allocate_command(args);
+            sys_req(WRITE, COM1, deprecated_msg, strlen(deprecated_msg));
+        }
+        else if (strncmp(buf, "free", 4) == 0) {
+            // char *args = buf + 4;
+            // while (*args == ' ') args++;
+            // free_command(args);
+            sys_req(WRITE, COM1, deprecated_msg, strlen(deprecated_msg));
+        }
+        else if (strncmp(buf, "show mcb", 8) == 0) {
+            char *args = buf + 8;
+            while (*args == ' ') args++;
+            show_mcb_command(args);
         }
         else {
             const char *invalidMsg = "\033[31mInvalid command. Please try again.\033[0m\r\n\r\n";

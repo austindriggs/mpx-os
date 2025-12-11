@@ -146,13 +146,9 @@ void alarm_command(const char* args){
 
 void alarm_help(void){
     const char *helpMsg =
-        "\r\n\033[33malarm\033[0m <\033[36mhelp|time\033[0m> <\033[36mmessage\033[0m>   set alarm at given time to display desired message.   \r\n"
-        "  \033[33mtime\033[0m                        desired time in form HH:MM:SS\r\n"
-        "  \033[33m---\033[0m                        Hours must be 0-23\r\n"
-        "  \033[33m---\033[0m                        Minutes must be 0-59\r\n"
-        "  \033[33m---\033[0m                        Seconds must be 0-59\r\n"
-        "  \033[33mmessage\033[0m                         desired message (must be under 100 chars).\r\n"
-        "  \033[33mhelp\033[0m                         prints this message.\r\n"
+        "\r\n\033[33malarm\033[0m [\033[36mhelp\033[0m|<\033[36mtime\033[0m>] [<\033[36mmessage\033[0m>]\r\n"
+        "  \033[33malarm\033[0m <\033[36mtime\033[0m> <\033[36mmessage\033[0m>    time in form HH:MM:SS (hours 0-23, minutes/seconds 0-59) and message (under 100 chars)\r\n"
+        "  \033[33malarm\033[0m \033[36mhelp\033[0m                prints this message.\r\n"
         "\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
 }

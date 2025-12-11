@@ -11,25 +11,35 @@
 #include "block.h"
 #include "yield.h"
 #include "loadR3.h"
+#include "mcb/allocate.h"
+#include "mcb/free.h"
+#include "mcb/show.h"
+#include "alarm.h"
+
+
 
 void help_message(void) {
     // command help
     const char *helpMsg =
         "List of Commands [arguments]:\r\n\r\n"
-        "\033[33mhelp\033[0m             [\033[36mverbose\033[0m]\r\n"
-        "\033[33mversion\033[0m          [\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
-        "\033[33mexit\033[0m             [\033[36mhelp\033[0m|\033[36mforce\033[0m]\r\n"
-        "\033[33mclock\033[0m            [\033[36mget\033[0m|\033[36mset\033[0m|\033[36mhelp\033[0m]  [<\033[36mdate\033[0m>|<\033[36mtime\033[0m>]\r\n"
-        "\033[33mcreate\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mclass\033[0m>] [<\033[36mpriority\033[0m>]\r\n"
-        "\033[33mdelete\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "\033[33mshow\033[0m             [<\033[36mname\033[0m>|\033[36mready\033[0m|\033[36mblocked\033[0m|\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
-        "\033[33mpriority set\033[0m     [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mpriority\033[0m>]\r\n"
-        "\033[33msuspend\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "\033[33mresume\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "\033[33mblock\033[0m            [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "\033[33munblock\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
-        "\033[33myield\033[0m            [\033[36mhelp\033[0m]\r\n"
-        "\033[33mload\033[0m             [<\033[36mname\033[0m>|\033[36mhelp\033[0m|\033[36msuspended\033[0m]\r\n"
+        "\033[33mhelp\033[0m            [\033[36mverbose\033[0m]\r\n"
+        "\033[33mversion\033[0m         [\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
+        "\033[33mexit\033[0m            [\033[36mhelp\033[0m|\033[36mforce\033[0m]\r\n"
+        "\033[33mclock\033[0m           [\033[36mget\033[0m|\033[36mset\033[0m|\033[36mhelp\033[0m]  [<\033[36mdate\033[0m>|<\033[36mtime\033[0m>]\r\n"
+        "\033[33mcreate\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mclass\033[0m>] [<\033[36mpriority\033[0m>]\r\n"
+        "\033[33mdelete\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33malarm\033[0m           [\033[36mhelp\033[0m|<\033[36mtime\033[0m>] [<\033[36mmessage\033[0m>]\r\n"
+        "\033[33mshow pcb\033[0m        [<\033[36mname\033[0m>|\033[36mready\033[0m|\033[36mblocked\033[0m|\033[36mall\033[0m|\033[36mhelp\033[0m]\r\n"
+        "\033[33mpriority set\033[0m    [<\033[36mname\033[0m>|\033[36mhelp\033[0m] [<\033[36mpriority\033[0m>]\r\n"
+        "\033[33msuspend\033[0m         [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33mresume\033[0m          [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33mblock\033[0m           [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33munblock\033[0m         [<\033[36mname\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33myield\033[0m           [\033[36mhelp\033[0m]\r\n"
+        "\033[33mload\033[0m            [<\033[36mname\033[0m>|\033[36mhelp\033[0m|\033[36msuspended\033[0m]\r\n"
+        "\033[33mallocate\033[0m        [<\033[36mbytes\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33mfree\033[0m            [<\033[36maddress\033[0m>|\033[36mhelp\033[0m]\r\n"
+        "\033[33mshow mcb\033[0m        [\033[36mallocated\033[0m|\033[36mfree\033[0m|<\033[36maddress\033[0m>|\033[36mhelp\033[0m]\r\n"
         "\033[33mclear\033[0m\r\n\r\n"
 	"For more help, run '\033[33mhelp\033[0m \033[36mverbose\033[0m' or see the user guide at https://github.com/WVU-CS450/MacaroniPenguins.\r\n";
     sys_req(WRITE, COM1, helpMsg, strlen(helpMsg));
@@ -51,6 +61,7 @@ void help_verbose(void) {
     clock_help();
     create_help();
     delete_help();
+    alarm_help();
     show_pcb_help();
     set_priority_help();
     suspend_help();
@@ -59,6 +70,9 @@ void help_verbose(void) {
     unblock_help();
     yield_help();
     load_help();
+    allocate_help();
+    free_help();
+    show_mcb_help();
 
     const char *clearMsg =
         "\r\n";
@@ -77,7 +91,7 @@ void help_command(const char *args) {
     else if (strcmp(args, "help") == 0) {
         help_message();
     }
-    else if (strcmp(args, "verbose") == 0 || strcmp(args, "v") == 0) {
+    else if (strcmp(args, "verbose") == 0 || strcmp(args, "v") == 0 || strcmp(args, "all") == 0 || strcmp(args, "a") == 0) {
         help_verbose();
     }
     else {

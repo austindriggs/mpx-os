@@ -8,6 +8,8 @@
 #include <comhand.h>
 #include <pcb.h>
 #include <processes.h>
+#include <mpx/vm.h>
+#include <mpx/serial.h>
 
 static void klogv(device dev, const char *msg)
 {
@@ -67,6 +69,7 @@ void kmain(void)
 	// again.
 	klogv(COM1, "Enabling Interrupts...");
 	sti();
+	serial_open(COM1, 9600);
 
 	// 7) Virtual Memory (VM) -- <mpx/vm.h>
 	// Virtual Memory (VM) allows the CPU to map logical addresses used by
@@ -79,23 +82,22 @@ void kmain(void)
 	// mapping as well as manage permissions and other metadata.
 	klogv(COM1, "Initializing Virtual Memory...");
 	vm_init();
+	initialize_heap(50016);
 
 	// 8) MPX Modules -- *headers vary*
 	// Module specific initialization -- not all modules require this.
 	klogv(COM1, "Initializing MPX modules...");
-	// R5: sys_set_heap_functions(...);
+	sys_set_heap_functions(allocate_memory, free_memory);
 	// R4: create commhand and idle processes
 
 	// 9) YOUR command handler -- *create and #include an appropriate .h file*
 	// Pass execution to your command handler so the user can interact with
 	// the system.
 	klogv(COM1, "Transferring control to commhand...");
-	struct pcb* comProc = pcb_setup("commhand", CLASS_SYSTEM, 0, comhand);
-    pcb_insert(comProc);
-	
 	//Insert System Idle Process
-	struct pcb* idleProc = pcb_setup("idle", CLASS_SYSTEM, 9, sys_idle_process);
-	pcb_insert(idleProc);
+	pcb_insert(pcb_setup("idle", CLASS_SYSTEM, 9, sys_idle_process));
+    pcb_insert(pcb_setup("commhand", CLASS_SYSTEM, 0, comhand));
+	
 	
 	__asm__ volatile ("int $0x60" :: "a"(IDLE));
 
@@ -109,4 +111,5 @@ void kmain(void)
 	// Execution of kmain() will complete and return to where it was called
 	// in boot.s, which will then attempt to power off Qemu or halt the CPU.
 	klogv(COM1, "Halting CPU...");
+	serial_close(COM1);
 }

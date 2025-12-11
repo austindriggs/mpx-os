@@ -16,7 +16,7 @@
  * @brief Handles which functions should be used, for use in comhand
  * @param args Arguments used for performing correct function
  */
-void show_command(const char* args);
+void show_pcb_command(const char* args);
 
 /**
  * @brief Displays the details for a PCB if the PCB exists
