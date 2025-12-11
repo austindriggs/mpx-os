@@ -1,6 +1,6 @@
 # Macaroni Penguins
 
-A freestanding C environment, dubbed "Macaroni OS", developed in a group project for Operating System Structures (CS450) at WVU in Fall 2025.
+A freestanding C environment, dubbed "Macaroni OS", developed in a group project for Operating System Structures (CS450) at WVU in Fall 2025 during my senior year.
 
 See the repo at https://github.com/WVU-CS450/MacaroniPenguins.
 
